@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta http-equiv="refresh" content="3600">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="SENLA, Frontend internship or whatnot">
+    <meta name="description" content="Some sort of interesting description is here">
+    <meta name="author" content="Bybbsy">
+    <base href="https://images.unsplash.com/" target="_self">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            var new_info = document.querySelector(".new-info");
+            new_info.innerHTML = "Text changed with JS";
+        })
+    </script>
+    <!-- Add styles here. I'd rather use it in a separate css file, but anyway... -->
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-size: 18px;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+    </style>
+
+    <title>Some interesting title</title>
+</head>
+<body>
+    <h1>Hey, it's a simple html webpage</h1>
+    <p class="new-info">It's empty :c</p>
+    <img src="photo-1546587348-d12660c30c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJhbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="">
+    <a href="https://www.google.ru/">Click "_self"</a>
+    <a href="https://www.google.ru/" target="_blank">Click "_blank"</a>
+</body>
+</html>
