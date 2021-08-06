@@ -9,13 +9,17 @@
     <meta name="keywords" content="SENLA, Frontend internship or whatnot">
     <meta name="description" content="Some sort of interesting description is here">
     <meta name="author" content="Bybbsy">
-    <base href="https://images.unsplash.com/" target="_self">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="shortcut icon" href="https://img.icons8.com/ios/50/000000/cat-profile.png" type="image/png">
+    <!-- <base href="https://images.unsplash.com/" target="_self"> -->
+     
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             var new_info = document.querySelector(".new-info");
             new_info.innerHTML = "Text changed with JS";
         })
     </script>
+
     <!-- Add styles here. I'd rather use it in a separate css file, but anyway... -->
     <style>
         * {
@@ -24,21 +28,157 @@
             margin: 0;
             font-size: 18px;
         }
-
-        img {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
-        }
     </style>
 
     <title>Some interesting title</title>
 </head>
 <body>
-    <h1>Hey, it's a simple html webpage</h1>
+
+    <div class="wrapper">
+
+        <header>
+            <div class="header-info">
+                <h3>Hey, it's a simple html webpage</h3>
+            </div>
+            <nav class="header-nav">
+                <a href="#button-section">button</a>
+                <a href="#input-section">inputs</a>
+                <a href="#">textarea</a>
+                <a href="#">image</a>
+                <a href="#">table</a>
+                <a href="#">links</a>
+                <a href="#">form</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="button-section" id="button-section">
+                <h2>Button section</h2>
+                <button type="button">button</button>
+            </section>
+
+            <section class="input-section" id="input-section">
+                <h2>Input section</h2>
+                <form class="inputs">
+                    <fieldset>
+                        <label for="i-text">Text input</label>
+                        <input id="i-text" type="text" placeholder="text input">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="i-pswd">Password input</label>
+                        <input id="i-pswd" type="password" placeholder="password input">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="i-email">E-mail input</label>
+                        <input id="i-email" type="email" placeholder="mail@mail.ru" pattern="mail@mail.ru">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="i-tel">Tel input</label>
+                        <input id="i-tel" type="tel" placeholder="tel-input" pattern="[0-9]-[0-9]">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="i-search">Search input</label>
+                        <input type="search" placeholder="Google it!" required>
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="i-url">Url input</label>
+                        <input type="url" placeholder="Type url here!" required>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <label for="i-date">Date input</label>
+                        <input id="i-date" type="date">
+                    </fieldset>
+                    
+                    <fieldset>
+                        <label for="i-datetimelocal">Datetime local input</label>
+                        <input id="i-datetimelocal" type="datetime-local" readonly>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <label for="i-month">Month input</label>
+                        <input id="i-month" type="month" required>
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="i-week">Week input</label>
+                        <input id="i-week" type="week">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="i-time">Time input</label>
+                        <input id="i-time" type="time" readonly>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <label for="i-checkbox">Checkbox input</label>
+                        <input id="i-checkbox" type="checkbox">
+                        <input id="i-checkbox" type="checkbox">
+                        <input id="i-checkbox" type="checkbox">
+                        <input id="i-checkbox" type="checkbox">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="i-radio-a">Radio input a</label>
+                        <input id="i-radio-a" type="radio" value="a" name="i-radio">
+                        <label for="i-radio-b">Radio input b</label>
+                        <input id="i-radio-b" type="radio" value="b" name="i-radio">
+                        <label for="i-radio-c">Radio input c</label>
+                        <input id="i-radio-c" type="radio" value="c" name="i-radio">
+                    </fieldset>
+                    
+                    <fieldset>
+                        <label for="i-color">Color input</label>
+                        <input id="i-color" type="color">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="i-range">Range input</label>
+                        <input id="i-range" type="range" min="0" max="10" step="1" value="5">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="i-number">Number input</label>
+                        <input id="i-number" type="number" min="50" max="100" step="10" value="60">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="i-img">Image input</label>
+                        <input id="i-img" type="image" src="https://images.unsplash.com/photo-1546587348-d12660c30c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJhbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="i-hidden">Hidden input</label>
+                        <input id="i-hidden" type="hidden">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="i-file">File input</label>
+                        <input id="i-file" type="file" >
+                    </fieldset>
+
+                    <input type="reset" value="input reset">
+                    <input type="button" value="input button">
+                    <input type="submit" value="input submit">
+                </form>
+            </section>
+        </main>
+
+        <footer>
+
+        </footer>
+    </div>
+    
     <p class="new-info">It's empty :c</p>
-    <img src="photo-1546587348-d12660c30c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJhbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="">
+    <!-- <img src="photo-1546587348-d12660c30c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJhbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt=""> -->
+    <img src="https://images.unsplash.com/photo-1546587348-d12660c30c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJhbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="">
     <a href="https://www.google.ru/">Click "_self"</a>
     <a href="https://www.google.ru/" target="_blank">Click "_blank"</a>
+    <button type="reset"></button>
 </body>
 </html>
