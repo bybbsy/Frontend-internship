@@ -26,7 +26,6 @@
             box-sizing: border-box;
             padding: 0;
             margin: 0;
-            font-size: 18px;
         }
     </style>
 
@@ -37,13 +36,13 @@
     <div class="wrapper">
 
         <header>
-            <div class="header-info">
+            <div class="header-info" id="header-info">
                 <h3>Hey, it's a simple html webpage</h3>
             </div>
             <nav class="header-nav">
                 <a href="#button-section">button</a>
                 <a href="#input-section">inputs</a>
-                <a href="#">textarea</a>
+                <a href="#textarea-aside">textarea</a>
                 <a href="#">image</a>
                 <a href="#">table</a>
                 <a href="#">links</a>
@@ -71,12 +70,12 @@
                     </fieldset>
 
                     <fieldset>
-                        <label for="i-email">E-mail input</label>
+                        <label for="i-email">E-mail input (<small>pattern is specified</small>)</label>
                         <input id="i-email" type="email" placeholder="mail@mail.ru" pattern="mail@mail.ru">
                     </fieldset>
 
                     <fieldset>
-                        <label for="i-tel">Tel input</label>
+                        <label for="i-tel">Tel input (<b>Format:</b><em>0-0</em>)</label>
                         <input id="i-tel" type="tel" placeholder="tel-input" pattern="[0-9]-[0-9]">
                     </fieldset>
 
@@ -96,8 +95,8 @@
                     </fieldset>
                     
                     <fieldset>
-                        <label for="i-datetimelocal">Datetime local input</label>
-                        <input id="i-datetimelocal" type="datetime-local" readonly>
+                        <label for="i-datetimelocal">Datetime local input(<small><del>server</del> <ins>your local</ins> <strong>datetime</strong></small>)</label>
+                        <input id="i-datetimelocal" type="datetime-local">
                     </fieldset>
                     
                     <fieldset>
@@ -167,11 +166,20 @@
                     <input type="submit" value="input submit">
                 </form>
             </section>
+
+            <aside class="textarea-aside" id="textarea-aside">
+                <h2>Text area</h2>
+                <textarea name="textarea" id="textarea" cols="65" rows="10" placeholder="Here is a textarea" maxlength="10"></textarea>
+            </aside>
+            
         </main>
 
         <footer>
-
         </footer>
+
+        <span class="jump-to-top">
+            <a href="#header-info">Go up!</a>
+        </span>
     </div>
     
     <p class="new-info">It's empty :c</p>

@@ -27,11 +27,11 @@ h1, h2, h3, h4, h5, h6 {
 .header-nav a {
     margin: 10px;
 }
-section {
+section, aside {
     margin: 20px 0;
 }
 
-.button-section {
+.button-section, .textarea-aside {
     width: 100%;
 }
 
@@ -40,6 +40,13 @@ section {
     margin: 0 auto;
 }
 
+.textarea-aside {
+    text-align: center;
+}
+#textarea {
+    display: block;
+    margin: 0 auto;
+}
 
 .inputs {
     width: 100%; 
@@ -67,4 +74,18 @@ img {
     width: 100px;
     height: 100px;
     object-fit: contain;
+}
+
+.jump-to-top {
+    position: fixed;
+    bottom: 15px;
+    right: 15%;
+    width: fit-content;
+    padding: 2px 5px;
+    height: 25px;
+    background: rgb(141, 90, 235);
+}
+
+.jump-to-top a {
+    color: #fff;
 }
