@@ -16,7 +16,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             var new_info = document.querySelector(".new-info");
-            new_info.innerHTML = "Text changed with JS";
+            new_info.innerHTML += " text added with JS";
         })
     </script>
 
@@ -32,9 +32,7 @@
     <title>Some interesting title</title>
 </head>
 <body>
-
     <div class="wrapper">
-
         <header>
             <div class="header-info" id="header-info">
                 <h3>Hey, it's a simple html webpage</h3>
@@ -43,13 +41,12 @@
                 <a href="#button-section">button</a>
                 <a href="#input-section">inputs</a>
                 <a href="#textarea-aside">textarea</a>
-                <a href="#">image</a>
-                <a href="#">table</a>
-                <a href="#">links</a>
-                <a href="#">form</a>
+                <a href="#image-section">image</a>
+                <a href="#table-section">table</a>
+                <a href="#link-section">links</a>
+                <a href="#form-section">form</a>
             </nav>
         </header>
-
         <main>
             <section class="button-section" id="button-section">
                 <h2>Button section</h2>
@@ -171,22 +168,95 @@
                 <h2>Text area</h2>
                 <textarea name="textarea" id="textarea" cols="65" rows="10" placeholder="Here is a textarea" maxlength="10"></textarea>
             </aside>
+
+            <section class="image-section" id="image-section">
+                <h2>Image</h2>
+                <!-- <img src="photo-1546587348-d12660c30c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJhbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt=""> -->
+                <figure>
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1546587348-d12660c30c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJhbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="Image not found :c">
+                    <figcaption>It's a figcaption</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="./vue-9.svg" alt="Vue.js svg">
+                    <figcaption>An svg image</figcaption>
+                </figure>
+            </section>
+
+            <section class="table-section" id="table-section">
+                <h2>Table</h2>
+                <table class="table">
+                    <caption>Simple table</caption>
+                    <thead>
+                        <tr>
+                            <td>Component</td>
+                            <td>Price</td>
+                            <td>Distributor</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>i9-11900k</td>
+                            <td>700$</td>
+                            <td>Amazon</td>
+                        </tr>
+                        <tr>
+                            <td>GTX 3080 (For educational purposes of course)</td>
+                            <td>1100$</td>
+                            <td>CaseKing</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Total:</td>
+                            <td colspan="2">Can't calculate it :c</td> 
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
             
+            <section class="link-section" id="link-section">
+                <h2>Links</h2>
+                <div class="links-block">
+                    <a href="#button-section" accesskey="c">Accesskey, press alt + c and you'll be headed to the top of the page</a>
+                    <a href="./1617986244_11.jpg" download>download image</a>
+                    <a href="https://www.google.ru/">Click "_self"</a>
+                    <a href="https://www.google.ru/" rel="alternate" target="_blank" referrerpolicy="unsafe-url">Click "_blank"</a>
+                </div>
+            </section>
+
+            <section class="form-section" id="form-section">
+                <h2>Form section</h2>
+                <form action="POST">
+                    <fieldset>
+                        <div class="login">
+                            <label for="login">Login</label>
+                            <input type="text" pattern="[a-zA-Z]" id="login" required>
+                        </div>
+                        <div class="email">
+                            <label for="email">E-mail</label>
+                            <input type="email" pattern="[a-zA-Z]@[a-zA-Z].[a-zA-Z]" id="email" required>
+                        </div>
+                        <div class="password">
+                            <label for="password">Password</label>
+                        <input type="password" id="password" required>
+                        </div>
+                        <div class="buttons">
+                            <input type="submit" value="sign up">
+                            <input type="reset" value="clear">
+                        </div>
+                    </fieldset>
+                </form>
+            </section>
         </main>
-
         <footer>
+            <h2>It'a a footer</h2>
+            <p class="new-info">It's empty :c</p>
         </footer>
-
         <span class="jump-to-top">
             <a href="#header-info">Go up!</a>
         </span>
     </div>
-    
-    <p class="new-info">It's empty :c</p>
-    <!-- <img src="photo-1546587348-d12660c30c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJhbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt=""> -->
-    <img src="https://images.unsplash.com/photo-1546587348-d12660c30c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJhbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="">
-    <a href="https://www.google.ru/">Click "_self"</a>
-    <a href="https://www.google.ru/" target="_blank">Click "_blank"</a>
-    <button type="reset"></button>
+    <noscript>Your browser doesn't support any scripts</noscript>
 </body>
 </html>
