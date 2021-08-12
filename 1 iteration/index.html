@@ -57,105 +57,117 @@
                 <h2>Input section</h2>
                 <form class="inputs">
                     <fieldset>
-                        <label for="i-text">Text input</label>
-                        <input id="i-text" type="text" placeholder="text input">
-                    </fieldset>
+                        <legend>Text inputs</legend>
+                        <div> 
+                            <label for="i-text">Text input</label>
+                            <input id="i-text" type="text" placeholder="text input">
+                        </div>
 
-                    <fieldset>
-                        <label for="i-pswd">Password input</label>
-                        <input id="i-pswd" type="password" placeholder="password input">
-                    </fieldset>
+                        <div>
+                            <label for="i-pswd">Password input</label>
+                            <input id="i-pswd" type="password" placeholder="password input">
+                        </div>
 
-                    <fieldset>
-                        <label for="i-email">E-mail input (<small>pattern is specified</small>)</label>
-                        <input id="i-email" type="email" placeholder="mail@mail.ru" pattern="mail@mail.ru">
-                    </fieldset>
-
-                    <fieldset>
-                        <label for="i-tel">Tel input (<b>Format:</b><em>0-0</em>)</label>
-                        <input id="i-tel" type="tel" placeholder="tel-input" pattern="[0-9]-[0-9]">
-                    </fieldset>
-
-                    <fieldset>
-                        <label for="i-search">Search input</label>
-                        <input type="search" placeholder="Google it!" required>
-                    </fieldset>
-
-                    <fieldset>
-                        <label for="i-url">Url input</label>
-                        <input type="url" placeholder="Type url here!" required>
+                        <div>
+                            <label for="i-email">E-mail input (<small>pattern is specified</small>)</label>
+                            <input id="i-email" type="email" placeholder="mail@mail.ru" pattern="mail@mail.ru">
+                        </div>
+                        <div>
+                            <label for="i-tel">Tel input (<b>Format:</b><em>0-0</em>)</label>
+                            <input id="i-tel" type="tel" placeholder="tel-input" pattern="[0-9]-[0-9]">
+                        </div>
+                        <div>
+                            <label for="i-search">Search input</label>
+                            <input type="search" placeholder="Google it!" required>
+                        </div>
+                        <div>
+                            <label for="i-url">Url input</label>
+                            <input type="url" placeholder="Type url here!" required>
+                        </div>
                     </fieldset>
                     
                     <fieldset>
-                        <label for="i-date">Date input</label>
-                        <input id="i-date" type="date">
+                        <legend>Date/Time inputs</legend>
+                        <div>
+                            <label for="i-date">Date input</label>
+                            <input id="i-date" type="date">
+                        </div>
+                        
+                        <div>
+                            <label for="i-datetimelocal">Datetime local input(<small><del>server</del> <ins>your local</ins> <strong>datetime</strong></small>)</label>
+                            <input id="i-datetimelocal" type="datetime-local">
+                        </div>
+                        
+                        <div>
+                            <label for="i-month">Month input</label>
+                            <input id="i-month" type="month" required>
+                        </div>
+    
+                        <div>
+                            <label for="i-week">Week input</label>
+                            <input id="i-week" type="week">
+                        </div>
+    
+                        <div>
+                            <label for="i-time">Time input</label>
+                            <input id="i-time" type="time" readonly>
+                        </div>
                     </fieldset>
                     
                     <fieldset>
-                        <label for="i-datetimelocal">Datetime local input(<small><del>server</del> <ins>your local</ins> <strong>datetime</strong></small>)</label>
-                        <input id="i-datetimelocal" type="datetime-local">
-                    </fieldset>
-                    
-                    <fieldset>
-                        <label for="i-month">Month input</label>
-                        <input id="i-month" type="month" required>
-                    </fieldset>
-
-                    <fieldset>
-                        <label for="i-week">Week input</label>
-                        <input id="i-week" type="week">
-                    </fieldset>
-
-                    <fieldset>
-                        <label for="i-time">Time input</label>
-                        <input id="i-time" type="time" readonly>
-                    </fieldset>
-                    
-                    <fieldset>
-                        <label for="i-checkbox">Checkbox input</label>
-                        <input id="i-checkbox" type="checkbox">
-                        <input id="i-checkbox" type="checkbox">
-                        <input id="i-checkbox" type="checkbox">
-                        <input id="i-checkbox" type="checkbox">
+                        <legend>Selection inputs</legend>
+                        <div>
+                            <label for="i-checkbox">Checkbox input</label>
+                            <input id="i-checkbox" type="checkbox">
+                            <input id="i-checkbox" type="checkbox">
+                            <input id="i-checkbox" type="checkbox">
+                            <input id="i-checkbox" type="checkbox">
+                        </div>
+    
+                        <div>
+                            <label for="i-radio-a">Radio input a</label>
+                            <input id="i-radio-a" type="radio" value="a" name="i-radio">
+                            <label for="i-radio-b">Radio input b</label>
+                            <input id="i-radio-b" type="radio" value="b" name="i-radio">
+                            <label for="i-radio-c">Radio input c</label>
+                            <input id="i-radio-c" type="radio" value="c" name="i-radio">
+                        </div>
                     </fieldset>
 
                     <fieldset>
-                        <label for="i-radio-a">Radio input a</label>
-                        <input id="i-radio-a" type="radio" value="a" name="i-radio">
-                        <label for="i-radio-b">Radio input b</label>
-                        <input id="i-radio-b" type="radio" value="b" name="i-radio">
-                        <label for="i-radio-c">Radio input c</label>
-                        <input id="i-radio-c" type="radio" value="c" name="i-radio">
-                    </fieldset>
-                    
-                    <fieldset>
-                        <label for="i-color">Color input</label>
-                        <input id="i-color" type="color">
-                    </fieldset>
-
-                    <fieldset>
-                        <label for="i-range">Range input</label>
-                        <input id="i-range" type="range" min="0" max="10" step="1" value="5">
+                        <legend>Numeric inputs</legend>
+                        <div>
+                            <label for="i-range">Range input</label>
+                            <input id="i-range" type="range" min="0" max="10" step="1" value="5">
+                        </div>
+    
+                        <div>
+                            <label for="i-number">Number input</label>
+                            <input id="i-number" type="number" min="50" max="100" step="10" value="60">
+                        </div>
                     </fieldset>
 
-                    <fieldset>
-                        <label for="i-number">Number input</label>
-                        <input id="i-number" type="number" min="50" max="100" step="10" value="60">
-                    </fieldset>
+                    <fieldset disabled>
+                        <legend>Other inputs</legend>
+                        <div>
+                            <label for="i-color">Color input</label>
+                            <input id="i-color" type="color">
+                        </div>
+    
+                        <div>
+                            <label for="i-hidden">Hidden input</label>
+                            <input id="i-hidden" type="hidden">
+                        </div>
 
-                    <fieldset>
-                        <label for="i-img">Image input</label>
-                        <input id="i-img" type="image" src="https://images.unsplash.com/photo-1546587348-d12660c30c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJhbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80">
-                    </fieldset>
+                        <div>
+                            <label for="i-img">Image input</label>
+                            <input id="i-img" type="image" src="https://images.unsplash.com/photo-1546587348-d12660c30c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJhbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80">
+                        </div>
 
-                    <fieldset>
-                        <label for="i-hidden">Hidden input</label>
-                        <input id="i-hidden" type="hidden">
-                    </fieldset>
-
-                    <fieldset>
-                        <label for="i-file">File input</label>
-                        <input id="i-file" type="file" >
+                        <div>
+                            <label for="i-file">File input</label>
+                            <input id="i-file" type="file" >
+                        </div>
                     </fieldset>
 
                     <input type="reset" value="input reset">
@@ -179,7 +191,7 @@
 
                 <figure>
                     <img src="./assets/img/vue-9.svg" alt="Vue.js svg">
-                    <figcaption>An svg image</figcaption>
+                    <figcaption>A svg image</figcaption>
                 </figure>
             </section>
 

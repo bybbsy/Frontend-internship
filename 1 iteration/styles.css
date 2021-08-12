@@ -5,6 +5,13 @@
     font-size: 18px;
 }
 
+legend {
+    padding: 5px;
+    background-color: rgb(141, 90, 235);
+    color: #ffff;
+    border: 1px solid #000;
+    border-radius: 2px;
+}
 
 header {
     display: flex;
@@ -53,6 +60,7 @@ section, aside {
 .textarea-aside {
     text-align: center;
 }
+
 #textarea {
     display: block;
     margin: 0 auto;
@@ -69,8 +77,11 @@ section, aside {
 
 fieldset {
     margin: 10px 0;
-    padding: 10px;
+    padding: 10px; 
 }
+fieldset div {
+    margin: 5px 0;
+} 
 
 input[type=image] {
     width: 50px;
