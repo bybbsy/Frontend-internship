@@ -1,9 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta http-equiv="refresh" content="3600">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="SENLA, Frontend internship or whatnot">
@@ -117,19 +116,26 @@
                     <fieldset>
                         <legend>Selection inputs</legend>
                         <div>
-                            <label for="i-checkbox">Checkbox input</label>
-                            <input id="i-checkbox" type="checkbox">
-                            <input id="i-checkbox" type="checkbox">
-                            <input id="i-checkbox" type="checkbox">
-                            <input id="i-checkbox" type="checkbox">
+                            <h4>Add extras to your Pepperoni</h4>
+                            <label for="checkbox-mozzarella">Mozzarella</label>
+                            <input id="checkbox-mozzarella" type="checkbox">
+
+                            <label for="checkbox-jalapeno">Jalapeno</label>
+                            <input id="checkbox-jalapeno" type="checkbox">
+
+                            <label for="checkbox-bbq"><i>BBQ</i> Sauce</label>
+                            <input id="checkbox-bbq" type="checkbox">
+
+                            <label for="checkbox-bites">Pineapple bites</label>
+                            <input id="checkbox-bites" type="checkbox">
                         </div>
     
                         <div>
-                            <label for="i-radio-a">Radio input a</label>
+                            <label for="i-radio-a">Takout</label>
                             <input id="i-radio-a" type="radio" value="a" name="i-radio">
-                            <label for="i-radio-b">Radio input b</label>
+                            <label for="i-radio-b">In the restaurant</label>
                             <input id="i-radio-b" type="radio" value="b" name="i-radio">
-                            <label for="i-radio-c">Radio input c</label>
+                            <label for="i-radio-c">Delivery</label>
                             <input id="i-radio-c" type="radio" value="c" name="i-radio">
                         </div>
                     </fieldset>
@@ -185,14 +191,17 @@
                 <h2>Image</h2>
                 <!-- <img src="photo-1546587348-d12660c30c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJhbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt=""> -->
                 <figure>
-                    <img loading="lazy" src="https://images.unsplash.com/photo-1546587348-d12660c30c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJhbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="Image not found :c">
                     <figcaption>It's a figcaption</figcaption>
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1546587348-d12660c30c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJhbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="Image not found :c">
+                     
                 </figure>
 
-                <figure>
-                    <img src="./assets/img/vue-9.svg" alt="Vue.js svg">
-                    <figcaption>A svg image</figcaption>
-                </figure>
+                <picture>
+                    <source srcset="./assets/img/vue-9.svg" media="(min-width: 1920px)">
+                    <source srcset="https://images.unsplash.com/photo-1546587348-d12660c30c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJhbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" media="(min-width: 1200px)">
+                    <img src="./assets/img/vue-9.svg" alt="Vue.js">
+                    <figcaption>Resize the screen</figcaption>
+                </picture>
             </section>
 
             <section class="table-section" id="table-section">
@@ -247,11 +256,11 @@
                         </div>
                         <div class="email">
                             <label for="email">E-mail</label>
-                            <input type="email" pattern="[a-zA-Z]@[a-zA-Z].[a-zA-Z]" id="email" required>
+                            <input type="email" id="email" required>
                         </div>
                         <div class="password">
                             <label for="password">Password</label>
-                        <input type="password" id="password" required>
+                            <input type="password" id="password" required>
                         </div>
                         <div class="buttons">
                             <input type="submit" value="sign up">
