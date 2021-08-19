@@ -1,4 +1,4 @@
-# First and Second iterations
+# First and second iterations
 
 ----
 
