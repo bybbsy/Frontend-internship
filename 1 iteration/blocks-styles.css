@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+html,
 body {
     font-family: Urbanist, Roboto, sans-serif;
     margin: 0;
@@ -11,7 +12,10 @@ h2 {
     margin: auto 0;
     width: 100%;
     text-align: center;
-     
+}
+
+h5 {
+    margin: 0;
 }
 
 
@@ -127,6 +131,7 @@ header, footer {
     flex: 0 1 auto;
     min-height: 200px;
     height: fit-content;
+    height: -moz-fit-content;
 }
 
 .green-block {
@@ -158,6 +163,77 @@ header, footer {
     flex: 1 0;
     background: yellow;
     margin: 5px;
+    flex-direction: column;
+    padding: 5px;
+    align-items: center;
+}
+
+.messages-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.messages-list__message-block {
+    display: flex;
+    margin: 10px 0;
+    width: 100%;
+    height: 50px;
+    background-color: tomato;
+    border-radius: 25px;
+}
+.messages-list__block-icon {
+    display: flex;
+    width: 45px;
+    height: 45px;
+    margin-top: 2.5px;
+    margin-left: 2.5px;
+    border-radius: 50%;
+}
+
+.messages-list__block-link {
+    display: block;
+    border-radius: inherit;
+}
+.messages-list__block-image {
+    display: flex;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    background-color: #fff;
+    border-radius: inherit;
+}
+
+.messages-list__message-content {
+    display: flex;
+    margin: 2.5px 5px;
+    width: 100%;
+    justify-content: space-between;
+}
+.messages-list__message-info {
+    width: 100%;
+    cursor: pointer;
+}
+.messages-list__message-brief {
+    width: 60%;
+}
+
+.messages-list__message-brief p {
+    margin: 7.5px 0 0 0;
+    font-size: 0.8em;
+    width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.messages-list__message-date {
+    display: flex;
+}
+.messages-list__message-date p { 
+    margin: auto 15px auto 0;
+    font-size: 0.8em;
 }
 
 @media screen and (max-width: 1280px) {
@@ -166,11 +242,30 @@ header, footer {
     }
 
     .yellow-block {
-        position: sticky;
         top: 0;
         left: 0;
-        flex: 0 0 200px; 
+        position: sticky;
+        flex: 0 0 200px;
+        height: 200px;
         order: 1;
+        flex-flow: row nowrap;
+        overflow-x: scroll;
+        align-items: center;
+    }
+    .messages-list {
+        height: 100%;
+    }
+    .messages-list__block-icon {
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+    .small-block {
+        display: flex;
+        flex: 0 0 ;
+        margin: 0 10px;
+        min-width: 150px;
+        height: 150px;
+        background-color: tomato;
     }
 
     .main {
