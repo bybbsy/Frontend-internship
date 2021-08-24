@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html,
+body {
+    font-family: Urbanist, Roboto, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+h2 {
+    margin: auto 0;
+    width: 100%;
+    text-align: center;
+}
+
+h5 {
+    margin: 0;
+}
+
+
+.wrapper {
+    position: relative;
+    background: #ccc; 
+    height: 100vh;
+    overflow-x: hidden;
+}
+ 
+.container {
+    width: 100%; 
+    min-height: 100%;
+    display: flex; 
+    flex-flow: row wrap;
+    flex: 0 1 100%; 
+    background: rgb(48, 48, 48);
+}
+
+.container.hf {  
+    min-height: 50px; 
+    background-color: unset; 
+}
+
+header {
+    padding: 0 5px;
+}
+ 
+main {
+    height: 100%;
+}
+
+.header__row {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    width: 100%;
+}
+
+.header__nav {
+    display: flex;
+    width: fit-content;
+    margin-left: auto;
+}
+
+.header__nav-list {
+    display: flex;
+}
+ 
+.header__nav-item {
+    display: block;
+    height: 25px;
+    position: relative;
+    margin: 0 10px;
+    text-transform: uppercase;
+    text-decoration: unset;
+    color: #fff;
+    font-weight: 500;
+    transition: 0.5s all ease;
+}
+
+.header__nav-item::after {
+    content: "";
+    position: absolute; 
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transition: 0.5s all ease-out;
+}
+
+.header__nav-item:hover {
+    color: rgb(204, 204, 204);
+}
+
+.header__nav-item:hover::after {
+    background: rgb(31, 31, 31);
+}
+
+.header__nav-icon {
+    display: none;
+}
+.header__nav-input {
+    display: none;
+}
+
+.header__nav-bars {
+    font-size: 2em;
+}
+ 
+
+header, footer {
+    background-color: rgb(25, 153, 175);
+}
+/* Main */
+.main {
+    display: flex;
+    flex: 2 1;
+    flex-flow: row wrap;
+    margin: 5px; 
+}
+
+.red-block {
+    background: red; 
+    flex: 2 0 100%;
+    margin-bottom: 5px;
+    min-height: 200px;
+}
+
+.green-and-pink {
+    display: flex;
+    flex: 0 1 auto;
+    min-height: 200px;
+    height: fit-content;
+    height: -moz-fit-content;
+}
+
+.green-block {
+    background: rgb(65, 65, 60);
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+    margin-right: 5px;
+}
+
+.pink-block {
+    display: flex;
+    flex-direction: column;
+    background: pink;
+    flex: 0 1 100%;
+}
+
+.item {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    flex: 1 1 100%;
+    margin: 20px 0; 
+}
+
+/* Aside */
+.yellow-block {
+    display: flex;
+    flex: 1 0;
+    background: yellow;
+    margin: 5px;
+    flex-direction: column;
+    padding: 5px;
+    align-items: center;
+}
+
+.messages-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.messages-list__message-block {
+    display: flex;
+    margin: 10px 0;
+    width: 100%;
+    height: 50px;
+    background-color: tomato;
+    border-radius: 25px;
+}
+.messages-list__block-icon {
+    display: flex;
+    width: 45px;
+    height: 45px;
+    margin-top: 2.5px;
+    margin-left: 2.5px;
+    border-radius: 50%;
+}
+
+.messages-list__block-link {
+    display: block;
+    border-radius: inherit;
+}
+.messages-list__block-image {
+    display: flex;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    background-color: #fff;
+    border-radius: inherit;
+}
+
+.messages-list__message-content {
+    display: flex;
+    margin: 2.5px 5px;
+    width: 100%;
+    justify-content: space-between;
+}
+.messages-list__message-info {
+    width: 100%;
+    cursor: pointer;
+}
+.messages-list__message-brief {
+    width: 60%;
+}
+
+.messages-list__message-brief p {
+    margin: 7.5px 0 0 0;
+    font-size: 0.8em;
+    width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.messages-list__message-date {
+    display: flex;
+}
+.messages-list__message-date p { 
+    margin: auto 15px auto 0;
+    font-size: 0.8em;
+}
+
+@media screen and (max-width: 1280px) {
+    .container {
+        flex-flow: column nowrap;
+    }
+
+    .yellow-block {
+        top: 0;
+        left: 0;
+        position: sticky;
+        flex: 0 0 200px;
+        height: 200px;
+        order: 1;
+        flex-flow: row nowrap;
+        overflow-x: scroll;
+        align-items: center;
+    }
+    .messages-list {
+        height: 100%;
+    }
+    .messages-list__block-icon {
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+    .small-block {
+        display: flex;
+        flex: 0 0 ;
+        margin: 0 10px;
+        min-width: 150px;
+        height: 150px;
+        background-color: tomato;
+    }
+
+    .main {
+        flex: 1 1 100%;
+        order: 2;  
+    }
+
+    .green-and-pink {
+        flex-flow: row wrap;
+    }
+    .green-block {
+        flex: 1 0 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .item {
+        flex: 0 0 100px;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .wrapper.no-scroll {
+        overflow: hidden;
+    }
+    
+    .header__nav {
+        position: absolute;
+        top: 0;
+        right: -100%; 
+        margin-top: 60px;
+        flex-direction: column; 
+        width: 100%;
+        height: 100%;
+        background: tomato;
+        padding: 15px 0;
+        transition: 0.7s ease;
+    }
+
+    .header__nav.expanded {
+        right: 0;
+    }
+
+    .header__nav-item {
+        margin: 25px 0;
+        text-align: center;
+        font-size: 1.25em;
+    }
+
+    .header__nav-icon {
+        display: block;
+        margin-left: auto;
+        margin-right: 0 ;
+    }
+    
+    .header__nav-item::after {
+        display: none;
+    }
+    
+}
