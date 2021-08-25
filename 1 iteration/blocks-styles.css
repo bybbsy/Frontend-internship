@@ -8,6 +8,16 @@ body {
     overflow-x: hidden;
 }
 
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
 h2 {
     margin: auto 0;
     width: 100%;
@@ -124,6 +134,7 @@ header, footer {
     flex: 2 0 100%;
     margin-bottom: 5px;
     min-height: 200px;
+    padding: 10px;
 }
 
 .green-and-pink {
@@ -187,7 +198,7 @@ header, footer {
     display: flex;
     width: 45px;
     height: 45px;
-    margin-top: 2.5px;
+    margin-top: 2.2px;
     margin-left: 2.5px;
     border-radius: 50%;
 }
@@ -236,6 +247,47 @@ header, footer {
     font-size: 0.8em;
 }
 
+.message-block__information {
+    display: flex;
+    background-color: rgba(204, 204, 204, 0.219);
+    padding: 5px;
+}
+
+.message-block__block-description {
+    margin-top: 2px;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message-block__top-row {
+    display: flex;
+    align-items: baseline;
+}
+
+.message-block__top-row a {
+    display: flex; 
+    font-size: 0.8em;
+    font-weight: 400;
+    color: rgb(184, 184, 184);
+     
+}
+.messages-block__message-date {
+    margin-left: 5px;
+}
+
+.messages-block__message-date h5 {
+    font-weight: 500;
+}
+
+.message-block__bottom-row {
+    margin-top: auto;
+    margin-bottom: 5px;
+}
+
+.messages-block__message-addressee h5 {
+    font-weight: 500;
+}
 @media screen and (max-width: 1280px) {
     .container {
         flex-flow: column nowrap;
