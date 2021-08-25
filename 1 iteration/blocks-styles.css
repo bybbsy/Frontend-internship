@@ -27,8 +27,7 @@ h5 {
 }
  
 .container {
-    width: 100%; 
-    min-height: 100%;
+    width: 100%;  
     display: flex; 
     flex-flow: row wrap;
     flex: 0 1 100%; 
@@ -45,7 +44,8 @@ header {
 }
  
 main {
-    height: 100%;
+    display: flex;
+    min-height: 100%;
 }
 
 .header__row {
@@ -305,6 +305,8 @@ header, footer {
         background: tomato;
         padding: 15px 0;
         transition: 0.7s ease;
+        
+        z-index: 1;
     }
 
     .header__nav.expanded {
