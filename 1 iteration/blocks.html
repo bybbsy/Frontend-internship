@@ -7,8 +7,8 @@
     <meta name="keywords" content="SENLA, Frontend internship or whatnot">
     <meta name="description" content="Some sort of interesting description is here">
     <meta name="author" content="Bybbsy">
-    <link rel="shortcut icon" href="https://img.icons8.com/ios/50/000000/cat-profile.png" type="image/png">
-    <script src="https://kit.fontawesome.com/f30ebe6630.js" crossorigin="anonymous"></script>
+    <!-- <link rel="shortcut icon" href="https://img.icons8.com/ios/50/000000/cat-profile.png" type="image/png">
+    <script src="https://kit.fontawesome.com/f30ebe6630.js" crossorigin="anonymous"></script> -->
     <title>Flex webpage</title>
 </head>
 <body>
@@ -65,8 +65,27 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="message-block__message-content">
+                                    <p class="message-block__message-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, sequi dolorum! Quo modi obcaecati facere debitis similique explicabo id, nihil, deserunt recusandae culpa iste omnis, repudiandae eligendi voluptates fugit exercitationem.
+                                    </p>
+                                </div>
                             </div>
-                            <div class="send-block"></div>
+                            <form action="" class="reply-block">
+                                <div class="reply-block__reply">
+                                    <textarea class="reply-block__textarea" name="reply"></textarea>
+                                </div>
+                                <div class="reply-block__buttons">
+                                    <input type="submit" class="reply-block__submit" value="Send">
+                                    <input type="button" class="reply-block__save" value="Save draft">
+                                    <div class="reply-block__custom-date">
+                                        <label for="custom-date">Custom date</label>
+                                        <input type="checkbox" name="" id="custom-date">
+                                        <span class="checkmark"></span>
+                                    </div>
+
+                                </div>
+                            </form>
                         </section>
                         <div class="green-and-pink">
                             <aside class="green-block">
@@ -80,7 +99,7 @@
                     </div>
                 <aside class="yellow-block">
                     <ul class="messages-list">
-                        <li class="messages-list__message-block">
+                        <li class="messages-list__message-block active">
                             <div class="messages-list__block-icon">
                                 <a href="#" class="messages-list__block-link" target="_self">
                                     <img src="./assets/img/1617986244_11.jpg" alt="Image" class="messages-list__block-image">
@@ -169,8 +188,55 @@
                 <h2>Footer</h2>
             </div>
         </footer>
-
-        </div> 
+        <div class="modal">
+            <form action="" class="login-block">
+                <div class="login-block__signup-info">
+                    <h4>Sign up</h4>
+                </div>
+                <div class="login-block__username-block">
+                    <span class="login-block__username-label">Username</span>
+                    <input type="text" class="login-block__username-username" required>
+                </div>
+                <div class="login-block__details-block">
+                    <div class="login-block__sex-block">
+                        <div class="login-block__sex-female">
+                            <label for="female" class="login-block__sex-label">F</label>
+                            <input type="radio" class="login-block__sex-female" id="input-female">
+                        </div>
+                        <div class="login-block__sex-male">
+                            <label for="male" class="login-block__sex-label">M</label>
+                            <input type="radio" class="login-block__sex-male" id="input-male">
+                        </div>
+                    </div>
+                    <div class="login-block__country">
+                        <span class="login-block__country-label">Country</span>
+                        <select name="countries" id="">
+                            <option value="USA">USA</option>
+                            <option value="UK">UK</option>
+                            <option value="Russia">Russia</option>
+                            <option value="Germany">Deutschland</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="login-block__email-block">
+                    <span class="login-block__email-label">E-mail</span>
+                    <input type="email" class="login-block__email-email" required>
+                </div>
+                <div class="login-block__password-block">
+                    <span class="login-block__password-label">Password</span>
+                    <input type="password" class="login-block__password-password" required>
+                </div>
+                <div class="login-block__phone-block">
+                    <span class="login-block__phone-label">Phone number</span>
+                    <input type="tel" class="login-block__phone-phone" required>
+                </div>
+                <div class="login-block__button-block">
+                    <input type="submit" value="Sign up">
+                    <input type="button" value="Decline">
+                </div>
+            </form>
+        </div>
+    </div> 
 </body>
 
 <script>
