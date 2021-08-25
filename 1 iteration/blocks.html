@@ -7,8 +7,8 @@
     <meta name="keywords" content="SENLA, Frontend internship or whatnot">
     <meta name="description" content="Some sort of interesting description is here">
     <meta name="author" content="Bybbsy">
-    <!-- <link rel="shortcut icon" href="https://img.icons8.com/ios/50/000000/cat-profile.png" type="image/png">
-    <script src="https://kit.fontawesome.com/f30ebe6630.js" crossorigin="anonymous"></script> -->
+    <link rel="shortcut icon" href="https://img.icons8.com/ios/50/000000/cat-profile.png" type="image/png">
+    <script src="https://kit.fontawesome.com/f30ebe6630.js" crossorigin="anonymous"></script>
     <title>Flex webpage</title>
 </head>
 <body>
@@ -25,13 +25,12 @@
                                 <i class="fas fa-bars"></i>
                             </label>
                         </div>
-                    <nav class="header__nav">  
+                    <nav class="header__nav">
+                            <a href="#sign-up" class="header__nav-item sign-up">Sign up</a>
                             <a href="#button-section" class="header__nav-item">button</a>
                             <a href="#input-section" class="header__nav-item">inputs</a>
                             <a href="#textarea-aside" class="header__nav-item">textarea</a>
                             <a href="#image-section" class="header__nav-item">image</a>
-                            <a href="#table-section" class="header__nav-item">table</a>
-                            <a href="#link-section" class="header__nav-item">links</a>
                             <a href="#form-section" class="header__nav-item">form</a>
                          
                     </nav>
@@ -188,7 +187,7 @@
                 <h2>Footer</h2>
             </div>
         </footer>
-        <div class="modal">
+        <div class="modal hidden">
             <form action="" class="login-block">
                 <div class="login-block__signup-info">
                     <h4>Sign up</h4>
@@ -199,18 +198,19 @@
                 </div>
                 <div class="login-block__details-block">
                     <div class="login-block__sex-block">
+                        <span class="login-block__sex-label">Sex</span>
                         <div class="login-block__sex-female">
-                            <label for="female" class="login-block__sex-label">F</label>
-                            <input type="radio" class="login-block__sex-female" id="input-female">
+                            <label for="input-female" class="login-block__sex-label">F</label>
+                            <input type="radio" class="login-block__sex-female" name="sex" id="input-female">
                         </div>
                         <div class="login-block__sex-male">
-                            <label for="male" class="login-block__sex-label">M</label>
-                            <input type="radio" class="login-block__sex-male" id="input-male">
+                            <label for="input-male" class="login-block__sex-label">M</label>
+                            <input type="radio" class="login-block__sex-male" name="sex" id="input-male">
                         </div>
                     </div>
                     <div class="login-block__country-block">
                         <span class="login-block__country-label">Country</span>
-                        <select name="countries" id="">
+                        <select name="country" class="login-block__country-select">
                             <option value="USA">USA</option>
                             <option value="UK">UK</option>
                             <option value="Russia">Russia</option>
