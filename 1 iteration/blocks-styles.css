@@ -7,7 +7,12 @@ body {
     margin: 0;
     overflow-x: hidden;
 }
-
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=tel] {
+    font-family: Roboto, sans-serif;
+}
 *,
 *:before,
 *:after {
@@ -399,17 +404,92 @@ header, footer {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 450px;
     height: 500px;
     background-color: #fff;
+    column-gap: 15px;
     display: grid;
-    padding: 5px;
-    grid-template-rows: 50px repeat(6, 1fr);
+    /* padding: 15px; */
+    grid-template-columns: minmax(270px, 350px);
+    grid-template-rows: 50px repeat(6, 50px);
+    row-gap: 15px;
+}
+
+.login-block div {
+    margin: 0 10px;
 }
 
 .login-block__signup-info h4 {
     margin: 5px 0 0;
     text-align: center;
+}
+
+.login-block__username-block,
+.login-block__email-block,
+.login-block__password-block,
+.login-block__phone-block {
+    display: grid;
+    grid-template-rows: repeat(2, 25px);
+}
+
+.login-block__details-block,
+.login-block__sex-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.login-block__username-username,
+.login-block__email-email,
+.login-block__password-password,
+.login-block__phone-phone { 
+    border: 1px solid #111;
+}
+
+.login-block__username-username:focus,
+.login-block__email-email:focus,
+.login-block__password-password:focus,
+.login-block__phone-phone:focus  {
+    outline: 2px solid #ccc;
+}
+
+.login-block__email-email:invalid {
+    outline: 1px solid rgb(255, 0, 0);
+    background-color: rgba(241, 113, 113, 0.568);
+}
+
+.login-block__username-username:active,
+.login-block__email-email:active,
+.login-block__password-password:active,
+.login-block__phone-phone:active  {
+    outline: unset;
+}
+
+.login-block__button-block {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(25px, 100px));
+    grid-template-rows: minmax(25px, 50px);
+    justify-content: space-around;
+}
+.login-block__signup-btn,
+.login-block__decline-btn {
+    border: unset;
+    background-color: tomato;
+    font-size: 1.15em;
+    cursor: pointer; 
+    transition: 1s all ease;
+}
+
+.login-block__decline-btn:hover {
+    color: #fff;
+    box-shadow: 0 0 50px 50px rgba(31, 31, 31, 0.74) inset;
+}
+
+.login-block__signup-btn:hover {
+    color: #fff;
+    box-shadow: 0 0 50px 50px rgba(11, 212, 71, 0.74) inset;
+}
+
+.login-block__signup-btn {
+    background-color: teal;
 }
 @media screen and (max-width: 1280px) {
     .container {
