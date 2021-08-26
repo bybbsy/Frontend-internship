@@ -116,7 +116,6 @@ main {
     text-decoration: unset;
     color: #fff;
     font-weight: 500;
-    transition: margin-left 0.5s all ease;
 }
 .modal.hidden {
     display: none;
@@ -411,6 +410,7 @@ header, footer {
 }
 
 .reply-block__reply {
+    margin-top: 5px;
 }
 
 .reply-block__textarea {
