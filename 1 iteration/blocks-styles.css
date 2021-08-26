@@ -1,11 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+    --block-color: rgba(228, 240, 247, 0.781);
+    --message-top-block-color: #fff;
+    --main-background: rgba(231, 231, 231, 0.527);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: tomato;
+}
+
+::-webkit-scrollbar-button {
+    height: 5px;
+    background: teal;
+}
+
+
+
 html,
 body {
     font-family: Urbanist, Roboto, sans-serif;
     margin: 0;
     overflow-x: hidden;
+    scrollbar-color: tomato teal;
+    scrollbar-width: thin;
 }
 input[type=text],
 input[type=email],
@@ -40,13 +64,16 @@ h5 {
     height: 100vh;
     overflow-x: hidden;
 }
- 
+
+.wrapper.no-scroll {
+    overflow: hidden;
+}
 .container {
     width: 100%;  
     display: flex; 
     flex-flow: row wrap;
     flex: 0 1 100%; 
-    background: rgb(48, 48, 48);
+    background: var(--main-background);
 }
 
 .container.hf {  
@@ -137,7 +164,7 @@ main {
     transition: 0.5s all ease-out;
 }
 
-.header__nav-item:before {
+.header__nav-item:hover {
     color: rgb(204, 204, 204);
 }
 
@@ -176,6 +203,8 @@ header, footer {
     margin-bottom: 5px;
     min-height: 200px;
     padding: 10px;
+    background: var(--block-color);
+    border-radius: 5px;
 }
 
 .green-and-pink {
@@ -187,33 +216,40 @@ header, footer {
 }
 
 .green-block {
-    background: rgb(65, 65, 60);
     display: flex;
     flex-direction: column;
     flex: 0 0 auto;
     margin-right: 5px;
+    background: var(--block-color);
+    border-radius: 20px 0px 20px 0px;
 }
 
 .pink-block {
     display: flex;
     flex-direction: column;
-    background: pink;
+    background: var(--block-color);
+    border-radius: 5px;
+    padding: 0 5px;
     flex: 0 1 100%;
 }
 
 .item {
+    display: flex;
     width: 100px;
     height: 100px;
-    background-color: green;
+    background-color: rgba(121, 187, 121, 0.582);
     flex: 1 1 100%;
     margin: 20px 0; 
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 /* Aside */
 .yellow-block {
     display: flex;
     flex: 1 0;
-    background: yellow;
+    background: var(--block-color);
+    border-radius: 5px;
     margin: 5px;
     flex-direction: column;
     padding: 5px;
@@ -257,6 +293,7 @@ header, footer {
     margin-top: 2.2px;
     margin-left: 2.5px;
     border-radius: 50%;
+    z-index: 1;
 }
 
 .messages-list__block-link {
@@ -273,6 +310,7 @@ header, footer {
 }
 
 .messages-list__message-content {
+    z-index: 1;
     display: flex;
     margin: 2.5px 5px;
     width: 100%;
@@ -311,8 +349,9 @@ header, footer {
 
 .message-block__information {
     display: flex;
-    background-color: rgba(204, 204, 204, 0.219);
+    background-color: rgba(104, 104, 104, 0.219);
     padding: 5px;
+    border-radius: 20px 0px 20px 0px;
 }
 
 .message-block__block-description {
@@ -331,7 +370,7 @@ header, footer {
     display: flex; 
     font-size: 0.8em;
     font-weight: 400;
-    color: rgb(184, 184, 184);
+    color: rgb(97, 97, 97);
      
 }
 .messages-block__message-date {
@@ -356,7 +395,7 @@ header, footer {
     width: 100%;
     min-height: 50px;
     margin-top: 5px;
-    background-color: rgba(204, 204, 204, 0.219);
+    background-color: rgba(104, 104, 104, 0.219);
 }
 
 .message-block__message-message {
@@ -379,33 +418,84 @@ header, footer {
     height: 45px;
     resize: none;
     font-family: Roboto, sans-serif;
+    border-radius: 25px;
+    padding: 5px 15px;
+}
+
+.reply-block__textarea:focus {
+    outline: unset;
 }
 
 .reply-block__buttons {
-    display: flex;
-    width: 100%;
+    position: relative;
+    display: flex; 
     justify-content: flex-end;
     align-items: center;
+    row-gap: 25px;
 }
+
+.reply-block__select {
+    display: flex;
+    flex-direction: row;
+}
+
+.reply-block__calendar.hidden {
+    width: 0; 
+    opacity: 0;
+    overflow-x: hidden;
+}
+
+.reply-block__calendar.hidden input {
+    height: 0;
+}
+
+.reply-block__calendar {  
+    display: flex;
+    flex: 1;
+    transition: 1s all ease;
+    overflow-x: hidden;  
+}
+
+.reply-block__calendar input { 
+    border: unset;
+    outline: unset; 
+    width: 100%; 
+    font-family: Roboto, sans-serif; 
+}
+
 .reply-block__submit,
 .reply-block__save {
     margin: 0 5px;
-    height: 25px;
-    background-color: lightcoral;
+    height: 35px;
+    background: linear-gradient(to left, lightcoral 50%, teal 50%) right;
+    background-size: 210%;
+    transition: 1s all ease-out;
     border: unset;
     color: #fff;
-    cursor: pointer;  
+    cursor: pointer;
+    font-size: 1em;
+    font-family: Urbanist, sans-serif;
 }
 
 .reply-block__submit:hover,
-.reply-block__save:hover {  
+.reply-block__save:hover {
+    background-position: left;
 }
 .reply-block__custom-date {
     position: relative;
     display: flex;
     align-items: baseline;
 }
+
 .reply-block__custom-date label {
+    align-self: center;
+    margin-left: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .reply-block__custom-date input {
@@ -413,15 +503,44 @@ header, footer {
     cursor: pointer;
     width: 0;
     height: 0;
+    opacity: 0;
 }
 
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
+.checkmark { 
     height: 25px;
     width: 25px;
-    background-color: #ccc;
+    background-color: tomato;
+}
+
+.reply-block__custom-date:hover input ~ .checkmark {
+    background: #ccc;
+}
+
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.reply-block__custom-date input:checked ~ .checkmark {
+    background: teal;
+}
+
+.reply-block__custom-date input:checked ~ .checkmark::after {
+    display: block;
+}
+
+.reply-block__custom-date .checkmark:after {
+    right: 8px;
+    top: 2px;
+    width: 10px;
+    height: 15px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 .modal {
@@ -431,6 +550,7 @@ header, footer {
     width: 100%;
     height: 100%;
     background-color: rgba(82, 82, 82, 0.479);
+    z-index: 1;
 }
 
 .login-block {
@@ -444,8 +564,23 @@ header, footer {
     display: grid;
     /* padding: 15px; */
     grid-template-columns: minmax(270px, 350px);
-    grid-template-rows: 50px repeat(6, 50px);
+    grid-template-rows: repeat(6, 50px) 70px;
     row-gap: 15px;
+    
+    border-radius: 15px;
+}
+
+.login-block::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    margin: -1px;
+    border: 2px dotted teal;
+    border-radius: 15px;
 }
 
  
@@ -467,7 +602,7 @@ header, footer {
 .login-block__password-block,
 .login-block__phone-block {
     display: grid;
-    grid-template-rows: repeat(2, 25px);
+    grid-template-rows: 20px 30px;
 }
 
 .login-block__details-block,
@@ -475,11 +610,9 @@ header, footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    justify-content: center;
 }
 
-.login-block__sex-block {
-    
-}
 
 .login-block__sex-label {
     text-align: center;
@@ -488,7 +621,82 @@ header, footer {
 
 .login-block__sex-female,
 .login-block__sex-male {
-    align-content: center;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 15px);
+    justify-self: center;
+}
+
+
+.login-block__sex-female label,
+.login-block__sex-male label {
+    align-self: center;
+    margin-left: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.login-block__sex-female input,
+.login-block__sex-male input {
+    position: absolute;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.radiomark { 
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.login-block__sex-female:hover input ~ .radiomark,
+.login-block__sex-male:hover input ~ .radiomark {
+    background: tomato;
+}
+
+.radiomark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.login-block__sex-female input:checked ~ .radiomark,
+.login-block__sex-male input:checked ~ .radiomark {
+    background: teal;
+}
+
+.login-block__sex-female input:checked ~ .radiomark:after,
+.login-block__sex-male input:checked ~ .radiomark:after {
+    display: block;
+}
+
+.login-block__sex-female .radiomark:after,
+.login-block__sex-male .radiomark:after {
+    right: 0;
+    margin-right: -2px;
+    top: 2px;
+    width: 10px;
+    height: 15px;
+    border: solid white;
+    border-width: 0 3px 3px 0; 
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+.login-block__female-label {
+    justify-self: center;
+}
+
+.login-block__male-label {
+    justify-self: center;
 }
 .login-block__country-block {
     display: grid; 
@@ -517,7 +725,8 @@ header, footer {
 .login-block__username-username,
 .login-block__email-email,
 .login-block__password-password,
-.login-block__phone-phone { 
+.login-block__phone-phone {
+    padding: 0 5px;
     border: 1px solid #111;
 }
 
@@ -525,7 +734,7 @@ header, footer {
 .login-block__email-email:focus,
 .login-block__password-password:focus,
 .login-block__phone-phone:focus  {
-    outline: 2px solid #ccc;
+    outline: 2px solid teal;
 }
 
 .login-block__email-email:invalid {
@@ -570,6 +779,60 @@ header, footer {
     background-color: teal;
 }
 
+.footer-block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding-top: 5px;
+}
+
+.footer-block__header h5 {
+    color: #fff;
+}
+
+.footer-block__top {
+    display: flex;
+    width: 50%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-top__vk,
+.footer-top__inst {
+    margin: 5px 15px;
+    position: relative;
+    display: flex;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    z-index: 1;
+    text-decoration: none;
+    color: teal;
+}
+
+.footer-top__vk::after,
+.footer-top__inst::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 50%;
+    border: 1px solid tomato;
+}
+
+.footer-block__bottom p {
+    margin: 5px 0;
+    font-size: 0.8em;
+    font-weight: 200;
+    color: #fff;
+}
 @media screen and (max-width: 1280px) {
     .container {
         flex-flow: column nowrap;
@@ -583,16 +846,20 @@ header, footer {
         height: 200px;
         order: 1;
         flex-flow: row nowrap;
-        overflow-x: scroll;
+        overflow-y: scroll;
+        overflow-x: hidden;
         align-items: center;
     }
+
     .messages-list {
         height: 100%;
     }
+
     .messages-list__block-icon {
         margin-top: 2px;
         margin-bottom: 2px;
     }
+
     .small-block {
         display: flex;
         flex: 0 0 ;
@@ -610,11 +877,13 @@ header, footer {
     .green-and-pink {
         flex-flow: row wrap;
     }
+
     .green-block {
         flex: 1 0 100%;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        margin-bottom: 10px;
     }
 
     .item {
@@ -624,10 +893,6 @@ header, footer {
 
 
 @media screen and (max-width: 800px) {
-    .wrapper.no-scroll {
-        overflow: hidden;
-    }
-    
     .header__nav {
         position: absolute;
         top: 0;
@@ -640,7 +905,7 @@ header, footer {
         padding: 15px 0;
         transition: 0.7s ease;
         
-        z-index: 1;
+        z-index: 2;
     }
 
     .header__nav-item.sign-up {
@@ -672,6 +937,20 @@ header, footer {
     
     .header__nav-item::after {
         display: none;
+    }
+
+    .reply-block__select {
+        flex-direction: column;
+    }
+
+    .reply-block__select {
+        width: 130px;
+    }
+    .reply-block__custom-date {
+        margin-bottom: 5px;
+    }
+    .reply-block__custom-date label {
+        margin-right: 5px;
     }
     
 }
