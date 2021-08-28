@@ -1,0 +1,57 @@
+.table-wrapper { 
+    width: 100%;
+}
+
+td, tr {
+    border: 1px solid #111;
+}
+thead {
+    width: 100%;
+}
+
+a {
+    
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+.tr-body{
+    border: 1px solid #ccc;
+    min-height: 100%;
+}
+
+.red-block {
+    background-color: red;
+    width: 75%;
+}
+
+.yellow-block {
+    width: 25%;
+    background-color: orange;
+}
+.item { 
+    min-width: 100px;
+    min-height: 10px;
+    background-color: greenyellow;
+}
+
+.item:nth-child(1) {
+    margin: 0 0 50% 0;
+}
+.item:nth-child(2) {
+    margin: 50% 0 50% 0;
+}
+.item:nth-child(1) {
+    margin: 50% 0 0 0;
+}
+
+.green-block { 
+    background-color: green; 
+}
+
+.pink-block {
+    background-color: pink;
+}
+
+.tbody {
+}
