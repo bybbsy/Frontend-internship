@@ -9,15 +9,75 @@
 <body>
     <table class="table-wrapper">
         <thead>
-            <td class="header__info">Hey its a simple html webpage
-            </td>
-            <td class="header__nav" colspan="2">
-                <a href="">asdas</a> 
+            <td class="header__nav" colspan="3">
+                <div class="header__nav-block">
+                    <div class="header__info">
+                        Hey its a simple html webpage
+                    </div>
+                    <div class="header__nav-links">
+                        <a href="#sign-up" class="header__nav-item sign-up">Sign up</a>
+                        <a href="https://www.google.com/" target="_blank" class="header__nav-item">Projects</a>
+                        <a href="https://www.google.com/" target="_blank" class="header__nav-item">History</a>
+                        <a href="https://www.google.com/" target="_blank" class="header__nav-item">Gallery</a>
+                        <a href="#contact-us" class="header__nav-item">Contact</a>
+                        <a href="https://www.google.com/" target="_blank" class="header__nav-item">Docs</a>
+                    </div>
+                </div>
             </td>
         </thead>
         <tbody class="tbody">
             <tr class="tr-body"> 
-                <td class="red-block" colspan="2">
+                <td class="red-block__wrapper" colspan="2">
+                    <section class="red-block">
+                        <div class="message-block">
+                            <div class="message-block__information">
+                                <div class="messages-list__block-icon">
+                                    <a href="#" class="messages-list__block-link" target="_self">
+                                        <img src="./assets/img/1617986244_11.jpg" alt="Image" class="messages-list__block-image">
+                                    </a>
+                                </div>
+                                <div class="message-block__block-description">
+                                    <div class="message-block__top-row">
+                                        <div class="messages-block__message-author">
+                                            <a href="#">John Doe</a>
+                                        </div>
+                                        <div class="messages-block__message-date">
+                                            <h5>19 August 2021</h5>
+                                        </div>
+                                    </div>
+                                    <div class="message-block__bottom-row">
+                                        <div class="messages-block__message-addressee">
+                                            <h5>Addressee: You</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="message-block__message-content">
+                                <p class="message-block__message-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, sequi dolorum! Quo modi obcaecati facere debitis similique explicabo id, nihil, deserunt recusandae culpa iste omnis, repudiandae eligendi voluptates fugit exercitationem.
+                                </p>
+                            </div>
+                        </div>
+                        <form action="" class="reply-block">
+                            <div class="reply-block__reply">
+                                <textarea class="reply-block__textarea" name="reply"></textarea>
+                            </div>
+                            <div class="reply-block__buttons">
+                                <input type="submit" class="reply-block__submit" value="Send">
+                                <input type="button" class="reply-block__save" value="Save draft">
+                                <div class="reply-block__select">
+                                    <div class="reply-block__custom-date">
+                                        <label for="custom-date">Custom date</label>
+                                        <input type="checkbox" name="" id="custom-date">
+                                        <span class="checkmark"></span>
+                                    </div>
+                                    <div class="reply-block__calendar hidden">
+                                        <input type="datetime-local" name="" id="">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
                 </td>
                 <td class="yellow-block" rowspan="4">
                 </td> 
