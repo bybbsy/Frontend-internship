@@ -167,7 +167,7 @@
                 </td> 
             </tr>
             <tr>
-                <td class="green-block__wrapper" style="min-width: 100px">
+                <td class="green-block__wrapper" style="min-width: 100px" rowspan="">
                     <aside class="green-block">
                         <picture class="item">
                             <source srcset="./assets/img/image-50x50.jpg" media="(max-width: 1280px)"> 
@@ -178,7 +178,9 @@
                         </picture>
                     </aside>
                 </td>
-                <td class="pink-block__wrapper" rowspan="3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea distinctio natus necessitatibus ut fugiat sint. Officiis, porro fugit reprehenderit temporibus asperiores rerum odit eius, quod voluptas, deleniti quasi aliquam suscipit.
+                <td class="pink-block__wrapper" rowspan="3">
+                    <div class="pink-block">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea distinctio natus necessitatibus ut fugiat sint. Officiis, porro fugit reprehenderit temporibus asperiores rerum odit eius, quod voluptas, deleniti quasi aliquam suscipit.
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus iusto earum, saepe veritatis, asperiores autem omnis sequi quia eius libero harum sint. Sequi at reprehenderit quis nihil a, enim neque!
                     Eius, at odio! Odio dolor iusto atque, perferendis excepturi soluta perspiciatis quod aperiam, doloremque laborum saepe harum rem enim quo magni expedita placeat iste nam nostrum quae architecto nihil culpa?
                     Laborum veniam quo id voluptas incidunt perferendis? Quasi est, magnam nam magni eveniet quidem facilis, eius velit dicta dolorum reprehenderit ducimus fugiat iure in ipsum neque tempore blanditiis corporis tenetur?
@@ -189,7 +191,9 @@
                     Incidunt vitae nemo fugiat esse mollitia neque praesentium quibusdam excepturi delectus at voluptatum vero consequuntur, eum, placeat facilis minima eius sunt aut repudiandae laudantium perferendis. Ullam fugiat ducimus natus perspiciatis?
                     Odio aliquid atque vero asperiores odit omnis culpa excepturi facere id. Temporibus cupiditate vitae accusantium quo nisi, laborum dignissimos blanditiis a dolore sed quos, voluptate magni tempore accusamus animi impedit.
                     Suscipit, quam quae dicta velit doloremque perspiciatis reiciendis, autem assumenda repudiandae praesentium vitae molestias quaerat saepe veniam id tempore facilis error consectetur. Corrupti aspernatur aperiam neque labore at eligendi cumque.
+                    </div>
                 </td>
+                 
             </tr>
             <tr><td class="green-block__wrapper" style="min-width: 100px" rowspan="1">
                 <aside class="green-block">
@@ -219,10 +223,34 @@
         </tbody>
         <tfoot>
             <tr >
-                <td colspan="3"></td>
+                <td colspan="3">
+                    <div class="footer-block">
+                        <div class="footer-block__header" id="contact-us">
+                            <h5>Contact us</h5>
+                        </div>
+                        <div class="footer-block__top">
+                            <a href="google.com" target="_blank" class="footer-top__vk">
+                                <i class="fas fa-bars"></i>
+                            </a>
+                            <a href="google.com" target="_blank" class="footer-top__vk">
+                                <i class="fas fa-bars"></i>
+                            </a>
+                            <a href="google.com" target="_blank" class="footer-top__vk">
+                                <i class="fas fa-bars"></i>
+                            </a>
+                            <a href="google.com" target="_blank" class="footer-top__inst">
+                                <i class="fas fa-bars"></i>
+                            </a>
+                        </div>
+                    </div>
+                </td>
             </tr>
             <tr>
-                <td colspan="3"></td>
+                <td colspan="3">
+                    <div class="footer-block__bottom">
+                        <p>© Some sort of copyrights</p>
+                    </div>
+                </td>
             </tr>
         </tfoot>
     </table>
@@ -245,4 +273,13 @@
         </div>
     </footer> --> 
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let custom_date_input = document.querySelector(".reply-block__custom-date label");
+        custom_date_input.addEventListener("click", () => {
+            let calendar = document.querySelector(".reply-block__calendar");
+            calendar.classList.toggle("hidden");
+        })
+     })
+</script>
 </html>
