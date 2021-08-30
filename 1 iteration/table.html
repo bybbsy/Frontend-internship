@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./table-styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <table class="table-wrapper">
+        <thead>
+            <td class="header__nav" colspan="3">
+                <div class="header__nav-block">
+                    <div class="header__info">
+                        Hey its a simple html webpage
+                    </div>
+                    <div class="header__nav-links">
+                        <a href="#sign-up" class="header__nav-item sign-up">Sign up</a>
+                        <a href="https://www.google.com/" target="_blank" class="header__nav-item">Projects</a>
+                        <a href="https://www.google.com/" target="_blank" class="header__nav-item">History</a>
+                        <a href="https://www.google.com/" target="_blank" class="header__nav-item">Gallery</a>
+                        <a href="#contact-us" class="header__nav-item">Contact</a>
+                        <a href="https://www.google.com/" target="_blank" class="header__nav-item">Docs</a>
+                    </div>
+                </div>
+            </td>
+        </thead>
+        <tbody class="tbody">
+            <tr class="tr-body"> 
+                <td class="red-block__wrapper" colspan="2">
+                    <section class="red-block">
+                        <div class="message-block">
+                            <div class="message-block__information">
+                                <div class="messages-list__block-icon">
+                                    <a href="#" class="messages-list__block-link" target="_self">
+                                        <img src="./assets/img/1617986244_11.jpg" alt="Image" class="messages-list__block-image">
+                                    </a>
+                                </div>
+                                <div class="message-block__block-description">
+                                    <div class="message-block__top-row">
+                                        <div class="messages-block__message-author">
+                                            <a href="#">John Doe</a>
+                                        </div>
+                                        <div class="messages-block__message-date">
+                                            <h5>19 August 2021</h5>
+                                        </div>
+                                    </div>
+                                    <div class="message-block__bottom-row">
+                                        <div class="messages-block__message-addressee">
+                                            <h5>Addressee: You</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="message-block__message-content">
+                                <p class="message-block__message-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, sequi dolorum! Quo modi obcaecati facere debitis similique explicabo id, nihil, deserunt recusandae culpa iste omnis, repudiandae eligendi voluptates fugit exercitationem.
+                                </p>
+                            </div>
+                        </div>
+                        <form action="" class="reply-block">
+                            <div class="reply-block__reply">
+                                <textarea class="reply-block__textarea" name="reply"></textarea>
+                            </div>
+                            <div class="reply-block__buttons">
+                                <input type="submit" class="reply-block__submit" value="Send">
+                                <input type="button" class="reply-block__save" value="Save draft">
+                                <div class="reply-block__select">
+                                    <div class="reply-block__custom-date">
+                                        <label for="custom-date">Custom date</label>
+                                        <input type="checkbox" name="" id="custom-date">
+                                        <span class="checkmark"></span>
+                                    </div>
+                                    <div class="reply-block__calendar hidden">
+                                        <input type="datetime-local" name="" id="">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </td>
+                <td class="yellow-block__wrapper" rowspan="4">
+                    <aside class="yellow-block">
+                        <ul class="messages-list">
+                            <li class="messages-list__message-block active">
+                                <div class="messages-list__block-icon">
+                                    <a href="#" class="messages-list__block-link" target="_self">
+                                        <img src="./assets/img/1617986244_11.jpg" alt="Image" class="messages-list__block-image">
+                                    </a>
+                                </div>
+                                <div class="messages-list__message-content">
+                                    <div class="messages-list__message-info">
+                                        <div class="messages-list__message-author">
+                                            <h5>John Doe</h5>
+                                        </div>
+                                        <div class="messages-list__message-brief">
+                                            <p>This message was sent to you because you subscribed on our daily e-mail notifications. Just keep you posted, bud.</p>
+                                        </div>
+                                    </div>
+                                    <div class="messages-list__message-date">
+                                        <p>12.02.21</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="messages-list__message-block">
+                                <div class="messages-list__block-icon">
+                                    <a href="#" class="messages-list__block-link" target="_self">
+                                        <img src="./assets/img/1617986244_11.jpg" alt="Image" class="messages-list__block-image">
+                                    </a>
+                                </div>
+                                <div class="messages-list__message-content">
+                                    <div class="messages-list__message-info">
+                                        <div class="messages-list__message-author">
+                                            <h5>John Doe</h5>
+                                        </div>
+                                        <div class="messages-list__message-brief">
+                                            <p>This message was sent to you because you subscribed on our daily e-mail notifications. Just keep you posted, bud.</p>
+                                        </div>
+                                    </div>
+                                    <div class="messages-list__message-date">
+                                        <p>12.02.21</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="messages-list__message-block">
+                                <div class="messages-list__block-icon">
+                                    <a href="#" class="messages-list__block-link" target="_self">
+                                        <img src="./assets/img/vue-9.svg" alt="Image" class="messages-list__block-image">
+                                    </a>
+                                </div>
+                                <div class="messages-list__message-content">
+                                    <div class="messages-list__message-info">
+                                        <div class="messages-list__message-author">
+                                            <h5>Jeff La Quero</h5>
+                                        </div>
+                                        <div class="messages-list__message-brief">
+                                            <p>Hey, bud, wanna hang out tis weekend?</p>
+                                        </div>
+                                    </div>
+                                    <div class="messages-list__message-date">
+                                        <p>12.02.21</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="messages-list__message-block">
+                                <div class="messages-list__block-icon">
+                                    <a href="#" class="messages-list__block-link" target="_self">
+                                        <img src="./assets/img/1617986244_11.jpg" alt="Image" class="messages-list__block-image">
+                                    </a>
+                                </div>
+                                <div class="messages-list__message-content">
+                                    <div class="messages-list__message-info">
+                                        <div class="messages-list__message-author">
+                                            <h5>John Doe</h5>
+                                        </div>
+                                        <div class="messages-list__message-brief">
+                                            <p>This message was sent to you because you subscribed on our daily e-mail notifications. Just keep you posted, bud.</p>
+                                        </div>
+                                    </div>
+                                    <div class="messages-list__message-date">
+                                        <p>12.02.21</p>
+                                    </div>
+                                </div>
+                            </li> 
+                        </ul>
+                    </aside>
+                </td> 
+            </tr>
+            <tr>
+                <td class="green-block__wrapper" style="min-width: 100px" rowspan="">
+                    <aside class="green-block">
+                        <picture class="item">
+                            <source srcset="./assets/img/image-50x50.jpg" media="(max-width: 1280px)"> 
+                            <img src="./assets/img/image-25x25.jpg" alt="" >
+                            <img src="./assets/img/image-25x25.jpg"alt="" >
+                            <img src="./assets/img/image-25x25.jpg" alt="" >
+                            <img src="./assets/img/image-25x25.jpg" alt="" >
+                        </picture>
+                    </aside>
+                </td>
+                <td class="pink-block__wrapper" rowspan="3">
+                    <div class="pink-block">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea distinctio natus necessitatibus ut fugiat sint. Officiis, porro fugit reprehenderit temporibus asperiores rerum odit eius, quod voluptas, deleniti quasi aliquam suscipit.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus iusto earum, saepe veritatis, asperiores autem omnis sequi quia eius libero harum sint. Sequi at reprehenderit quis nihil a, enim neque!
+                    Eius, at odio! Odio dolor iusto atque, perferendis excepturi soluta perspiciatis quod aperiam, doloremque laborum saepe harum rem enim quo magni expedita placeat iste nam nostrum quae architecto nihil culpa?
+                    Laborum veniam quo id voluptas incidunt perferendis? Quasi est, magnam nam magni eveniet quidem facilis, eius velit dicta dolorum reprehenderit ducimus fugiat iure in ipsum neque tempore blanditiis corporis tenetur?
+                    Ea nemo officiis impedit debitis rerum fugit, similique eaque fugiat mollitia veniam deserunt voluptate minus voluptatem iure quidem nesciunt alias, repudiandae laudantium non excepturi! Deserunt ex velit quibusdam eius facere!
+                    Possimus dolore aperiam, unde sint odio dignissimos ipsum quod, obcaecati vel maiores eveniet accusamus laudantium! Cum blanditiis maxime consequatur. Illum est quaerat dolorem dicta placeat corporis veritatis adipisci rerum quasi?
+                    Reprehenderit et delectus quis consequatur omnis fugit ipsam culpa iure labore saepe magnam doloremque quibusdam eligendi molestias laboriosam itaque praesentium nam perferendis non nobis, sed voluptatum? Magni, vero quibusdam! Ipsam.
+                    Nisi laudantium reiciendis officia sit exercitationem porro tenetur! Quis autem nesciunt est amet maxime consequuntur unde atque dolorum itaque aliquid hic, porro, quo nisi, ratione quae perferendis saepe aperiam laudantium!
+                    Incidunt vitae nemo fugiat esse mollitia neque praesentium quibusdam excepturi delectus at voluptatum vero consequuntur, eum, placeat facilis minima eius sunt aut repudiandae laudantium perferendis. Ullam fugiat ducimus natus perspiciatis?
+                    Odio aliquid atque vero asperiores odit omnis culpa excepturi facere id. Temporibus cupiditate vitae accusantium quo nisi, laborum dignissimos blanditiis a dolore sed quos, voluptate magni tempore accusamus animi impedit.
+                    Suscipit, quam quae dicta velit doloremque perspiciatis reiciendis, autem assumenda repudiandae praesentium vitae molestias quaerat saepe veniam id tempore facilis error consectetur. Corrupti aspernatur aperiam neque labore at eligendi cumque.
+                    </div>
+                </td>
+                 
+            </tr>
+            <tr><td class="green-block__wrapper" style="min-width: 100px" rowspan="1">
+                <aside class="green-block">
+                    <picture class="item">
+                        <source srcset="./assets/img/image-50x50.jpg" media="(max-width: 1280px)"> 
+                        <img src="./assets/img/image-25x25.jpg" alt="" >
+                        <img src="./assets/img/image-25x25.jpg"alt="" >
+                        <img src="./assets/img/image-25x25.jpg" alt="" >
+                        <img src="./assets/img/image-25x25.jpg" alt="" >
+                    </picture>
+                </aside></td></tr>
+            <tr><td class="green-block__wrapper" style="min-width: 100px" rowspan="1">
+                <aside class="green-block">
+                    <picture class="item">
+                        <source srcset="./assets/img/image-50x50.jpg" media="(max-width: 1280px)"> 
+                        <img src="./assets/img/image-25x25.jpg" alt="" >
+                        <img src="./assets/img/image-25x25.jpg"alt="" >
+                        <img src="./assets/img/image-25x25.jpg" alt="" >
+                        <img src="./assets/img/image-25x25.jpg" alt="" >
+                    </picture>
+                </aside></td></tr>
+            <!-- <tr colspan="2">
+                <td class="green-block" colspan="1">
+                </td>
+                <td class="pink-block" colspan="1"></td>
+            </tr>  -->
+        </tbody>
+        <tfoot>
+            <tr >
+                <td colspan="3">
+                    <div class="footer-block">
+                        <div class="footer-block__header" id="contact-us">
+                            <h5>Contact us</h5>
+                        </div>
+                        <div class="footer-block__top">
+                            <a href="google.com" target="_blank" class="footer-top__vk">
+                                <i class="fas fa-bars"></i>
+                            </a>
+                            <a href="google.com" target="_blank" class="footer-top__vk">
+                                <i class="fas fa-bars"></i>
+                            </a>
+                            <a href="google.com" target="_blank" class="footer-top__vk">
+                                <i class="fas fa-bars"></i>
+                            </a>
+                            <a href="google.com" target="_blank" class="footer-top__inst">
+                                <i class="fas fa-bars"></i>
+                            </a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <div class="footer-block__bottom">
+                        <p>© Some sort of copyrights</p>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <!-- <main>
+        <div class="container">
+            <div class="main">
+                <div class="red-block"></div>
+                <div class="green-and-pink">
+                    <div class="green-block"></div>
+                    <div class="pink-block"></div>
+                </div>
+            </div>
+            <div class="yellow-block">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container hf">
+
+        </div>
+    </footer> --> 
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let custom_date_input = document.querySelector(".reply-block__custom-date label");
+        custom_date_input.addEventListener("click", () => {
+            let calendar = document.querySelector(".reply-block__calendar");
+            calendar.classList.toggle("hidden");
+        })
+     })
+</script>
+</html>
