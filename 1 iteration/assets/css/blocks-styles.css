@@ -22,7 +22,6 @@
 }
 
 
-
 html,
 body {
     font-family: Urbanist, Roboto, sans-serif;
@@ -37,6 +36,8 @@ input[type=password],
 input[type=tel] {
     font-family: Roboto, sans-serif;
 }
+
+
 *,
 *:before,
 *:after {
@@ -47,6 +48,7 @@ input[type=tel] {
 a {
     text-decoration: none;
 }
+
 h2 {
     margin: auto 0;
     width: 100%;
@@ -56,7 +58,6 @@ h2 {
 h5 {
     margin: 0;
 }
-
 
 .wrapper {
     position: relative;
@@ -128,11 +129,39 @@ main {
     background-size: 200%;
     transition: 0.5s all ease;
 }
+.header__nav-item.js-features {
+    padding: 0 5px;
+    line-height: 22px;
+    background: linear-gradient(to left, salmon 50%, rgb(255, 255, 255) 50%) right;
+    background-size: 200%;
+    transition: 0.5s all ease;
+}
+ 
 
 .header__nav-item.sign-up:hover {
     background-position: left;
 }
 
+.header__nav-item.js-features:hover {
+    color: rgb(250, 207, 16);
+    background-position: left;
+}
+
+.new-badge {
+    position: absolute;
+    top:0;
+    right: 0;
+    margin-top: -11px;
+    margin-right: -10px;
+    font-size: 0.6em;
+    font-weight: 600;
+    color: #111;
+    background-color: #edd23b;
+    padding: 1px 3px;
+    line-height: 1.1em;
+    border-radius: 3px;
+    border: 1px solid #111;
+}
 .header__nav-item.sign-up::after {
     content: "";
     position: absolute; 
@@ -186,6 +215,7 @@ main {
 header, footer {
     background-color: rgb(25, 153, 175);
 }
+
 /* Main */
 .main {
     display: flex;
@@ -517,7 +547,7 @@ header, footer {
 }
 
 
-.checkmark:after {
+.checkmark::after {
     content: "";
     position: absolute;
     display: none;
@@ -531,7 +561,7 @@ header, footer {
     display: block;
 }
 
-.reply-block__custom-date .checkmark:after {
+.reply-block__custom-date .checkmark::after {
     right: 8px;
     top: 2px;
     width: 10px;
@@ -661,7 +691,7 @@ header, footer {
     background: tomato;
 }
 
-.radiomark:after {
+.radiomark::after {
     content: "";
     position: absolute;
     display: none;
@@ -672,13 +702,13 @@ header, footer {
     background: teal;
 }
 
-.login-block__sex-female input:checked ~ .radiomark:after,
-.login-block__sex-male input:checked ~ .radiomark:after {
+.login-block__sex-female input:checked ~ .radiomark::after,
+.login-block__sex-male input:checked ~ .radiomark::after {
     display: block;
 }
 
-.login-block__sex-female .radiomark:after,
-.login-block__sex-male .radiomark:after {
+.login-block__sex-female .radiomark::after,
+.login-block__sex-male .radiomark::after {
     right: 0;
     margin-right: -2px;
     top: 2px;
@@ -904,7 +934,6 @@ header, footer {
         background: tomato;
         padding: 15px 0;
         transition: 0.7s ease;
-        
         z-index: 2;
     }
 
