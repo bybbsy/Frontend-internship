@@ -22,7 +22,6 @@
 }
 
 
-
 html,
 body {
     font-family: Urbanist, Roboto, sans-serif;
@@ -37,6 +36,8 @@ input[type=password],
 input[type=tel] {
     font-family: Roboto, sans-serif;
 }
+
+
 *,
 *:before,
 *:after {
@@ -47,6 +48,7 @@ input[type=tel] {
 a {
     text-decoration: none;
 }
+
 h2 {
     margin: auto 0;
     width: 100%;
@@ -56,7 +58,6 @@ h2 {
 h5 {
     margin: 0;
 }
-
 
 .wrapper {
     position: relative;
@@ -214,6 +215,7 @@ main {
 header, footer {
     background-color: rgb(25, 153, 175);
 }
+
 /* Main */
 .main {
     display: flex;
