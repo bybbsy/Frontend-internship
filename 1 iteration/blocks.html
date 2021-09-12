@@ -9,6 +9,53 @@
     <meta name="author" content="Bybbsy">
     <link rel="shortcut icon" href="https://img.icons8.com/ios/50/000000/cat-profile.png" type="image/png">
     <script src="https://kit.fontawesome.com/f30ebe6630.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", () => {
+            let messages = new Object;
+
+            function recieveMessageInfo(block_messages) {
+                block_messages.forEach((message, index) => {
+                    let author = message.querySelector(".messages-list__message-author h5").innerHTML;
+                    let content = message.querySelector(".messages-list__message-brief p").innerHTML;
+                    let date = message.querySelector(".messages-list__message-date p").innerHTML;
+
+                    messages[index] = {
+                        author,
+                        content,
+                        date
+                    }
+                })
+            } 
+            
+            function getObjectSize(object) {
+                return Object.keys(object).length;
+            }
+
+            var block_messages = document.querySelectorAll(".messages-list__message-block");
+            
+            try {
+                recieveMessageInfo(block_messages) 
+            }
+            catch (ex) {
+                console.error(ex)
+            }
+            finally {
+                console.log(messages)
+            }
+
+            let count = getObjectSize(messages).toString();
+            // Экранизация
+            let plural = count.match(/^1$/) ? "message" : "messages"; 
+            // Шаблонизация
+            let show_info = `You've got ${count} ${plural}. `;
+             
+            let recent = messages[parseInt(count) - 1].author;
+            // Конкатенация
+            show_info += `The recent one from ${recent}.`;
+            console.log(show_info)
+             
+        })
+    </script>
     <title>Flex webpage</title>
 </head>
 <body>
@@ -193,7 +240,7 @@
                             <div class="messages-list__message-content">
                                 <div class="messages-list__message-info">
                                     <div class="messages-list__message-author">
-                                        <h5>John Doe</h5>
+                                        <h5>Awesome Boi</h5>
                                     </div>
                                     <div class="messages-list__message-brief">
                                         <p>This message was sent to you because you subscribed on our daily e-mail notifications. Just keep you posted, bud.</p>
