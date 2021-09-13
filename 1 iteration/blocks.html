@@ -44,6 +44,7 @@
             }
 
             let count = getObjectSize(messages).toString();
+
             // Экранизация
             let plural = count.match(/^1$/) ? "message" : "messages"; 
             // Шаблонизация
@@ -365,6 +366,50 @@
                 modal.classList.add("hidden");
                 wrapper.classList.remove("no-scroll");
             })
+        })
+
+        var badge = document.querySelector(".new-badge");
+        
+        var header_info = document.querySelector(".header__info");
+        var header__info_h = header_info.querySelector("h3");
+        header_info.addEventListener("click", (e) => {
+            console.log("Here we go")
+            const target = e.target;
+            // e.stopPropagation();
+            
+        })
+
+        header__info_h.addEventListener("click", (e) => {
+            console.log("You cant go up");
+            e.stopPropagation();
+        })
+
+        badge.addEventListener("mouseout", () => {
+            badge.animate([
+                { transform: "rotate(0)" },
+                { transform: "rotate(360deg)" },
+            ], {
+                duration: 1000,
+                easing: "cubic-bezier(0,1.77,1,.14)"
+            }
+            )
+        })
+
+        var username_input = document.querySelector(".login-block__username-username");
+        var login_title = document.querySelector(".login-block__signup-info h4");
+        let label = document.querySelector(".login-block__username-label")
+
+        username_input.addEventListener("input", (e) => {
+            let value = e.target.value;
+            console.log(value)
+            if(value !== "free-user") {
+                username_input.style.outline = "1px solid red";
+                label.innerHTML = `Username <i>${value}</i> is not valid`;
+            }
+            else {
+                username_input.style.outline = "1px solid teal";
+                label.innerHTML = `Username <i>${value}</i> is valid`;
+            }
         })
 
      })

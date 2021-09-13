@@ -162,6 +162,19 @@ main {
     border-radius: 3px;
     border: 1px solid #111;
 }
+
+/* .new-badge.animate {
+    animation: jump 2s;
+} */
+
+@keyframes jump {
+    from {
+        margin-top: -11px;
+    }
+    to {
+        margin-top: 10px;
+    }
+}
 .header__nav-item.sign-up::after {
     content: "";
     position: absolute; 
