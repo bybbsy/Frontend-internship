@@ -935,7 +935,7 @@ header, footer {
 }
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 930px) {
     .header__nav {
         position: absolute;
         top: 0;
@@ -950,6 +950,10 @@ header, footer {
         z-index: 2;
     }
 
+    .header__nav-item.js-features {
+        display: none;
+    }
+    
     .header__nav-item.sign-up {
         background: unset;
         background-size: unset;
