@@ -152,16 +152,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return `Some unexpected error has occured\nname:${e.name}\ncause:${e.message}\nstack:${e.stack}`;
     }
 
-    let spamKeys = ["LoReM", "ipsum", "meSSage"];
+    let spamKeys = ["LoReM", "ipsum", "meSSage"].map(key => key.toLowerCase());
 
-    let ll = lowerLetters(spamKeys);
-
-    function* lowerLetters(spamKeys, ...other) {
-        for(key in spamKeys) {
-            yield spamKeys[key].toLowerCase();
-            console.log(spamKeys[key])
-        }
-    }
     class Message {
         constructor(author, message, date) {
             this.author = author;
@@ -169,7 +161,12 @@ document.addEventListener("DOMContentLoaded", () => {
             this.date = date;
             this.spam = false;
 
-            this.filterSpam();
+            // A spam filter created with generator and yield
+            this.filter();
+
+            // A simple spam filter
+            // this.filterSpam();
+
             this.filterNew();
         }
 
@@ -186,6 +183,14 @@ document.addEventListener("DOMContentLoaded", () => {
             let difference = this.diffInDays(current_date - delivery_date) > 31 ? this.new = false : this.new = true;
         }
 
+        filter () {
+            let spam = this.fSpam();
+            for(let key in spamKeys) this.spam = spam.next().value
+        }
+
+        * fSpam () {
+            for(let key in spamKeys) yield this.message.includes(spamKeys[key])
+        }
 
         filterSpam() {
             spamKeys.map((key) => {
