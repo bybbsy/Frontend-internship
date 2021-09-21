@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/blocks-styles.css"> 
+    <link rel="stylesheet" href="./assets/css/blocks-styles.css">
     <meta name="keywords" content="SENLA, Frontend internship or whatnot">
     <meta name="description" content="Some sort of interesting description is here">
     <meta name="author" content="Bybbsy">
@@ -25,11 +25,11 @@
                         date
                     }
                 })
-            } 
-            
+            }
+
             function getObjectSize(object) {
                 let count = null;
-                
+
                 for(element in object) count++;
 
                 // Object.entries(object).forEach(element => count++)
@@ -37,9 +37,9 @@
             }
 
             var block_messages = document.querySelectorAll(".messages-list__message-block");
-            
+
             try {
-                recieveMessageInfo(block_messages) 
+                recieveMessageInfo(block_messages)
             }
             catch (ex) {
                 console.error(ex)
@@ -56,12 +56,12 @@
 
             // Шаблонизация
             let show_info = `You've got ${count} ${plural}.(${even} amount)\n`;
-             
+
             let recent = messages[parseInt(count) - 1].author;
             // Конкатенация
             show_info += `The recent one from ${recent}.`;
             console.log(show_info)
-             
+
         })
     </script>
     <title>Flex webpage</title>
@@ -91,7 +91,7 @@
                             <a href="https://www.google.com/" target="_blank" class="header__nav-item">Gallery</a>
                             <a href="#contact-us" class="header__nav-item">Contact</a>
                             <a href="https://www.google.com/" target="_blank" class="header__nav-item">Docs</a>
-                         
+
                     </nav>
                 </div>
             </div>
@@ -152,21 +152,21 @@
                         <div class="green-and-pink">
                             <aside class="green-block">
                                 <picture class="item">
-                                    <source srcset="./assets/img/image-50x50.jpg" media="(max-width: 1280px)"> 
+                                    <source srcset="./assets/img/image-50x50.jpg" media="(max-width: 1280px)">
                                     <img src="./assets/img/image-25x25.jpg" alt="" >
                                     <img src="./assets/img/image-25x25.jpg"alt="" >
                                     <img src="./assets/img/image-25x25.jpg" alt="" >
                                     <img src="./assets/img/image-25x25.jpg" alt="" >
                                 </picture>
                                 <picture class="item">
-                                    <source srcset="./assets/img/image-50x50.jpg" media="(max-width: 1280px)"> 
+                                    <source srcset="./assets/img/image-50x50.jpg" media="(max-width: 1280px)">
                                     <img src="./assets/img/image-25x25.jpg" alt="" >
                                     <img src="./assets/img/image-25x25.jpg"alt="" >
                                     <img src="./assets/img/image-25x25.jpg" alt="" >
                                     <img src="./assets/img/image-25x25.jpg" alt="" >
                                 </picture>
                                 <picture class="item">
-                                    <source srcset="./assets/img/image-50x50.jpg" media="(max-width: 1280px)"> 
+                                    <source srcset="./assets/img/image-50x50.jpg" media="(max-width: 1280px)">
                                     <img src="./assets/img/image-25x25.jpg" alt="" >
                                     <img src="./assets/img/image-25x25.jpg"alt="" >
                                     <img src="./assets/img/image-25x25.jpg" alt="" >
@@ -258,7 +258,7 @@
                                     <p>12.02.21</p>
                                 </div>
                             </div>
-                        </li> 
+                        </li>
                     </ul>
                 </aside>
             </div>
@@ -340,7 +340,7 @@
                 </div>
             </form>
         </div>
-    </div> 
+    </div>
 </body>
 
 <script>
@@ -376,14 +376,14 @@
         })
 
         var badge = document.querySelector(".new-badge");
-        
+
         var header_info = document.querySelector(".header__info");
         var header__info_h = header_info.querySelector("h3");
         header_info.addEventListener("click", (e) => {
             console.log("Here we go")
             const target = e.target;
             // e.stopPropagation();
-            
+
         })
 
         header__info_h.addEventListener("click", (e) => {
@@ -406,15 +406,23 @@
         var login_title = document.querySelector(".login-block__signup-info h4");
         let label = document.querySelector(".login-block__username-label")
 
+        username_input.addEventListener("focus", () => {
+            username_input.classList.add("focus")
+        })
+
+        username_input.addEventListener("blur", () => {
+            username_input.classList.remove("focus")
+        })
+
         username_input.addEventListener("input", (e) => {
             let value = e.target.value;
             console.log(value)
             if(value !== "free-user") {
-                username_input.style.outline = "1px solid red";
+                username_input.style.outline = "2px solid red";
                 label.innerHTML = `Username <i>${value}</i> is not valid`;
             }
             else {
-                username_input.style.outline = "1px solid teal";
+                username_input.style.outline = "2px solid teal";
                 label.innerHTML = `Username <i>${value}</i> is valid`;
             }
         })

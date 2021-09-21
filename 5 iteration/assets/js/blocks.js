@@ -152,8 +152,16 @@ document.addEventListener("DOMContentLoaded", () => {
         return `Some unexpected error has occured\nname:${e.name}\ncause:${e.message}\nstack:${e.stack}`;
     }
 
-    let spamKeys = ["lorem", "ipsum", "message"];
+    let spamKeys = ["LoReM", "ipsum", "meSSage"];
 
+    let ll = lowerLetters(spamKeys);
+
+    function* lowerLetters(spamKeys, ...other) {
+        for(key in spamKeys) {
+            yield spamKeys[key].toLowerCase();
+            console.log(spamKeys[key])
+        }
+    }
     class Message {
         constructor(author, message, date) {
             this.author = author;
