@@ -406,6 +406,12 @@
         var login_title = document.querySelector(".login-block__signup-info h4");
         let label = document.querySelector(".login-block__username-label")
 
+        username_input.addEventListener("focus", () => {
+            username_input.style.outline = "3px solid teal";
+        })
+        username_input.addEventListener("blur", () => {
+            username_input.style.outline = "unset";
+        })
         username_input.addEventListener("input", (e) => {
             let value = e.target.value;
             console.log(value)
@@ -418,7 +424,6 @@
                 label.innerHTML = `Username <i>${value}</i> is valid`;
             }
         })
-
      })
 </script>
 </html>
