@@ -9,61 +9,7 @@
     <meta name="author" content="Bybbsy">
     <link rel="shortcut icon" href="https://img.icons8.com/ios/50/000000/cat-profile.png" type="image/png">
     <script src="https://kit.fontawesome.com/f30ebe6630.js" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", () => {
-            let messages = new Object;
-
-            function recieveMessageInfo(block_messages) {
-                block_messages.forEach((message, index) => {
-                    let author = message.querySelector(".messages-list__message-author h5").innerHTML;
-                    let content = message.querySelector(".messages-list__message-brief p").innerHTML;
-                    let date = message.querySelector(".messages-list__message-date p").innerHTML;
-
-                    messages[index] = {
-                        author,
-                        content,
-                        date
-                    }
-                })
-            }
-
-            function getObjectSize(object) {
-                let count = null;
-
-                for(element in object) count++;
-
-                // Object.entries(object).forEach(element => count++)
-                return count;
-            }
-
-            var block_messages = document.querySelectorAll(".messages-list__message-block");
-
-            try {
-                recieveMessageInfo(block_messages)
-            }
-            catch (ex) {
-                console.error(ex)
-            }
-            finally {
-                console.log(messages)
-            }
-
-            let count = getObjectSize(messages).toString();
-
-            // Экранизация
-            let plural = count.match(/^1$/) ? "message" : "messages";
-            let even = count % 2 === 0 ? "even" : "odd";
-
-            // Шаблонизация
-            let show_info = `You've got ${count} ${plural}.(${even} amount)\n`;
-
-            let recent = messages[parseInt(count) - 1].author;
-            // Конкатенация
-            show_info += `The recent one from ${recent}.`;
-            console.log(show_info)
-
-        })
-    </script>
+    <script src="./assets/js/app.js"></script>
     <title>Flex webpage</title>
 </head>
 <body>
@@ -407,13 +353,6 @@
         let label = document.querySelector(".login-block__username-label")
 
         username_input.addEventListener("focus", () => {
-<<<<<<< HEAD
-            username_input.style.outline = "3px solid teal";
-        })
-        username_input.addEventListener("blur", () => {
-            username_input.style.outline = "unset";
-        })
-=======
             username_input.classList.add("focus")
         })
 
@@ -421,7 +360,6 @@
             username_input.classList.remove("focus")
         })
 
->>>>>>> 597c17fa430743471a02342fb222ac4992afef95
         username_input.addEventListener("input", (e) => {
             let value = e.target.value;
             console.log(value)
