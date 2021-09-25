@@ -3,19 +3,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function recieveMessageInfo(block_messages) {
         block_messages.forEach((message, index) => {
+            let element = message.querySelector(".messages-list__message-author");
             let author = message.querySelector(".messages-list__message-author h5").innerHTML;
             let content = message.querySelector(".messages-list__message-brief p").innerHTML;
             let date = message.querySelector(".messages-list__message-date p").innerHTML;
-
             messages[index] = {
                 author,
                 content,
-                date
+                date,
+                element
             }
         })
     }
 
-    console.log(messages)
 
     function getObjectSize(object) {
         let count = null;
@@ -38,21 +38,23 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(messages)
     }
 
-    let count = getObjectSize(messages).toString();
+    let count = getObjectSize(messages);
 
     // Экранизация
-    let plural = count.match(/^1$/) ? "message" : "messages";
-    let even = count % 2 === 0 ? "even" : "odd";
+    let plural = (count) => count.toString().match(/^1$/) ? "message" : "messages";
+    let even = (count) => count % 2 === 0 ? "even" : "odd";
 
     // Шаблонизация
-    let show_info = `You've got ${count} ${plural}.(${even} amount)\n`;
+    let show_info = `You've got ${count} ${plural(count)}.(${even(count)} amount)\n`;
 
     let recent = messages[parseInt(count) - 1].author;
+
     // Конкатенация
     show_info += `The recent one from ${recent}.`;
     console.log(show_info)
 
     var burger_menu = document.querySelector(".header__nav-input");
+
     burger_menu.addEventListener("click", () => {
         let header_nav = document.querySelector(".header__nav");
         let wrapper = document.querySelector(".wrapper")
@@ -154,64 +156,144 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let spamKeys = ["LoReM", "ipsum", "meSSage"].map(key => key.toLowerCase());
 
-    class Message {
-        constructor(author, message, date) {
-            this.author = author;
-            this.message = message;
-            this.date = date;
-            this.spam = false;
-
-            // A spam filter created with generator and yield
-            this.filter();
-
-            // A simple spam filter
-            // this.filterSpam();
-
-            this.filterNew();
-        }
-
-        diffInDays(difference) {
-            return Math.floor((difference / (24 * 3600 * 1000)));
-        }
-
-        filterNew() {
-            let date_arr = this.date.split(".").map(value => parseInt(value));
-
-            let current_date = new Date();
-            let delivery_date = new Date(Date.UTC(`20${date_arr[2]}`, date_arr[1], date_arr[0], 0, 0, 0));
-
-            let difference = this.diffInDays(current_date - delivery_date) > 31 ? this.new = false : this.new = true;
-        }
-
-        filter () {
-            let spam = this.fSpam();
-            for(let key in spamKeys) this.spam = spam.next().value
-        }
-
-        * fSpam () {
-            for(let key in spamKeys) yield this.message.includes(spamKeys[key])
-        }
-
-        filterSpam() {
-            spamKeys.map((key) => {
-                if(this.message.includes(key)) {
-                    this.spam = true;
-                    return;
-                }
-            })
-        }
-    }
+    let count_of_spam = 0;
+    let count_of_new = 0;
+    //
+    // class Message {
+    //     constructor(author, message, date) {
+    //         this.author = author;
+    //         this.message = message;
+    //         this.date = date;
+    //         this.spam = false;
+    //
+    //         // A spam filter created with generator and yield
+    //         this.filter();
+    //
+    //         // A simple spam filter
+    //         // this.filterSpam();
+    //
+    //         this.filterNew();
+    //
+    //         this.countOfNew();
+    //         this.countOfSpam();
+    //     }
+    //
+    //     diffInDays(difference) {
+    //         return Math.floor((difference / (24 * 3600 * 1000)));
+    //     }
+    //
+    //
+    //     filterNew() {
+    //         let date_arr = this.date.split(".").map(value => parseInt(value));
+    //
+    //         let current_date = new Date();
+    //         let delivery_date = new Date(Date.UTC(`20${date_arr[2]}`, date_arr[1], date_arr[0], 0, 0, 0));
+    //
+    //         let difference = this.diffInDays(current_date - delivery_date) > 31 ? this.new = false : this.new = true;
+    //     }
+    //
+    //     filter () {
+    //         let spam = this.fSpam();
+    //         for(let key in spamKeys) this.spam = spam.next().value
+    //     }
+    //
+    //     * fSpam () {
+    //         for(let key in spamKeys) yield this.message.includes(spamKeys[key])
+    //     }
+    //
+    //     countOfSpam() {
+    //         this.spam ? count_of_spam += 1 : 0;
+    //
+    //         // count_of_spam += +this.spam
+    //     }
+    //
+    //     countOfNew() {
+    //         this.new ? count_of_new += 1 : 0;
+    //     }
+    //
+    //     filterSpam() {
+    //         spamKeys.map((key) => {
+    //             if(this.message.includes(key)) {
+    //                 this.spam = true;
+    //                 return;
+    //             }
+    //         })
+    //     }
+    // }
 
     let classes = [];
 
-    for(let msg in messages) {
-        classes.push(new Message(
-            messages[msg].author,
-            messages[msg].content,
-            messages[msg].date
-        ))
+    // for(let msg in messages) {
+    //     classes.push(new Message(
+    //         messages[msg].author,
+    //         messages[msg].content,
+    //         messages[msg].date
+    //     ))
+    // }
+
+    class Message {
+        constructor(options) {
+            this.author = options.author;
+            this.content = options.content;
+            this.date = options.date;
+            this.selector = options.selector;
+        }
     }
+
+    class SpamMessage extends Message {
+        constructor(options) {
+            super(options);
+            this.spam = true;
+
+            this.setSpam();
+        }
+
+        setSpam() {
+            this.selector.classList.add("spam")
+        }
+    }
+
+    function checkSpam(msg) {
+        for(let key in spamKeys) {
+            if(msg.includes(spamKeys[key])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    block_messages.forEach((message) => {
+        let selector = message;
+        let author = message.querySelector(".messages-list__message-author h5").innerHTML;
+        let content = message.querySelector(".messages-list__message-brief p").innerHTML;
+        let date = message.querySelector(".messages-list__message-date p").innerHTML;
+        let spam = checkSpam(content);
+        if (spam) {
+            var msg = new SpamMessage({
+                author,
+                content,
+                date,
+                selector
+            })
+        }
+        // else if () {
+        //
+        // }
+        else {
+            var msg = new Message({
+                author,
+                content,
+                date,
+                selector
+            })
+        }
+
+        classes.push(msg)
+    })
     console.log(classes)
+    let extra_info = `${count_of_spam} spam ${plural(count_of_spam)}\n${count_of_new} new ${plural(count_of_new)}`;
+
+    console.log(extra_info);
     // console.log(inner)
 
     // document.addEventListener("click", (e) => {
