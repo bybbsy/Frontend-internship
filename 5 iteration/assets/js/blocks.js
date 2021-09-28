@@ -128,26 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-
-
-
-
     let javascript_link = document.querySelector(".header__nav-item.js-features");
-
-    // Arrow function with single param
-    // let get_js_link_inner = jslink => ajslink.querySelector("spanas");
-    //
-    // try {
-    //     let inner = get_js_link_inner(javascript_link);
-    //     console.log(inner)
-    // }
-    // catch (e) {
-    //     if(e instanceof TypeError) {
-    //         console.log("❌TypeError: ->", e.message);
-    //     } else {
-    //         throw UndefError(e);
-    //     }
-    // }
 
     function UndefError(e) {
         let error = new Error();
@@ -158,78 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let count_of_spam = 0;
     let count_of_new = 0;
-    //
-    // class Message {
-    //     constructor(author, message, date) {
-    //         this.author = author;
-    //         this.message = message;
-    //         this.date = date;
-    //         this.spam = false;
-    //
-    //         // A spam filter created with generator and yield
-    //         this.filter();
-    //
-    //         // A simple spam filter
-    //         // this.filterSpam();
-    //
-    //         this.filterNew();
-    //
-    //         this.countOfNew();
-    //         this.countOfSpam();
-    //     }
-    //
-    //     diffInDays(difference) {
-    //         return Math.floor((difference / (24 * 3600 * 1000)));
-    //     }
-    //
-    //
-    //     filterNew() {
-    //         let date_arr = this.date.split(".").map(value => parseInt(value));
-    //
-    //         let current_date = new Date();
-    //         let delivery_date = new Date(Date.UTC(`20${date_arr[2]}`, date_arr[1], date_arr[0], 0, 0, 0));
-    //
-    //         let difference = this.diffInDays(current_date - delivery_date) > 31 ? this.new = false : this.new = true;
-    //     }
-    //
-    //     filter () {
-    //         let spam = this.fSpam();
-    //         for(let key in spamKeys) this.spam = spam.next().value
-    //     }
-    //
-    //     * fSpam () {
-    //         for(let key in spamKeys) yield this.message.includes(spamKeys[key])
-    //     }
-    //
-    //     countOfSpam() {
-    //         this.spam ? count_of_spam += 1 : 0;
-    //
-    //         // count_of_spam += +this.spam
-    //     }
-    //
-    //     countOfNew() {
-    //         this.new ? count_of_new += 1 : 0;
-    //     }
-    //
-    //     filterSpam() {
-    //         spamKeys.map((key) => {
-    //             if(this.message.includes(key)) {
-    //                 this.spam = true;
-    //                 return;
-    //             }
-    //         })
-    //     }
-    // }
 
     let classes = [];
-
-    // for(let msg in messages) {
-    //     classes.push(new Message(
-    //         messages[msg].author,
-    //         messages[msg].content,
-    //         messages[msg].date
-    //     ))
-    // }
 
     class Message {
         constructor(options) {
@@ -262,12 +173,24 @@ document.addEventListener("DOMContentLoaded", () => {
         return false;
     }
 
+    function* logMessages(classes) {
+        for(let clss in classes) {
+            yield {
+                author : classes[clss].author,
+                content : classes[clss].content,
+                date: classes[clss].date,
+                spam : classes[clss].spam ?? false
+            }
+        }
+    }
+
     block_messages.forEach((message) => {
         let selector = message;
         let author = message.querySelector(".messages-list__message-author h5").innerHTML;
         let content = message.querySelector(".messages-list__message-brief p").innerHTML;
         let date = message.querySelector(".messages-list__message-date p").innerHTML;
         let spam = checkSpam(content);
+
         if (spam) {
             var msg = new SpamMessage({
                 author,
@@ -276,9 +199,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 selector
             })
         }
-        // else if () {
-        //
-        // }
         else {
             var msg = new Message({
                 author,
@@ -290,21 +210,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         classes.push(msg)
     })
+
     console.log(classes)
     let extra_info = `${count_of_spam} spam ${plural(count_of_spam)}\n${count_of_new} new ${plural(count_of_new)}`;
 
     console.log(extra_info);
-    // console.log(inner)
 
-    // document.addEventListener("click", (e) => {
-    //     console.log("DOCUMENT: ", e.target)
-    // }, true)
-    // javascript_link.addEventListener("click", (e) => {
-    //     console.log("BADGE: ", e.target)
-    // }, true)
+    let logs = logMessages(classes);
 
-    // inner.addEventListener("click", (e) => {
-    //     console.log("LINK: ", e.target)
-    // }, true)
+    for(let log of logs)
+    {
+        console.log(`Author: ${log.author}\nContent: ${log.content}\nDate: ${log.date}\nSpam: ${log.spam}`)
+    }
+
 })
 
