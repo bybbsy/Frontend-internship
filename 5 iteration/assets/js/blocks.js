@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let messages = new Object();
+    let messages = new Object;
 
     function recieveMessageInfo(block_messages) {
         block_messages.forEach((message, index) => {
@@ -13,13 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 date
             }
         })
-    }
-
-    console.log(messages)
-
+    } 
+    console.log(messages);
     function getObjectSize(object) {
         let count = null;
-
+        
         for(element in object) count++;
 
         // Object.entries(object).forEach(element => count++)
@@ -27,9 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     var block_messages = document.querySelectorAll(".messages-list__message-block");
-
+    
     try {
-        recieveMessageInfo(block_messages)
+        recieveMessageInfo(block_messages) 
     }
     catch (ex) {
         console.error(ex)
@@ -46,12 +44,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Шаблонизация
     let show_info = `You've got ${count} ${plural}.(${even} amount)\n`;
-
+     
     let recent = messages[parseInt(count) - 1].author;
     // Конкатенация
     show_info += `The recent one from ${recent}.`;
     console.log(show_info)
-
+    
     var burger_menu = document.querySelector(".header__nav-input");
     burger_menu.addEventListener("click", () => {
         let header_nav = document.querySelector(".header__nav");
@@ -90,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Here we go")
         const target = e.target;
         // e.stopPropagation();
-
+        
     })
 
     header__info_h.addEventListener("click", (e) => {
@@ -131,10 +129,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     let javascript_link = document.querySelector(".header__nav-item.js-features");
-
+    
     // Arrow function with single param
     // let get_js_link_inner = jslink => ajslink.querySelector("spanas");
-    //
+    
     // try {
     //     let inner = get_js_link_inner(javascript_link);
     //     console.log(inner)
@@ -151,67 +149,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let error = new Error();
         return `Some unexpected error has occured\nname:${e.name}\ncause:${e.message}\nstack:${e.stack}`;
     }
-
-    let spamKeys = ["LoReM", "ipsum", "meSSage"].map(key => key.toLowerCase());
-
-    class Message {
-        constructor(author, message, date) {
-            this.author = author;
-            this.message = message;
-            this.date = date;
-            this.spam = false;
-
-            // A spam filter created with generator and yield
-            this.filter();
-
-            // A simple spam filter
-            // this.filterSpam();
-
-            this.filterNew();
-        }
-
-        diffInDays(difference) {
-            return Math.floor((difference / (24 * 3600 * 1000)));
-        }
-
-        filterNew() {
-            let date_arr = this.date.split(".").map(value => parseInt(value));
-
-            let current_date = new Date();
-            let delivery_date = new Date(Date.UTC(`20${date_arr[2]}`, date_arr[1], date_arr[0], 0, 0, 0));
-
-            let difference = this.diffInDays(current_date - delivery_date) > 31 ? this.new = false : this.new = true;
-        }
-
-        filter () {
-            let spam = this.fSpam();
-            for(let key in spamKeys) this.spam = spam.next().value
-        }
-
-        * fSpam () {
-            for(let key in spamKeys) yield this.message.includes(spamKeys[key])
-        }
-
-        filterSpam() {
-            spamKeys.map((key) => {
-                if(this.message.includes(key)) {
-                    this.spam = true;
-                    return;
-                }
-            })
-        }
-    }
-
-    let classes = [];
-
-    for(let msg in messages) {
-        classes.push(new Message(
-            messages[msg].author,
-            messages[msg].content,
-            messages[msg].date
-        ))
-    }
-    console.log(classes)
     // console.log(inner)
 
     // document.addEventListener("click", (e) => {
