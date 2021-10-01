@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
 
-    function getObjectSize(object) {
+    function getObjectSize(object = {}) {
         let count = null;
 
         for(element in object) count++;
@@ -136,9 +136,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let spamKeys = ["LoReM", "ipsum", "meSSage"].map(key => key.toLowerCase());
 
-    let count_of_spam = 0;
-    let count_of_new = 0;
-
     let classes = [];
 
     class Message {
@@ -214,8 +211,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     processMessages(block_messages);
-
-    let extra_info = `${count_of_spam} spam ${plural(count_of_spam)}\n${count_of_new} new ${plural(count_of_new)}`;
 
     console.log(extra_info);
 
