@@ -212,8 +212,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     processMessages(block_messages);
 
-    console.log(extra_info);
-
     let msg = new Message({
         author : "Hiram Lodge",
         content: "Wanna some fizzle rocks?",
