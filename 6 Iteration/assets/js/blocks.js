@@ -311,7 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 let popUp = createPopUp("User with this email already exists, pick another email", "declined", popUpsList);
                 createdPopUps.push(popUp);
             }
-            else {
+            if(field.newUsername && field.newEmail) {
                 let popUp = createPopUp("New account has been successfully created", "successful", popUpsList);
                 createdPopUps.push(popUp);
             }
@@ -344,5 +344,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
         return popUp;
     }
+
+    let currentUrl = location.href;
+
+    let currentUrlRow = document.querySelector(".row__current-url .current-url__value");
+    currentUrlRow.innerHTML = currentUrl;
+    currentUrlRow.setAttribute("href", currentUrl)
+
+    let manageBack = document.querySelector(".modal-bom .manage-back");
+    let manageForward = document.querySelector(".modal-bom .manage-forward");
+    let manageBackClick = () => { history.back() };
+    let manageForwardClick = () => { history.forward() };
+
+    manageBack.addEventListener("click", manageBackClick);
+    manageForward.addEventListener("click", manageForwardClick);
+
+    document.cookie = "name=Jeff";
 })
 
