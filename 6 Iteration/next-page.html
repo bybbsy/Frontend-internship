@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="./assets/css/blocks-styles.css">
+    <link rel="stylesheet" href="./assets/css/next-page.css">
+</head>
+<body>
+<div class="wrapper">
+    <main class="main-content">
+        <div class="information">
+            <div class="information__title">
+                <h4>Hello, <span class="username">Stranger</span>, it's the next page</h4>
+            </div>
+            <form class="information__auth hidden">
+                <h5 class="information__auth-info">
+                    <span class="e-mail">mail@mail.ru</span>
+                    <input type="submit" class="exit-button" value="Log out">
+                </h5>
+            </form>
+            <div class="information__subtitle">
+                <h5>Here's some information about this page:</h5>
+            </div>
+            <div class="information__list">
+                <ul>
+                    <li>Current URL: <span class="url-value"></span></li>
+                    <li>Browser language: <span class="language-value"></span></li>
+                    <li>User Agent: <span class="ua-value"></span></li>
+                </ul>
+            </div>
+            <div class="information__go-back">
+                <div class="button">Go back</div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        function setPageInfo() {
+            let currentUrl = location.href;
+            let language = navigator.language;
+            let userAgent = navigator.userAgent;
+
+            let currentUrlSpan = document.querySelector(".url-value");
+            let languageSpan= document.querySelector(".language-value");
+            let userAgentSpan= document.querySelector(".ua-value");
+
+            currentUrlSpan.innerHTML = currentUrl;
+            languageSpan.innerHTML = language;
+            userAgentSpan.innerHTML = userAgent;
+        }
+
+        setPageInfo();
+
+        // Если запись в localstorage есть, то к information Добавляем auth, у information__info убираем hidden
+    })
+</script>
+</html>
