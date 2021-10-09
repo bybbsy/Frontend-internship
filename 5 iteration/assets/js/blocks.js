@@ -14,8 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 element
             }
         })
+<<<<<<< HEAD
 
         function getObjectSize(object) {
+=======
+    }
+
+    function getObjectSize(object = {}) {
+>>>>>>> 7940a4dd223d56389af64999e8126a91ea4f4b2a
         let count = null;
         
         for(element in object) count++;
@@ -129,9 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let spamKeys = ["LoReM", "ipsum", "meSSage"].map(key => key.toLowerCase());
 
-    let count_of_spam = 0;
-    let count_of_new = 0;
-
     let classes = [];
 
     class Message {
@@ -139,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
             this.author = options.author;
             this.content = options.content;
             this.date = options.date;
-            this.selector = options.selector;
+            this.selector = options.selector ?? "Selector hasn't been specified";
         }
     }
 
@@ -161,11 +164,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if(msg.includes(spamKeys[key])) {
                 return true;
             }
+            return false;
         }
-        return false;
     }
 
-    function* logMessages(classes) {
+    function* logMessages(...classes) {
         for(let clss in classes) {
             yield {
                 author : classes[clss].author,
@@ -176,39 +179,55 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    block_messages.forEach((message) => {
-        let selector = message;
-        let author = message.querySelector(".messages-list__message-author h5").innerHTML;
-        let content = message.querySelector(".messages-list__message-brief p").innerHTML;
-        let date = message.querySelector(".messages-list__message-date p").innerHTML;
-        let spam = checkSpam(content);
+    function processMessages(block_messages) {
+        block_messages.forEach((message) => {
+            let selector = message;
+            let author = message.querySelector(".messages-list__message-author h5").innerHTML;
+            let content = message.querySelector(".messages-list__message-brief p").innerHTML;
+            let date = message.querySelector(".messages-list__message-date p").innerHTML;
+            let spam = checkSpam(content);
 
-        if (spam) {
-            var msg = new SpamMessage({
-                author,
-                content,
-                date,
-                selector
-            })
-        }
-        else {
-            var msg = new Message({
-                author,
-                content,
-                date,
-                selector
-            })
-        }
+            if (spam) {
+                var msg = new SpamMessage({
+                    author,
+                    content,
+                    date,
+                    selector
+                })
+            }
+            else {
+                var msg = new Message({
+                    author,
+                    content,
+                    date,
+                    selector
+                })
+            }
 
-        classes.push(msg)
+            classes.push(msg)
+        })
+        console.log(classes)
+    }
+
+    processMessages(block_messages);
+
+    let msg = new Message({
+        author : "Hiram Lodge",
+        content: "Wanna some fizzle rocks?",
+        date : "12.05.2021"
     })
 
-    console.log(classes)
-    let extra_info = `${count_of_spam} spam ${plural(count_of_spam)}\n${count_of_new} new ${plural(count_of_new)}`;
+    // Spread
+    let allMessages = [...classes, msg];
 
-    console.log(extra_info);
+    // Rest
+    let logs = logMessages(...classes);
 
-    let logs = logMessages(classes);
+    let [first_msg, , third_msg, ...other] = classes;
+
+    // console.log(first_msg)
+    // console.log(third_msg)
+    // console.log(other)
 
     for(let log of logs)
     {
