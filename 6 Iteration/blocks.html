@@ -17,7 +17,7 @@
             <div class="container hf">
                 <div class="header__row">
                     <div class="header__info" id="header-info">
-                        <h3>Hey, it's a simple html webpage</h3>
+                        <h3>Hey, <span class="header-username"></span> it's a simple html webpage</h3>
                     </div>
                         <div class="header__nav-icon">
                             <input type="checkbox" class="header__nav-input" id="nav-bars">
@@ -27,7 +27,7 @@
                         </div>
                     <nav class="header__nav">
                             <a href="#" class="header__nav-item js-features">
-                                <span>JavaScript</span>
+                                <span>BOM</span>
                                 <div class="new-badge">New</div>
                             </a>
                             <a href="#sign-up" class="header__nav-item sign-up">Sign up</a>
@@ -36,7 +36,7 @@
                             <a href="https://www.google.com/" target="_blank" class="header__nav-item">Gallery</a>
                             <a href="#contact-us" class="header__nav-item">Contact</a>
                             <a href="https://www.google.com/" target="_blank" class="header__nav-item">Docs</a>
-
+                            <button class="header__nav-item exit-input hidden" type="submit">Log out </button>
                     </nav>
                 </div>
             </div>
@@ -99,21 +99,21 @@
                                 <picture class="item">
                                     <source srcset="./assets/img/image-50x50.jpg" media="(max-width: 1280px)">
                                     <img src="./assets/img/image-25x25.jpg" alt="" >
-                                    <img src="./assets/img/image-25x25.jpg"alt="" >
                                     <img src="./assets/img/image-25x25.jpg" alt="" >
-                                    <img src="./assets/img/image-25x25.jpg" alt="" >
-                                </picture>
-                                <picture class="item">
-                                    <source srcset="./assets/img/image-50x50.jpg" media="(max-width: 1280px)">
-                                    <img src="./assets/img/image-25x25.jpg" alt="" >
-                                    <img src="./assets/img/image-25x25.jpg"alt="" >
                                     <img src="./assets/img/image-25x25.jpg" alt="" >
                                     <img src="./assets/img/image-25x25.jpg" alt="" >
                                 </picture>
                                 <picture class="item">
                                     <source srcset="./assets/img/image-50x50.jpg" media="(max-width: 1280px)">
                                     <img src="./assets/img/image-25x25.jpg" alt="" >
-                                    <img src="./assets/img/image-25x25.jpg"alt="" >
+                                    <img src="./assets/img/image-25x25.jpg" alt="" >
+                                    <img src="./assets/img/image-25x25.jpg" alt="" >
+                                    <img src="./assets/img/image-25x25.jpg" alt="" >
+                                </picture>
+                                <picture class="item">
+                                    <source srcset="./assets/img/image-50x50.jpg" media="(max-width: 1280px)">
+                                    <img src="./assets/img/image-25x25.jpg" alt="" >
+                                    <img src="./assets/img/image-25x25.jpg" alt="" >
                                     <img src="./assets/img/image-25x25.jpg" alt="" >
                                     <img src="./assets/img/image-25x25.jpg" alt="" >
                                 </picture>
@@ -242,7 +242,7 @@
 <!--                    </div>-->
 <!--                </div>-->
             </div>
-            <form method="post" class="login-block">
+            <form method="post" class="login-block hidden">
                 <div class="login-block__signup-info">
                     <h4>Sign up</h4>
                 </div>
@@ -291,24 +291,20 @@
                     <input type="button" value="Decline" class="login-block__decline-btn">
                 </div>
             </form>
-        </div>
-        <div class="modal-bom">
-            <div class="row__current-url">
-                <p>Current URL: <a href="#" class="current-url__value">Nope:c</a></p>
-                <p><a href="next-page.html" class="current-url__next">Click here to achieve forward link! 🚀🚀🚀</a></p>
-            </div>
-            <div class="row__manage-history">
-                <div class="manage-back">
-                    <i class="fas fa-backward"></i>
-                    <div class="hint">Go to the previous page</div>
+            <div class="modal-bom hidden">
+                <div class="row__current-url">
+                    <p>Current URL: <a href="#" class="current-url__value">Nope:c</a></p>
+                    <p><a href="next-page.html" class="current-url__next">Click here to achieve forward link! 🚀🚀🚀</a></p>
                 </div>
-                <div class="manage-reload">
-                    <i class="fas fa-undo-alt"></i>
-                    <div class="hint">Reload this page</div>
-                </div>
-                <div class="manage-forward">
-                    <i class="fas fa-forward"></i>
-                    <div class="hint">Go the the next page</div>
+                <div class="row__manage-history">
+                    <div class="manage-back">
+                        <i class="fas fa-backward"></i>
+                        <div class="hint">Go to the previous page</div>
+                    </div>
+                    <div class="manage-forward">
+                        <i class="fas fa-forward"></i>
+                        <div class="hint">Go the the next page</div>
+                    </div>
                 </div>
             </div>
         </div>
