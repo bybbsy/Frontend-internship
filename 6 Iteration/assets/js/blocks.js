@@ -438,5 +438,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let urlNext = document.querySelector(".current-url__next");
     urlNext.addEventListener("click", () => { alert("You will be redirected to the next page")})
+
+    let textArea = document.querySelector(".reply-block__textarea");
+
+    // Receive the data of message text from session storage
+    textArea.innerHTML = sessionStorage.getItem("messageText");
+
+    // If user clicks oustide textarea, then typed data will be saved in the session storage
+    // And next time will appear in the textarea
+    textArea.addEventListener("blur", (e) => {
+        sessionStorage.setItem("messageText", e.target.value);
+    })
+
 })
 
