@@ -3,19 +3,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function recieveMessageInfo(block_messages) {
         block_messages.forEach((message, index) => {
+            let element = message.querySelector(".messages-list__message-author");
             let author = message.querySelector(".messages-list__message-author h5").innerHTML;
             let content = message.querySelector(".messages-list__message-brief p").innerHTML;
             let date = message.querySelector(".messages-list__message-date p").innerHTML;
-
             messages[index] = {
                 author,
                 content,
-                date
+                date,
+                element
             }
         })
-    } 
-    console.log(messages);
-    function getObjectSize(object) {
+
+        function getObjectSize(object) {
         let count = null;
         
         for(element in object) count++;
@@ -36,21 +36,18 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(messages)
     }
 
-    let count = getObjectSize(messages).toString();
+    let count = getObjectSize(messages);
 
     // Экранизация
-    let plural = count.match(/^1$/) ? "message" : "messages";
-    let even = count % 2 === 0 ? "even" : "odd";
+    let plural = (count) => count.toString().match(/^1$/) ? "message" : "messages";
+    let even = (count) => count % 2 === 0 ? "even" : "odd";
 
-    // Шаблонизация
-    let show_info = `You've got ${count} ${plural}.(${even} amount)\n`;
-     
-    let recent = messages[parseInt(count) - 1].author;
     // Конкатенация
     show_info += `The recent one from ${recent}.`;
     console.log(show_info)
     
     var burger_menu = document.querySelector(".header__nav-input");
+
     burger_menu.addEventListener("click", () => {
         let header_nav = document.querySelector(".header__nav");
         let wrapper = document.querySelector(".wrapper")
@@ -124,42 +121,97 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-
-
-
-
     let javascript_link = document.querySelector(".header__nav-item.js-features");
-    
-    // Arrow function with single param
-    // let get_js_link_inner = jslink => ajslink.querySelector("spanas");
-    
-    // try {
-    //     let inner = get_js_link_inner(javascript_link);
-    //     console.log(inner)
-    // }
-    // catch (e) {
-    //     if(e instanceof TypeError) {
-    //         console.log("❌TypeError: ->", e.message);
-    //     } else {
-    //         throw UndefError(e);
-    //     }
-    // }
-
     function UndefError(e) {
         let error = new Error();
         return `Some unexpected error has occured\nname:${e.name}\ncause:${e.message}\nstack:${e.stack}`;
     }
-    // console.log(inner)
 
-    // document.addEventListener("click", (e) => {
-    //     console.log("DOCUMENT: ", e.target)
-    // }, true)
-    // javascript_link.addEventListener("click", (e) => {
-    //     console.log("BADGE: ", e.target)
-    // }, true)
+    let spamKeys = ["LoReM", "ipsum", "meSSage"].map(key => key.toLowerCase());
 
-    // inner.addEventListener("click", (e) => {
-    //     console.log("LINK: ", e.target)
-    // }, true)
-})
+    let count_of_spam = 0;
+    let count_of_new = 0;
 
+    let classes = [];
+
+    class Message {
+        constructor(options) {
+            this.author = options.author;
+            this.content = options.content;
+            this.date = options.date;
+            this.selector = options.selector;
+        }
+    }
+
+    class SpamMessage extends Message {
+        constructor(options) {
+            super(options);
+            this.spam = true;
+
+            this.setSpam();
+        }
+
+        setSpam() {
+            this.selector.classList.add("spam")
+        }
+    }
+
+    function checkSpam(msg) {
+        for(let key in spamKeys) {
+            if(msg.includes(spamKeys[key])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function* logMessages(classes) {
+        for(let clss in classes) {
+            yield {
+                author : classes[clss].author,
+                content : classes[clss].content,
+                date: classes[clss].date,
+                spam : classes[clss].spam ?? false
+            }
+        }
+    }
+
+    block_messages.forEach((message) => {
+        let selector = message;
+        let author = message.querySelector(".messages-list__message-author h5").innerHTML;
+        let content = message.querySelector(".messages-list__message-brief p").innerHTML;
+        let date = message.querySelector(".messages-list__message-date p").innerHTML;
+        let spam = checkSpam(content);
+
+        if (spam) {
+            var msg = new SpamMessage({
+                author,
+                content,
+                date,
+                selector
+            })
+        }
+        else {
+            var msg = new Message({
+                author,
+                content,
+                date,
+                selector
+            })
+        }
+
+        classes.push(msg)
+    })
+
+    console.log(classes)
+    let extra_info = `${count_of_spam} spam ${plural(count_of_spam)}\n${count_of_new} new ${plural(count_of_new)}`;
+
+    console.log(extra_info);
+
+    let logs = logMessages(classes);
+
+    for(let log of logs)
+    {
+        console.log(`Author: ${log.author}\nContent: ${log.content}\nDate: ${log.date}\nSpam: ${log.spam}`)
+    }
+)}

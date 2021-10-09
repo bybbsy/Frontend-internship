@@ -61,7 +61,7 @@ h5 {
 
 .wrapper {
     position: relative;
-    background: #ccc; 
+    background: #ccc;
     height: 100vh;
     overflow-x: hidden;
 }
@@ -70,22 +70,22 @@ h5 {
     overflow: hidden;
 }
 .container {
-    width: 100%;  
-    display: flex; 
+    width: 100%;
+    display: flex;
     flex-flow: row wrap;
-    flex: 0 1 100%; 
+    flex: 0 1 100%;
     background: var(--main-background);
 }
 
-.container.hf {  
-    min-height: 50px; 
-    background-color: unset; 
+.container.hf {
+    min-height: 50px;
+    background-color: unset;
 }
 
 header {
     padding: 0 5px;
 }
- 
+
 main {
     display: flex;
     min-height: 100%;
@@ -107,7 +107,7 @@ main {
 .header__nav-list {
     display: flex;
 }
- 
+
 .header__nav-item {
     display: block;
     height: 25px;
@@ -136,7 +136,7 @@ main {
     background-size: 200%;
     transition: 0.5s all ease;
 }
- 
+
 
 .header__nav-item.sign-up:hover {
     background-position: left;
@@ -177,7 +177,7 @@ main {
 }
 .header__nav-item.sign-up::after {
     content: "";
-    position: absolute; 
+    position: absolute;
     right: 0;
     bottom: 0;
     width: 2px;
@@ -196,7 +196,7 @@ main {
 
 .header__nav-item::before {
     content: "";
-    position: absolute; 
+    position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -223,7 +223,7 @@ main {
 .header__nav-bars {
     font-size: 2em;
 }
- 
+
 
 header, footer {
     background-color: rgb(25, 153, 175);
@@ -234,13 +234,13 @@ header, footer {
     display: flex;
     flex: 2 1;
     flex-flow: row wrap;
-    margin: 5px; 
+    margin: 5px;
 }
 
 .red-block {
     display: flex;
     flex-direction: column;
-    background: red; 
+    background: red;
     flex: 2 0 100%;
     margin-bottom: 5px;
     min-height: 200px;
@@ -281,7 +281,7 @@ header, footer {
     height: 100px;
     background-color: rgba(121, 187, 121, 0.582);
     flex: 1 1 100%;
-    margin: 20px 0; 
+    margin: 20px 0;
     flex-wrap: wrap;
     align-items: center;
 }
@@ -313,20 +313,38 @@ header, footer {
     height: 50px;
     background-color: tomato;
     border-radius: 25px;
-    
+
 }
 
-.messages-list__message-block.active::after {
-    content: "";
+.messages-list__message-block.spam::after {
+    content: "spam";
     position: absolute;
     top: 0;
-    left: 0;
     right: 0;
-    bottom: 0;
-    margin: -1px;
-    border-radius: 25px;
-    border: 2px solid #111;
+    margin-top: -0.5em;
+    margin-right: 1.5em;
+    display: block;
+    font-size: 0.8em;
+    line-height: 0.8em;
+    padding: 2px 5px;
+    background-color: #666;
+    border-radius: 4px;
+    border: 1px solid teal;
+    color: white;
+    height: 1.3em
 }
+
+/*.messages-list__message-block.active::after {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    margin: -1px;*/
+/*    border-radius: 25px;*/
+/*    border: 2px solid #111;*/
+/*}*/
 
 .messages-list__block-icon {
     display: flex;
@@ -378,7 +396,7 @@ header, footer {
 .messages-list__message-date {
     display: flex;
 }
-.messages-list__message-date p { 
+.messages-list__message-date p {
     margin: auto 15px auto 0;
     font-size: 0.8em;
 }
@@ -409,11 +427,11 @@ header, footer {
 }
 
 .message-block__top-row a {
-    display: flex; 
+    display: flex;
     font-size: 0.8em;
     font-weight: 400;
     color: rgb(97, 97, 97);
-     
+
 }
 .messages-block__message-date {
     margin-left: 5px;
@@ -471,7 +489,7 @@ header, footer {
 
 .reply-block__buttons {
     position: relative;
-    display: flex; 
+    display: flex;
     justify-content: flex-end;
     align-items: center;
     row-gap: 25px;
@@ -483,7 +501,7 @@ header, footer {
 }
 
 .reply-block__calendar.hidden {
-    width: 0; 
+    width: 0;
     opacity: 0;
     overflow-x: hidden;
 }
@@ -492,18 +510,18 @@ header, footer {
     height: 0;
 }
 
-.reply-block__calendar {  
+.reply-block__calendar {
     display: flex;
     flex: 1;
     transition: 1s all ease;
-    overflow-x: hidden;  
+    overflow-x: hidden;
 }
 
-.reply-block__calendar input { 
+.reply-block__calendar input {
     border: unset;
-    outline: unset; 
-    width: 100%; 
-    font-family: Roboto, sans-serif; 
+    outline: unset;
+    width: 100%;
+    font-family: Roboto, sans-serif;
 }
 
 .reply-block__submit,
@@ -549,7 +567,7 @@ header, footer {
     opacity: 0;
 }
 
-.checkmark { 
+.checkmark {
     height: 25px;
     width: 25px;
     background-color: tomato;
@@ -609,7 +627,7 @@ header, footer {
     grid-template-columns: minmax(270px, 350px);
     grid-template-rows: repeat(6, 50px) 70px;
     row-gap: 15px;
-    
+
     border-radius: 15px;
 }
 
@@ -626,7 +644,7 @@ header, footer {
     border-radius: 15px;
 }
 
- 
+
 
 .login-block__signup-info {
     display: grid;
@@ -692,7 +710,7 @@ header, footer {
     opacity: 0;
 }
 
-.radiomark { 
+.radiomark {
     height: 25px;
     width: 25px;
     background-color: #eee;
@@ -728,7 +746,7 @@ header, footer {
     width: 10px;
     height: 15px;
     border: solid white;
-    border-width: 0 3px 3px 0; 
+    border-width: 0 3px 3px 0;
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
@@ -742,7 +760,7 @@ header, footer {
     justify-self: center;
 }
 .login-block__country-block {
-    display: grid; 
+    display: grid;
 }
 
 .login-block__country-select {
@@ -804,7 +822,7 @@ header, footer {
     border: unset;
     background-color: tomato;
     font-size: 1.15em;
-    cursor: pointer; 
+    cursor: pointer;
     transition: 1s all ease;
 }
 
@@ -914,7 +932,7 @@ header, footer {
 
     .main {
         flex: 1 1 100%;
-        order: 2;  
+        order: 2;
     }
 
     .green-and-pink {
@@ -939,9 +957,9 @@ header, footer {
     .header__nav {
         position: absolute;
         top: 0;
-        right: -100%; 
+        right: -100%;
         margin-top: 60px;
-        flex-direction: column; 
+        flex-direction: column;
         width: 100%;
         height: 100%;
         background: tomato;
@@ -953,7 +971,7 @@ header, footer {
     .header__nav-item.js-features {
         display: none;
     }
-    
+
     .header__nav-item.sign-up {
         background: unset;
         background-size: unset;
@@ -980,7 +998,7 @@ header, footer {
         margin-left: auto;
         margin-right: 0 ;
     }
-    
+
     .header__nav-item::after {
         display: none;
     }
@@ -998,5 +1016,5 @@ header, footer {
     .reply-block__custom-date label {
         margin-right: 5px;
     }
-    
+
 }
