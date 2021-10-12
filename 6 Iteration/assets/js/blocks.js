@@ -447,7 +447,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // If user clicks oustide textarea, then typed data will be saved in the session storage
     // And next time will appear in the textarea
     textArea.addEventListener("blur", (e) => {
-        debugger
+
         sessionStorage.setItem("messageText", e.target.value);
     })
 

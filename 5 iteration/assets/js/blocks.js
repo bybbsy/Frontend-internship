@@ -223,5 +223,4 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(`Author: ${log.author}\nContent: ${log.content}\nDate: ${log.date}\nSpam: ${log.spam}`)
     }
 })
-
 )}
