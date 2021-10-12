@@ -80,4 +80,6 @@
     border: unset;
     cursor: pointer;
     border-radius: 2px;
+    text-align: center;
+    line-height: 2em;
 }

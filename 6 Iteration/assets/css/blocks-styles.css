@@ -321,6 +321,7 @@ header, footer {
     flex-direction: column;
     padding: 5px;
     align-items: center;
+    z-index: 1;
 }
 
 .messages-list {
@@ -1129,7 +1130,10 @@ header, footer {
     }
 
     .header__nav-item.js-features {
-        display: none;
+        background: unset;
+    }
+    .header__nav-item.js-features .new-badge {
+         display: none;
     }
 
     .header__nav-item.sign-up {

@@ -90,6 +90,16 @@
             localStorage.removeItem("e-mail");
             location.reload();
         }
+
+        history.pushState(
+            {
+                page : "next page",
+                href: location.href,
+                language: navigator.language
+            },
+            "next-page-state",
+            location.href
+        )
     })
 </script>
 </html>

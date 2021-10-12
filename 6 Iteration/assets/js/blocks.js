@@ -441,6 +441,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let textArea = document.querySelector(".reply-block__textarea");
 
+    history.pushState(
+        {
+            page : "main page",
+            href: location.href,
+            language: navigator.language
+        },
+        "main-page-state",
+        location.href
+    )
+
     // Receive the data of message text from session storage
     textArea.innerHTML = sessionStorage.getItem("messageText");
 
