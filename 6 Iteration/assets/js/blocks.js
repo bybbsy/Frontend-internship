@@ -72,14 +72,17 @@ document.addEventListener("DOMContentLoaded", () => {
     signup_btn.addEventListener("click", () => {
         let modal = document.querySelector(".modal");
         let wrapper = document.querySelector(".wrapper")
+        let loginBlock = modal.querySelector(".login-block");
 
         modal.classList.toggle("hidden")
         wrapper.classList.toggle("no-scroll");
+        loginBlock.classList.toggle("hidden");
 
         let decline_btn = modal.querySelector(".login-block__decline-btn");
         decline_btn.addEventListener("click", () => {
             modal.classList.add("hidden");
             wrapper.classList.remove("no-scroll");
+            loginBlock.classList.add("hidden")
         })
     })
 
@@ -262,27 +265,76 @@ document.addEventListener("DOMContentLoaded", () => {
     // Authorization
 
     let loginBlock = document.querySelector(".login-block");
+    let modal = document.querySelector(".modal");
+
+    let exitButton = document.querySelector(".header__nav-item.exit-input");
+
     let signUpSubmitButton = loginBlock.querySelector(".login-block__signup-btn");
 
-    function receiveData(e) {
-        e.preventDefault()
-        console.log(e)
-    }
+    // Sets initial user info (Go to the function declaration for the details)
+    setUser();
 
-    loginBlock.addEventListener("submit", (e) => {
+    loginBlock.addEventListener("submit", submitUserInfo.bind(event))
+
+    // Submits user's info on submit event
+    function submitUserInfo(e) {
         e.preventDefault()
         const rawData = new FormData(e.target)
         const data = Object.fromEntries(rawData.entries());
-
         let checkedFields = checkFormFields({
             username : data.username,
             email : data.email
         });
 
+        // If all values are OK, then update local storage, set user's info and change the design of the web page. Reload it in the end
+        if (checkedFields[0].newUsername && checkedFields[0].newEmail) {
+            updateLocaleStorage(data);
+            setUser();
+
+            setTimeout(() => {
+                loginBlock.classList.toggle("hidden");
+                modal.classList.toggle("hidden");
+                location.reload();
+            }, 1500)
+        }
+
+        // Shows any pop up
         showPopUps(checkedFields);
+    }
 
-    })
+    // Sets user info on the current page
+    function setUser() {
+        let [username, email] = getUserData();
+        if(username && email) {
+            let usernameSpan = document.querySelector(".header-username");
+            usernameSpan.innerHTML = username;
 
+            let signUpButton = document.querySelector(".header__nav-item.sign-up");
+
+            exitButton.classList.remove("hidden");
+            signUpButton.classList.add("hidden")
+        }
+        else {
+            exitButton.classList.add("hidden");
+        }
+    }
+
+    // Get user data on the current page
+    function getUserData() {
+        const localUsername = localStorage.getItem("username");
+        const localEmail = localStorage.getItem("e-mail");
+        return [localUsername, localEmail];
+    }
+
+    // Set items in the locale storage
+    function updateLocaleStorage(userInfo) {
+        if(userInfo.email && userInfo.username) {
+            localStorage.setItem("e-mail", userInfo.email);
+            localStorage.setItem("username", userInfo.username);
+        }
+    }
+
+    // Checks whether fields are new or not
     function checkFormFields(rest) {
         for(let user of approvedUsers) {
             if(user.username === rest.username || user.email === rest.email) {
@@ -298,6 +350,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }];
     }
 
+    // Shows different pop ups (successed or declined authorization)
     function showPopUps(checkedFields) {
         let popUpsList = document.querySelector(".pop-up__list");
         let createdPopUps = [];
@@ -328,6 +381,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
 
+    // Creates pop up
     function createPopUp(text, type = "successful", popUpsList) {
         let popUp = document.createElement("div");
         popUp.className = `pop-up ${type}`;
@@ -345,6 +399,27 @@ document.addEventListener("DOMContentLoaded", () => {
         return popUp;
     }
 
+    let modalBom = document.querySelector(".modal-bom");
+    let bomLink = document.querySelector(".header__nav-item.js-features");
+
+    bomLink.addEventListener("click", function () {
+        let wrapper = document.querySelector(".wrapper");
+        let modal = document.querySelector(".modal");
+
+        modal.classList.toggle("hidden");
+        modalBom.classList.toggle("hidden")
+        wrapper.classList.toggle("no-scroll");
+
+    })
+
+    exitButton.addEventListener("click", userLogOut);
+
+    function userLogOut() {
+        localStorage.removeItem("username");
+        localStorage.removeItem("e-mail");
+        location.reload();
+    }
+
     let currentUrl = location.href;
 
     let currentUrlRow = document.querySelector(".row__current-url .current-url__value");
@@ -359,6 +434,22 @@ document.addEventListener("DOMContentLoaded", () => {
     manageBack.addEventListener("click", manageBackClick);
     manageForward.addEventListener("click", manageForwardClick);
 
-    document.cookie = "name=Jeff";
+    document.cookie = "name=Jeff;";
+
+    let urlNext = document.querySelector(".current-url__next");
+    urlNext.addEventListener("click", () => { alert("You will be redirected to the next page")})
+
+    let textArea = document.querySelector(".reply-block__textarea");
+
+    // Receive the data of message text from session storage
+    textArea.innerHTML = sessionStorage.getItem("messageText");
+
+    // If user clicks oustide textarea, then typed data will be saved in the session storage
+    // And next time will appear in the textarea
+    textArea.addEventListener("blur", (e) => {
+        debugger
+        sessionStorage.setItem("messageText", e.target.value);
+    })
+
 })
 

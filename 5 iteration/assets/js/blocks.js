@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let messages = new Object();
+    let messages = new Object;
 
     function recieveMessageInfo(block_messages) {
         block_messages.forEach((message, index) => {
@@ -13,8 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 date,
                 element
             }
-        })
-    }
 
     function getObjectSize(object = {}) {
         let count = null;
@@ -42,11 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Экранизация
     let plural = (count) => count.toString().match(/^1$/) ? "message" : "messages";
     let even = (count) => count % 2 === 0 ? "even" : "odd";
-
-    // Шаблонизация
-    let show_info = `You've got ${count} ${plural(count)}.(${even(count)} amount)\n`;
-
-    let recent = messages[parseInt(count) - 1].author;
 
     // Конкатенация
     show_info += `The recent one from ${recent}.`;
@@ -128,7 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     let javascript_link = document.querySelector(".header__nav-item.js-features");
-
     function UndefError(e) {
         let error = new Error();
         return `Some unexpected error has occured\nname:${e.name}\ncause:${e.message}\nstack:${e.stack}`;
@@ -232,3 +224,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 })
 
+)}
