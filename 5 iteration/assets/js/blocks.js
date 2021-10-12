@@ -165,8 +165,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if(msg.includes(spamKeys[key])) {
                 return true;
             }
-            return false;
         }
+        return false;
     }
 
     function* logMessages(...classes) {
@@ -188,21 +188,17 @@ document.addEventListener("DOMContentLoaded", () => {
             let date = message.querySelector(".messages-list__message-date p").innerHTML;
             let spam = checkSpam(content);
 
+            let message_obj = {
+                author,
+                content,
+                date,
+                selector
+            }
             if (spam) {
-                var msg = new SpamMessage({
-                    author,
-                    content,
-                    date,
-                    selector
-                })
+                var msg = new SpamMessage(message_obj)
             }
             else {
-                var msg = new Message({
-                    author,
-                    content,
-                    date,
-                    selector
-                })
+                var msg = new Message(message_obj)
             }
 
             classes.push(msg)
@@ -234,6 +230,5 @@ document.addEventListener("DOMContentLoaded", () => {
     {
         console.log(`Author: ${log.author}\nContent: ${log.content}\nDate: ${log.date}\nSpam: ${log.spam}`)
     }
-
 })
 
