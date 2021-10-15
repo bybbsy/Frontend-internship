@@ -26,17 +26,17 @@
                             </label>
                         </div>
                     <nav class="header__nav">
-                            <a href="#" class="header__nav-item js-features">
-                                <span>BOM</span>
-                                <div class="new-badge">New</div>
-                            </a>
-                            <a href="#sign-up" class="header__nav-item sign-up">Sign up</a>
-                            <a href="https://www.google.com/" target="_blank" class="header__nav-item">Projects</a>
-                            <a href="https://www.google.com/" target="_blank" class="header__nav-item">History</a>
-                            <a href="https://www.google.com/" target="_blank" class="header__nav-item">Gallery</a>
-                            <a href="#contact-us" class="header__nav-item">Contact</a>
-                            <a href="https://www.google.com/" target="_blank" class="header__nav-item">Docs</a>
-                            <button class="header__nav-item exit-input hidden" type="submit">Log out </button>
+                        <a href="#" class="header__nav-item git-hub">
+                            <span>GitHub</span>
+                            <div class="new-badge">new</div>
+                        </a>
+                        <a href="#sign-up" class="header__nav-item sign-up">Sign up</a>
+                        <a href="#" class="header__nav-item bom">BOM</a>
+                        <a href="https://www.google.com/" target="_blank" class="header__nav-item">Projects</a>
+                        <a href="https://www.google.com/" target="_blank" class="header__nav-item">History</a>
+                        <a href="https://www.google.com/" target="_blank" class="header__nav-item">Gallery</a>
+                        <a href="https://www.google.com/" target="_blank" class="header__nav-item">Docs</a>
+                        <button class="header__nav-item exit-input hidden" type="submit">Log out </button>
                     </nav>
                 </div>
             </div>
@@ -234,7 +234,7 @@
                 </div>
             </div>
         </footer>
-        <div class="modal hidden">
+        <div class="modal">
             <div class="pop-up__list">
 <!--                <div class="pop-up">-->
 <!--                    <div class="pop-up__wrapper">-->
@@ -305,6 +305,29 @@
                         <i class="fas fa-forward"></i>
                         <div class="hint">Go the the next page</div>
                     </div>
+                </div>
+            </div>
+            <div class="modal-github">
+                <div class="top-row">
+                    <h5>GitHub Api</h5>
+                </div>
+                <div class="input-row">
+                    <div class="input-username">
+                        <input type="text" placeholder="Enter username">
+                    </div>
+                    <div class="input-find">
+                        <input type="submit" value="Search">
+                    </div>
+                </div>
+                <div class="result-row">
+                    <p>Repos list:</p>
+                    <ul class="repos-list">
+                        <li>
+                            <span class="repos-name">Name: <span>repo-name</span></span>
+                            <a href="#" class="repos-link">Link</a>
+                            <span class="copy-link">Copy</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
