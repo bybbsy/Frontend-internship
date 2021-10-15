@@ -400,7 +400,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     let modalBom = document.querySelector(".modal-bom");
-    let bomLink = document.querySelector(".header__nav-item.js-features");
+    let bomLink = document.querySelector(".header__nav-item.bom");
 
     bomLink.addEventListener("click", function () {
         let wrapper = document.querySelector(".wrapper");
@@ -441,16 +441,105 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let textArea = document.querySelector(".reply-block__textarea");
 
+    history.pushState(
+        {
+            page : "main page",
+            href: location.href,
+            language: navigator.language
+        },
+        "main-page-state",
+        location.href
+    )
+
     // Receive the data of message text from session storage
     textArea.innerHTML = sessionStorage.getItem("messageText");
-    
+
     // If user clicks oustide textarea, then typed data will be saved in the session storage
     // And next time will appear in the textarea
     textArea.addEventListener("blur", (e) => {
         sessionStorage.setItem("messageText", e.target.value);
     })
 
+    // Fetch
 
+    function catchError(reason) {
+        console.error("Something went wrong:", new Error(reason))
+    }
 
+    function fetchGitHubPromise(url="https://api.github.com/users/bybbsy/repos") {
+        return new Promise((resolve, reject) => {
+            const data = fetch(url)
+                .then(response => response.ok ? response.json() : Promise.reject(new Error("")))
+            resolve(data)
+        })
+    }
+
+    async function fetchGitHubAwait(url="https://api.github.com/users/bybbsy/repos") {
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            return data;
+        }
+        catch (error) {
+            catchError(reason)
+        }
+    }
+
+    let modalGitHub = document.querySelector(".modal-github")
+    let findUserButton = modalGitHub.querySelector(".input-find input");
+    let findUserInput = modalGitHub.querySelector(".input-username input");
+    let reposList = modalGitHub.querySelector(".repos-list");
+
+    findUserButton.addEventListener("click", () => {
+        clearReposList(reposList);
+
+        const user = findUserInput.value;
+        const URL = `https://api.github.com/users/${user}/repos`;
+        console.log(user)
+        let data = fetchGitHubPromise(URL)
+            .then(data => {
+                data.forEach(repo => {
+                    let link = createReposLink(repo.name, repo.clone_url);
+                    reposList.appendChild(link);
+                })
+            })
+    })
+
+    function clearReposList(reposList) {
+        let repos = reposList.querySelectorAll("li");
+        repos.forEach(repo => reposList.removeChild(repo));
+    }
+    function createReposLink(name="empty", url="") {
+        const li = document.createElement("li");
+
+        const repos_name = document.createElement("span");
+        repos_name.className = "repos-name";
+        repos_name.innerHTML = name;
+
+        const repos_link = document.createElement("a");
+        repos_link.className = "repos-link";
+        repos_link.innerHTML = "Link";
+        repos_link.setAttribute("href", url);
+
+        const repos_copy = document.createElement("span");
+        repos_copy.className = "copy-link";
+        repos_copy.innerHTML = "Copy";
+
+        li.appendChild(repos_name);
+        li.appendChild(repos_link);
+        li.appendChild(repos_copy);
+
+        return li;
+    }
+    // fetchGitHubPromise()
+    //     .then(data => console.log(data))
+
+    // let data = fetchGitHubAwait().then(data => console.log(data))
+
+    // const data = fetch(url)
+    //     .then(response => response)
+    //     .catch(e => {
+    //         console.error(new Error("Something went wrong:", e))
+    //     })
 })
 
