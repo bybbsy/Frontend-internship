@@ -486,11 +486,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    let gitHubLink = document.querySelector(".header__nav-item.git-hub");
+
     let modalGitHub = document.querySelector(".modal-github")
     let findUserButton = modalGitHub.querySelector(".input-find input");
     let findUserInput = modalGitHub.querySelector(".input-username input");
     let reposList = modalGitHub.querySelector(".repos-list");
+    let modalGitHubClose = modalGitHub.querySelector(".bottom-row button");
 
+    gitHubLink.addEventListener("click", () => {
+        let wrapper = document.querySelector(".wrapper");
+        modal.classList.toggle("hidden");
+        wrapper.classList.toggle("no-scroll");
+        modalGitHub.classList.toggle("hidden");
+    })
     findUserButton.addEventListener("click", () => {
         clearReposList(reposList);
 
@@ -506,10 +515,18 @@ document.addEventListener("DOMContentLoaded", () => {
             })
     })
 
+    modalGitHubClose.addEventListener("click", () => {
+        let wrapper = document.querySelector(".wrapper");
+        modal.classList.add("hidden");
+        wrapper.classList.remove("no-scroll");
+        modalGitHub.classList.add("hidden");
+    })
+
     function clearReposList(reposList) {
         let repos = reposList.querySelectorAll("li");
         repos.forEach(repo => reposList.removeChild(repo));
     }
+
     function createReposLink(name="empty", url="") {
         const li = document.createElement("li");
 
