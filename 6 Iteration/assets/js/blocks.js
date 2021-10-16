@@ -466,7 +466,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Something went wrong:", new Error(reason))
     }
 
-    function fetchGitHubPromise(url="https://api.github.com/users/bybbsy/re") {
+    function fetchGitHubPromise(url="https://api.github.com/users/bybbsy/repos") {
         return new Promise((resolve, reject) => {
             const data = fetch(url)
                 .then(response => response.ok ? response.json() : Promise.reject(catchError()))
@@ -474,7 +474,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
 
-    async function fetchGitHubAwait(url="https://api.github.com/users/bybbsy/res") {
+    async function fetchGitHubAwait(url="https://api.github.com/users/bybbsy/repos") {
         try {
             const response = await fetch(url);
             const data = await response.json();
@@ -505,7 +505,7 @@ document.addEventListener("DOMContentLoaded", () => {
     findUserButton.addEventListener("click", () => {
         loader.classList.toggle("hidden")
         const user = findUserInput.value;
-        const URL = `https://api.github.com/users/${user}/rep`;
+        const URL = `https://api.github.com/users/${user}/repos`;
         console.log(user)
         let data = fetchGitHubPromise(URL)
             .then(data => updateReposList(reposList, data))
@@ -550,7 +550,7 @@ document.addEventListener("DOMContentLoaded", () => {
         repos_copy.className = "copy-link";
         repos_copy.innerHTML = "Copy";
 
-        navigator.clipboard.writeText(url);
+        repos_copy.addEventListener("click", () => {navigator.clipboard.writeText(url) })
 
         li.appendChild(repos_name);
         li.appendChild(repos_link);

@@ -1160,7 +1160,6 @@ header, footer {
     transition: 0.2ms all ease;
     cursor: pointer;
 }
-<<<<<<< HEAD
 .copy-link:active {
     background-color: teal;
 }
