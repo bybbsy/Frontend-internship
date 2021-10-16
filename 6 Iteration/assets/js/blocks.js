@@ -490,25 +490,32 @@ document.addEventListener("DOMContentLoaded", () => {
     let findUserInput = modalGitHub.querySelector(".input-username input");
     let reposList = modalGitHub.querySelector(".repos-list");
 
-    findUserButton.addEventListener("click", () => {
-        clearReposList(reposList);
+    let loader = modalGitHub.querySelector(".lds-spinner");
 
+    findUserButton.addEventListener("click", () => {
+        loader.classList.toggle("hidden")
         const user = findUserInput.value;
         const URL = `https://api.github.com/users/${user}/repos`;
         console.log(user)
         let data = fetchGitHubPromise(URL)
-            .then(data => {
-                data.forEach(repo => {
-                    let link = createReposLink(repo.name, repo.clone_url);
-                    reposList.appendChild(link);
-                })
-            })
+            .then(data => updateReposList(reposList, data))
     })
 
     function clearReposList(reposList) {
         let repos = reposList.querySelectorAll("li");
         repos.forEach(repo => reposList.removeChild(repo));
     }
+
+    // Removes old elements and creates new ones
+    function updateReposList(reposList, data) {
+        clearReposList(reposList);
+        data.forEach(repos => {
+            let link = createReposLink(repos.name, repos.clone_url);
+            reposList.appendChild(link);
+        })
+        loader.classList.toggle("hidden");
+    }
+
     function createReposLink(name="empty", url="") {
         const li = document.createElement("li");
 
@@ -520,10 +527,13 @@ document.addEventListener("DOMContentLoaded", () => {
         repos_link.className = "repos-link";
         repos_link.innerHTML = "Link";
         repos_link.setAttribute("href", url);
+        repos_link.setAttribute("target", "_blank");
 
         const repos_copy = document.createElement("span");
         repos_copy.className = "copy-link";
         repos_copy.innerHTML = "Copy";
+
+        navigator.clipboard.writeText(url);
 
         li.appendChild(repos_name);
         li.appendChild(repos_link);
