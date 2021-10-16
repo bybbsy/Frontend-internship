@@ -462,19 +462,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Fetch
 
-    function catchError(reason) {
+    function catchError(reason = "Reason is not defined") {
         console.error("Something went wrong:", new Error(reason))
     }
 
-    function fetchGitHubPromise(url="https://api.github.com/users/bybbsy/repos") {
+    function fetchGitHubPromise(url="https://api.github.com/users/bybbsy/re") {
         return new Promise((resolve, reject) => {
             const data = fetch(url)
-                .then(response => response.ok ? response.json() : Promise.reject(new Error("")))
+                .then(response => response.ok ? response.json() : Promise.reject(catchError()))
             resolve(data)
         })
     }
 
-    async function fetchGitHubAwait(url="https://api.github.com/users/bybbsy/repos") {
+    async function fetchGitHubAwait(url="https://api.github.com/users/bybbsy/res") {
         try {
             const response = await fetch(url);
             const data = await response.json();
@@ -485,20 +485,37 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    let gitHubLink = document.querySelector(".header__nav-item.git-hub");
+
     let modalGitHub = document.querySelector(".modal-github")
     let findUserButton = modalGitHub.querySelector(".input-find input");
     let findUserInput = modalGitHub.querySelector(".input-username input");
     let reposList = modalGitHub.querySelector(".repos-list");
+    let modalGitHubClose = modalGitHub.querySelector(".bottom-row button");
 
     let loader = modalGitHub.querySelector(".lds-spinner");
+
+    gitHubLink.addEventListener("click", () => {
+        let wrapper = document.querySelector(".wrapper");
+        modal.classList.toggle("hidden");
+        wrapper.classList.toggle("no-scroll");
+        modalGitHub.classList.toggle("hidden");
+    })
 
     findUserButton.addEventListener("click", () => {
         loader.classList.toggle("hidden")
         const user = findUserInput.value;
-        const URL = `https://api.github.com/users/${user}/repos`;
+        const URL = `https://api.github.com/users/${user}/rep`;
         console.log(user)
         let data = fetchGitHubPromise(URL)
             .then(data => updateReposList(reposList, data))
+    })
+
+    modalGitHubClose.addEventListener("click", () => {
+        let wrapper = document.querySelector(".wrapper");
+        modal.classList.add("hidden");
+        wrapper.classList.remove("no-scroll");
+        modalGitHub.classList.add("hidden");
     })
 
     function clearReposList(reposList) {
