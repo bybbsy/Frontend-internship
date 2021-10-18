@@ -462,26 +462,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Fetch
 
-    function catchError(reason = "Reason is not defined") {
-        console.error("Something went wrong:", new Error(reason))
+    function catchError(reason = "Error code is not defined") {
+        throw new Error(`Something went wrong. Error code: ${reason}`)
     }
 
+    // The result of both promise and async/await is the same
+
+    // Using promise with then to receive the result
     function fetchGitHubPromise(url="https://api.github.com/users/bybbsy/repos") {
         return new Promise((resolve, reject) => {
             const data = fetch(url)
-                .then(response => response.ok ? response.json() : Promise.reject(catchError()))
-            resolve(data)
+                .then(response => response.ok ? response.json() : Promise.reject(response.status))
+                .then(data => resolve(data))
+                .catch(error => catchError(error))
         })
     }
 
+    // Use async/await to revceive the result
     async function fetchGitHubAwait(url="https://api.github.com/users/bybbsy/repos") {
         try {
             const response = await fetch(url);
-            const data = await response.json();
+            const data = response.ok ? await response.json() : await Promise.reject(response.status)
             return data;
         }
         catch (error) {
-            catchError(reason)
+            catchError(error)
         }
     }
 
@@ -506,7 +511,6 @@ document.addEventListener("DOMContentLoaded", () => {
         loader.classList.toggle("hidden")
         const user = findUserInput.value;
         const URL = `https://api.github.com/users/${user}/repos`;
-        console.log(user)
         let data = fetchGitHubPromise(URL)
             .then(data => updateReposList(reposList, data))
     })
@@ -524,7 +528,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Removes old elements and creates new ones
-    function updateReposList(reposList, data) {
+    function updateReposList(reposList, data = []) {
         clearReposList(reposList);
         data.forEach(repos => {
             let link = createReposLink(repos.name, repos.clone_url);
