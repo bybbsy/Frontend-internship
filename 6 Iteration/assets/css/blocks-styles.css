@@ -1245,6 +1245,20 @@ header, footer {
     transform: rotate(330deg);
     animation-delay: 0s;
 }
+
+.repos-not-found {
+    width: 125px;
+    height: 25px;
+    background-color: tomato;
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
+    line-height: 1.2em;
+}
+
+.repos-not-found.hidden {
+    display: none;
+}
 @keyframes lds-spinner {
     0% {
         opacity: 1;

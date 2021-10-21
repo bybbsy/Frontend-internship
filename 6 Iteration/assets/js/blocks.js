@@ -469,20 +469,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // The result of both promise and async/await is the same
 
     // Using promise with then to receive the result
-    function fetchGitHubPromise(url="https://api.github.com/users/bybbsy/repos") {
-        return new Promise((resolve, reject) => {
-            const data = fetch(url)
-                .then(response => response.ok ? response.json() : Promise.reject(response.status))
-                .then(data => resolve(data))
-                .catch(error => catchError(error))
-        })
+    function fetchGitHubPromise(url) {
+        // Переписать, убрать промис. Разобраться как использовать Promise API.
+        return fetch(url)
+            .then(response => response.json())
+            .catch(error => catchError(error))
     }
 
     // Use async/await to revceive the result
-    async function fetchGitHubAwait(url="https://api.github.com/users/bybbsy/repos") {
+    async function fetchGitHubAwait(url) {
         try {
             const response = await fetch(url);
-            const data = response.ok ? await response.json() : await Promise.reject(response.status)
+            const data = await response.json();
             return data;
         }
         catch (error) {
@@ -499,6 +497,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let modalGitHubClose = modalGitHub.querySelector(".bottom-row button");
 
     let loader = modalGitHub.querySelector(".lds-spinner");
+    let notFoundBlock = modalGitHub.querySelector(".repos-not-found.hidden");
 
     gitHubLink.addEventListener("click", () => {
         let wrapper = document.querySelector(".wrapper");
@@ -511,7 +510,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loader.classList.toggle("hidden")
         const user = findUserInput.value;
         const URL = `https://api.github.com/users/${user}/repos`;
-        let data = fetchGitHubPromise(URL)
+        let data = fetchGitHubAwait(URL)
             .then(data => updateReposList(reposList, data))
     })
 
@@ -528,13 +527,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Removes old elements and creates new ones
-    function updateReposList(reposList, data = []) {
+    function updateReposList(reposList, data) {
         clearReposList(reposList);
-        data.forEach(repos => {
-            let link = createReposLink(repos.name, repos.clone_url);
-            reposList.appendChild(link);
-        })
         loader.classList.toggle("hidden");
+        if(data.message) {
+            notFoundBlock.classList.remove("hidden");
+            notFoundBlock.innerHTML = data.message;
+        } else {
+            notFoundBlock.classList.add("hidden");
+            data.forEach(repos => {
+                let link = createReposLink(repos.name, repos.clone_url);
+                reposList.appendChild(link);
+            })
+        }
     }
 
     function createReposLink(name="empty", url="") {
@@ -562,15 +567,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
         return li;
     }
-    // fetchGitHubPromise()
-    //     .then(data => console.log(data))
-
-    // let data = fetchGitHubAwait().then(data => console.log(data))
-
-    // const data = fetch(url)
-    //     .then(response => response)
-    //     .catch(e => {
-    //         console.error(new Error("Something went wrong:", e))
-    //     })
 })
 
