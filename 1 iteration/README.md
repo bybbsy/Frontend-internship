@@ -1,5 +1,0 @@
-# First and second iterations
-
-----
-
-----
