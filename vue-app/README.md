@@ -6,7 +6,7 @@ npm install
 ```
 
 ### Compiles and hot-reloads for development :rocket:
-```npm run serve```runs the app and opens it in the default browser with port ```8080```
+```npm run serve``` runs the app and opens it in the default browser with port ```8080```
 
 ### Compiles and minifies for production :briefcase:
 ```npm run build``` builds the app in production mode and puts it in the result-bundle folder
