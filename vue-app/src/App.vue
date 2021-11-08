@@ -1,329 +1,22 @@
 <template>
   <div id="app">
     <div class="wrapper">
-        <header class="header">
-            <div class="container hf">
-                <div class="header__row">
-                    <div class="header__info" id="header-info">
-                        <h3>Hey, <span class="header-username"></span> it's a simple html webpage</h3>
-                    </div>
-                        <div class="header__nav-icon">
-                            <input type="checkbox" class="header__nav-input" id="nav-bars">
-                            <label for="nav-bars" class="header__nav-bars">
-                                <i class="fas fa-bars"></i>
-                            </label>
-                        </div>
-                    <nav class="header__nav">
-                        <a href="#" class="header__nav-item git-hub">
-                            <span>GitHub</span>
-                            <div class="new-badge">new</div>
-                        </a>
-                        <a href="#sign-up" class="header__nav-item sign-up">Sign up</a>
-                        <a href="#" class="header__nav-item bom">BOM</a>
-                        <a href="https://www.google.com/" target="_blank" class="header__nav-item">Projects</a>
-                        <a href="https://www.google.com/" target="_blank" class="header__nav-item">History</a>
-                        <a href="https://www.google.com/" target="_blank" class="header__nav-item">Gallery</a>
-                        <a href="https://www.google.com/" target="_blank" class="header__nav-item">Docs</a>
-                        <button class="header__nav-item exit-input hidden" type="submit">Log out </button>
-                    </nav>
-                </div>
-            </div>
-        </header>
-        <main>
-            <div class="container">
-                    <div class="main">
-                        <section class="red-block">
-                            <div class="message-block">
-                                <div class="message-block__information">
-                                    <div class="messages-list__block-icon">
-                                        <a href="#" class="messages-list__block-link" target="_self">
-                                            <img src="./assets/img/1617986244_11.jpg" alt="Image" class="messages-list__block-image">
-                                        </a>
-                                    </div>
-                                    <div class="message-block__block-description">
-                                        <div class="message-block__top-row">
-                                            <div class="messages-block__message-author">
-                                                <a href="#">John Doe</a>
-                                            </div>
-                                            <div class="messages-block__message-date">
-                                                <h5>19 August 2021</h5>
-                                            </div>
-                                        </div>
-                                        <div class="message-block__bottom-row">
-                                            <div class="messages-block__message-addressee">
-                                                <h5>Addressee: You</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="message-block__message-content">
-                                    <p class="message-block__message-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, sequi dolorum! Quo modi obcaecati facere debitis similique explicabo id, nihil, deserunt recusandae culpa iste omnis, repudiandae eligendi voluptates fugit exercitationem.
-                                    </p>
-                                </div>
-                            </div>
-                            <form action="" class="reply-block">
-                                <div class="reply-block__reply">
-                                    <textarea class="reply-block__textarea" name="reply"></textarea>
-                                </div>
-                                <div class="reply-block__buttons">
-                                    <input type="submit" class="reply-block__submit" value="Send">
-                                    <input type="button" class="reply-block__save" value="Save draft">
-                                    <div class="reply-block__select">
-                                        <div class="reply-block__custom-date">
-                                            <label for="custom-date">Custom date</label>
-                                            <input type="checkbox" name="" id="custom-date">
-                                            <span class="checkmark"></span>
-                                        </div>
-                                        <div class="reply-block__calendar hidden">
-                                            <input type="datetime-local" name="" id="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </section>
-                        <div class="green-and-pink">
-                            <aside class="green-block">
-                                <picture class="item">
-                                    <source srcset="./assets/img/image-50x50.jpg" media="(max-width: 1280px)">
-                                    <img src="./assets/img/image-25x25.jpg" alt="" >
-                                    <img src="./assets/img/image-25x25.jpg" alt="" >
-                                    <img src="./assets/img/image-25x25.jpg" alt="" >
-                                    <img src="./assets/img/image-25x25.jpg" alt="" >
-                                </picture>
-                                <picture class="item">
-                                    <source srcset="./assets/img/image-50x50.jpg" media="(max-width: 1280px)">
-                                    <img src="./assets/img/image-25x25.jpg" alt="" >
-                                    <img src="./assets/img/image-25x25.jpg" alt="" >
-                                    <img src="./assets/img/image-25x25.jpg" alt="" >
-                                    <img src="./assets/img/image-25x25.jpg" alt="" >
-                                </picture>
-                                <picture class="item">
-                                    <source srcset="./assets/img/image-50x50.jpg" media="(max-width: 1280px)">
-                                    <img src="./assets/img/image-25x25.jpg" alt="" >
-                                    <img src="./assets/img/image-25x25.jpg" alt="" >
-                                    <img src="./assets/img/image-25x25.jpg" alt="" >
-                                    <img src="./assets/img/image-25x25.jpg" alt="" >
-                                </picture>
-                            </aside> 
-                            <aside class="pink-block"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, maxime error. Commodi, aliquam ipsum voluptatum placeat saepe similique, voluptate dicta magni reiciendis vitae, sit veniam magnam voluptatibus velit. Corporis, qui. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam eum dicta, exercitationem similique nisi repudiandae optio qui? Atque provident iure ab nulla aspernatur quaerat, ratione sit saepe totam, itaque assumenda.
-                                Sed quam provident quaerat, saepe, mollitia nihil placeat dignissimos ipsa delectus eius fugiat omnis deserunt sapiente inventore, labore ipsam dolores at beatae explicabo. Nobis architecto fugiat quasi voluptas velit omnis!</p></aside>
-                        </div>
-                    </div>
-                <aside class="yellow-block">
-                    <ul class="messages-list">
-                        <li class="messages-list__message-block active">
-                            <div class="messages-list__block-icon">
-                                <a href="#" class="messages-list__block-link" target="_self">
-                                    <img src="./assets/img/1617986244_11.jpg" alt="Image" class="messages-list__block-image">
-                                </a>
-                            </div>
-                            <div class="messages-list__message-content">
-                                <div class="messages-list__message-info">
-                                    <div class="messages-list__message-author">
-                                        <h5>John Doe</h5>
-                                    </div>
-                                    <div class="messages-list__message-brief">
-                                        <p>This message was sent to you because you subscribed on our daily e-mail notifications. Just keep you posted, bud.</p>
-                                    </div>
-                                </div>
-                                <div class="messages-list__message-date">
-                                    <p>12.02.21</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="messages-list__message-block">
-                            <div class="messages-list__block-icon">
-                                <a href="#" class="messages-list__block-link" target="_self">
-                                    <img src="./assets/img/1617986244_11.jpg" alt="Image" class="messages-list__block-image">
-                                </a>
-                            </div>
-                            <div class="messages-list__message-content">
-                                <div class="messages-list__message-info">
-                                    <div class="messages-list__message-author">
-                                        <h5>John Doe</h5>
-                                    </div>
-                                    <div class="messages-list__message-brief">
-                                        <p>This message was sent to you because you subscribed on our daily e-mail notifications. Just keep you posted, bud.</p>
-                                    </div>
-                                </div>
-                                <div class="messages-list__message-date">
-                                    <p>12.08.21</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="messages-list__message-block">
-                            <div class="messages-list__block-icon">
-                                <a href="#" class="messages-list__block-link" target="_self">
-                                    <img src="./assets/img/vue-9.svg" alt="Image" class="messages-list__block-image">
-                                </a>
-                            </div>
-                            <div class="messages-list__message-content">
-                                <div class="messages-list__message-info">
-                                    <div class="messages-list__message-author">
-                                        <h5>Jeff La Quero</h5>
-                                    </div>
-                                    <div class="messages-list__message-brief">
-                                        <p>Hey, bud, wanna hang out tis weekend?</p>
-                                    </div>
-                                </div>
-                                <div class="messages-list__message-date">
-                                    <p>12.02.21</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="messages-list__message-block">
-                            <div class="messages-list__block-icon">
-                                <a href="#" class="messages-list__block-link" target="_self">
-                                    <img src="./assets/img/1617986244_11.jpg" alt="Image" class="messages-list__block-image">
-                                </a>
-                            </div>
-                            <div class="messages-list__message-content">
-                                <div class="messages-list__message-info">
-                                    <div class="messages-list__message-author">
-                                        <h5>Awesome Boi</h5>
-                                    </div>
-                                    <div class="messages-list__message-brief">
-                                        <p>This message was sent to you because you subscribed on our daily e-mail notifications. Just keep you posted, bud.</p>
-                                    </div>
-                                </div>
-                                <div class="messages-list__message-date">
-                                    <p>12.02.21</p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </aside>
-            </div>
-        </main>
-        <footer>
-            <div class="container hf">
-                <div class="footer-block">
-                    <div class="footer-block__header" id="contact-us">
-                        <h5>Contact us</h5>
-                    </div>
-                    <div class="footer-block__top">
-                        <a href="google.com" target="_blank" class="footer-top__vk">
-                            <i class="fas fa-bars"></i>
-                        </a>
-                        <a href="google.com" target="_blank" class="footer-top__vk">
-                            <i class="fas fa-bars"></i>
-                        </a>
-                        <a href="google.com" target="_blank" class="footer-top__vk">
-                            <i class="fas fa-bars"></i>
-                        </a>
-                        <a href="google.com" target="_blank" class="footer-top__inst">
-                            <i class="fas fa-bars"></i>
-                        </a>
-                    </div>
-                    <div class="footer-block__bottom">
-                        <p>© Some sort of copyrights</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <div class="modal hidden">
-            <div class="pop-up__list">
-
-            </div>
-            <form method="post" class="login-block hidden">
-                <div class="login-block__signup-info">
-                    <h4>Sign up</h4>
-                </div>
-                <div class="login-block__username-block">
-                    <span class="login-block__username-label">Username</span>
-                    <input name="username" type="text" class="login-block__username-username" required>
-                </div>
-                <div class="login-block__details-block">
-                    <div class="login-block__sex-block">
-                        <span class="login-block__sex-label">Sex</span>
-                        <div class="login-block__sex-female">
-                            <label for="input-female" class="login-block__female-label">F</label>
-                            <input type="radio" class="login-block__sex-female" name="sex" value="female" id="input-female">
-                            <span class="radiomark"></span>
-                        </div>
-                        <div class="login-block__sex-male">
-                            <label for="input-male" class="login-block__male-label">M</label>
-                            <input type="radio" class="login-block__sex-male" name="sex" value="male" id="input-male">
-                            <span class="radiomark"></span>
-                        </div>
-                    </div>
-                    <div class="login-block__country-block">
-                        <span class="login-block__country-label">Country</span>
-                        <select name="country" class="login-block__country-select">
-                            <option value="USA">USA</option>
-                            <option value="UK">UK</option>
-                            <option value="Russia">Russia</option>
-                            <option value="Germany">Deutschland</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="login-block__email-block">
-                    <span class="login-block__email-label">E-mail</span>
-                    <input name="email" type="email" class="login-block__email-email" required>
-                </div>
-                <div class="login-block__password-block">
-                    <span class="login-block__password-label">Password</span>
-                    <input name="password" type="password" class="login-block__password-password" required>
-                </div>
-                <div class="login-block__phone-block">
-                    <span class="login-block__phone-label">Phone number</span>
-                    <input name="phone" type="tel" class="login-block__phone-phone" required>
-                </div>
-                <div class="login-block__button-block">
-                    <input type="submit" value="Sign up" class="login-block__signup-btn">
-                    <input type="button" value="Decline" class="login-block__decline-btn">
-                </div>
-            </form>
-            <div class="modal-bom hidden">
-                <div class="row__current-url">
-                    <p>Current URL: <a href="#" class="current-url__value">Nope:c</a></p>
-                    <p><a href="next-page.html" class="current-url__next">Click here to achieve forward link! 🚀🚀🚀</a></p>
-                </div>
-                <div class="row__manage-history">
-                    <div class="manage-back">
-                        <i class="fas fa-backward"></i>
-                        <div class="hint">Go to the previous page</div>
-                    </div>
-                    <div class="manage-forward">
-                        <i class="fas fa-forward"></i>
-                        <div class="hint">Go the the next page</div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-github hidden">
-                <div class="top-row">
-                    <h5>GitHub Api</h5>
-                </div>
-                <div class="input-row">
-                    <div class="input-username">
-                        <input type="text" placeholder="Enter username">
-                    </div>
-                    <div class="input-find">
-                        <input type="submit" value="Search">
-                    </div>
-                </div>
-                <div class="result-row">
-                    <p>Repos list:</p>
-                    <ul class="repos-list">
-                        <div class="lds-spinner hidden"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-                        <div class="repos-not-found hidden">Not found</div>
-                    </ul>
-                </div>
-                <div class="bottom-row">
-                    <button type="button">Close</button>
-                </div>
-            </div>
-        </div>
+      <Header />
+      <router-view />
+      <Footer />
     </div>
   </div>
 </template>
 
 <script>
+import Header from './components/TheHeader.vue'
+import Footer from './components/TheFooter.vue'
 
 export default {
-  name: 'App',
-  components: {}
+    name: 'App',
+    components: {
+        Header, Footer
+    },
 }
 
 </script>
@@ -408,20 +101,20 @@ export default {
       background: var(--main-background);
   }
 
-  .container.hf {
+  /* .container.hf {
       min-height: 50px;
       background-color: unset;
   }
 
   header {
       padding: 0 5px;
-  }
+  } */
 
   main {
       display: flex;
       min-height: 100%;
   }
-
+/* 
   .header__row {
       display: flex;
       flex-direction: row;
@@ -519,10 +212,6 @@ export default {
       border: 1px solid #111;
   }
 
-  /* .new-badge.animate {
-      animation: jump 2s;
-  } */
-
   @keyframes jump {
       from {
           margin-top: -11px;
@@ -579,7 +268,7 @@ export default {
   .header__nav-bars {
       font-size: 2em;
   }
-
+ */
 
   header, footer {
       background-color: rgb(25, 153, 175);
@@ -1254,7 +943,7 @@ export default {
       background-color: teal;
   }
 
-  .footer-block {
+  /* .footer-block {
       display: flex;
       flex-direction: column;
       width: 100%;
@@ -1307,7 +996,7 @@ export default {
       font-size: 0.8em;
       font-weight: 200;
       color: #fff;
-  }
+  } */
 
   .modal-bom {
       position: absolute;
@@ -1599,7 +1288,6 @@ export default {
       }
   }
 
-  =======
 
   .bottom-row {
       justify-content: center;
