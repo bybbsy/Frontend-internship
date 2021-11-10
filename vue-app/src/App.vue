@@ -323,14 +323,14 @@ export default {
       border-radius: 20px 0px 20px 0px;
   } */
 
-  .pink-block {
+  /* .pink-block {
       display: flex;
       flex-direction: column;
       background: var(--block-color);
       border-radius: 5px;
       padding: 0 5px;
       flex: 0 1 100%;
-  }
+  } */
 
   .item {
       display: flex;
@@ -344,7 +344,7 @@ export default {
   }
 
   /* Aside */
-  .yellow-block {
+  /* .yellow-block {
       display: flex;
       flex: 1 0;
       background: var(--block-color);
@@ -354,16 +354,16 @@ export default {
       padding: 5px;
       align-items: center;
       z-index: 1;
-  }
+  } */
 
-  .messages-list {
+  /* .messages-list {
       display: flex;
       flex-direction: column;
       width: 100%;
       margin: 0;
       padding: 0;
-  }
-  .messages-list__message-block {
+  } */
+  /* .messages-list__message-block {
       position: relative;
       display: flex;
       margin: 10px 0;
@@ -390,7 +390,7 @@ export default {
       border: 1px solid teal;
       color: white;
       height: 1.3em
-  }
+  } */
 
   /*.messages-list__message-block.active::after {*/
   /*    content: "";*/
@@ -404,7 +404,7 @@ export default {
   /*    border: 2px solid #111;*/
   /*}*/
 
-  .messages-list__block-icon {
+  /* .messages-list__block-icon {
       display: flex;
       width: 45px;
       height: 45px;
@@ -457,7 +457,7 @@ export default {
   .messages-list__message-date p {
       margin: auto 15px auto 0;
       font-size: 0.8em;
-  }
+  } */
 
   /* .message-block {
       display: flex;
@@ -1326,7 +1326,7 @@ export default {
           flex-flow: column nowrap;
       } */
 
-      .yellow-block {
+      /* .yellow-block {
           top: 0;
           left: 0;
           position: sticky;
@@ -1337,25 +1337,25 @@ export default {
           overflow-y: scroll;
           overflow-x: hidden;
           align-items: center;
-      }
+      } */
 
-      .messages-list {
+      /* .messages-list {
           height: 100%;
-      }
+      } */
 
-      .messages-list__block-icon {
+      /* .messages-list__block-icon {
           margin-top: 2px;
           margin-bottom: 2px;
-      }
+      } */
 
-      .small-block {
+      /* .small-block {
           display: flex;
           flex: 0 0 ;
           margin: 0 10px;
           min-width: 150px;
           height: 150px;
           background-color: tomato;
-      }
+      } */
 
       /* .main {
           flex: 1 1 100%;

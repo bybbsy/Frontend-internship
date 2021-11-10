@@ -3,7 +3,7 @@
     <div class="main">
       <!-- Red block -->
       <RedBlock />
-      <div class="green-and pink">
+      <div class="green-and-pink">
         <GreenBlock />
         <PinkBlock />
         <!-- Green block -->

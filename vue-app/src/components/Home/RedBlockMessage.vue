@@ -3,7 +3,7 @@
       <div class="message-block__information">
             <div class="messages-list__block-icon">
                 <a href="#" class="messages-list__block-link" target="_self">
-                    <!-- <img src="../assets/img/1617986244_11.jpg" alt="Image" class="messages-list__block-image"> -->
+                    <img src="@/assets/img/1617986244_11.jpg" alt="Image" class="messages-list__block-image">
                 </a>
             </div>
             <div class="message-block__block-description">
