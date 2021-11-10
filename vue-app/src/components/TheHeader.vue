@@ -18,7 +18,7 @@
                     </a>
                     <a href="#sign-up" class="header__nav-item sign-up">Sign up</a>
                     <a href="#" class="header__nav-item bom">BOM</a>
-                    <router-link to="/products" class="header__nav-item">Products</router-link>
+                    <router-link :to="{ name: 'products' }" class="header__nav-item">Products</router-link>
                     <a href="https://www.google.com/" target="_blank" class="header__nav-item">History</a>
                     <a href="https://www.google.com/" target="_blank" class="header__nav-item">Gallery</a>
                     <a href="https://www.google.com/" target="_blank" class="header__nav-item">Docs</a>

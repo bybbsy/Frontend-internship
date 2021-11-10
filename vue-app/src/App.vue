@@ -1,21 +1,33 @@
 <template>
   <div id="app">
-    <div class="wrapper">
-      <Header />
-      <router-view />
-      <Footer />
+      <component :is="layout">
+          <router-view />
+      </component>
+    <!-- <div class="wrapper"> -->
+      <!-- <Header /> -->
+      <!-- <Footer /> -->
     </div>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>
-import Header from './components/TheHeader.vue'
-import Footer from './components/TheFooter.vue'
+// import Header from './components/TheHeader.vue'
+// import Footer from './components/TheFooter.vue'
+
+import MainLayout from './layouts/MainLayout.vue'
+import EmptyLayout from './layouts/EmptyLayout.vue'
 
 export default {
     name: 'App',
+    computed: {
+        layout() {
+            console.log("Route: ", this.$route.meta.layout)
+            return ((this.$route.meta.layout ?? 'empty') + '-layout')
+        }
+    },
     components: {
-        Header, Footer
+        MainLayout, EmptyLayout
+        // Header, Footer
     },
 }
 
@@ -93,13 +105,13 @@ export default {
   .wrapper.no-scroll {
       overflow: hidden;
   }
-  .container {
+  /* .container {
       width: 100%;
       display: flex;
       flex-flow: row wrap;
       flex: 0 1 100%;
       background: var(--main-background);
-  }
+  } */
 
   /* .container.hf {
       min-height: 50px;
@@ -110,10 +122,10 @@ export default {
       padding: 0 5px;
   } */
 
-  main {
+  /* main {
       display: flex;
       min-height: 100%;
-  }
+  } */
 /* 
   .header__row {
       display: flex;
@@ -275,14 +287,14 @@ export default {
   }
 
   /* Main */
-  .main {
+  /* .main {
       display: flex;
       flex: 2 1;
       flex-flow: row wrap;
       margin: 5px;
-  }
+  } */
 
-  .red-block {
+  /* .red-block {
       display: flex;
       flex-direction: column;
       background: red;
@@ -292,7 +304,7 @@ export default {
       padding: 10px;
       background: var(--block-color);
       border-radius: 5px;
-  }
+  } */
 
   .green-and-pink {
       display: flex;
@@ -447,13 +459,12 @@ export default {
       font-size: 0.8em;
   }
 
-  .message-block {
+  /* .message-block {
       display: flex;
       flex-direction: column;
-      /* height: calc(100% - 50px); */
-  }
+  } */
 
-  .message-block__information {
+  /* .message-block__information {
       display: flex;
       background-color: rgba(104, 104, 104, 0.219);
       padding: 5px;
@@ -508,9 +519,9 @@ export default {
       margin: 0;
       height: 100%;
       padding: 15px 5px;
-  }
+  } */
 
-  .reply-block {
+  /* .reply-block {
       display: flex;
       flex-direction: column;
       margin-top: auto;
@@ -648,7 +659,7 @@ export default {
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
-  }
+  } */
 
   .modal {
       position: absolute;
@@ -1311,9 +1322,9 @@ export default {
   }
 
   @media screen and (max-width: 1280px) {
-      .container {
+      /* .container {
           flex-flow: column nowrap;
-      }
+      } */
 
       .yellow-block {
           top: 0;
@@ -1346,10 +1357,10 @@ export default {
           background-color: tomato;
       }
 
-      .main {
+      /* .main {
           flex: 1 1 100%;
           order: 2;
-      }
+      } */
 
       .green-and-pink {
           flex-flow: row wrap;
@@ -1422,7 +1433,7 @@ export default {
           display: none;
       }
 
-      .reply-block__select {
+      /* .reply-block__select {
           flex-direction: column;
       }
 
@@ -1434,7 +1445,7 @@ export default {
       }
       .reply-block__custom-date label {
           margin-right: 5px;
-      }
+      } */
 
   }
 </style>
