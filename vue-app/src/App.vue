@@ -306,22 +306,22 @@ export default {
       border-radius: 5px;
   } */
 
-  .green-and-pink {
+  /* .green-and-pink {
       display: flex;
       flex: 0 1 auto;
       min-height: 200px;
       height: fit-content;
       height: -moz-fit-content;
-  }
+  } */
 
-  .green-block {
+  /* .green-block {
       display: flex;
       flex-direction: column;
       flex: 0 0 auto;
       margin-right: 5px;
       background: var(--block-color);
       border-radius: 20px 0px 20px 0px;
-  }
+  } */
 
   .pink-block {
       display: flex;
@@ -1362,17 +1362,17 @@ export default {
           order: 2;
       } */
 
-      .green-and-pink {
+      /* .green-and-pink {
           flex-flow: row wrap;
-      }
+      } */
 
-      .green-block {
+      /* .green-block {
           flex: 1 0 100%;
           flex-direction: row;
           align-items: center;
           justify-content: space-between;
           margin-bottom: 10px;
-      }
+      } */
 
       .item {
           flex: 0 0 100px;

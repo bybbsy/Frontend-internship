@@ -49,15 +49,27 @@ export default {
     flex-flow: row wrap;
     margin: 5px;
   }
+
+  .green-and-pink {
+      display: flex;
+      flex: 0 1 auto;
+      min-height: 200px;
+      height: fit-content;
+      height: -moz-fit-content;
+  }
   
   @media screen and (max-width: 1280px) {
     .container {
         flex-flow: column nowrap;
     }
-    
+
     .main {
         flex: 1 1 100%;
         order: 2;
     }
+
+    .green-and-pink {
+          flex-flow: row wrap;
+      }
   }
 </style>
