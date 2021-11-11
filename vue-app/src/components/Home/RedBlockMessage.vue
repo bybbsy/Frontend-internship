@@ -9,7 +9,7 @@
             <div class="message-block__block-description">
                 <div class="message-block__top-row">
                     <div class="messages-block__message-author">
-                        <a href="#">John Doe</a>
+                        <a href="#"></a>
                     </div>
                     <div class="messages-block__message-date">
                         <h5>19 August 2021</h5>

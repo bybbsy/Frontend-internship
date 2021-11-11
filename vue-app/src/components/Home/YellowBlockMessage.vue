@@ -8,14 +8,14 @@
         <div class="messages-list__message-content">
             <div class="messages-list__message-info">
                 <div class="messages-list__message-author">
-                    <h5>John Doe</h5>
+                    <h5>{{ author }}</h5>
                 </div>
                 <div class="messages-list__message-brief">
-                    <p>This message was sent to you because you subscribed on our daily e-mail notifications. Just keep you posted, bud.</p>
+                    <p>{{ content }}</p>
                 </div>
             </div>
             <div class="messages-list__message-date">
-                <p>12.02.21</p>
+                <p>{{ date }}</p>
             </div>
         </div>
     </li>
@@ -23,6 +23,20 @@
 
 <script>
 export default {
+    props: {
+        author: {
+            type: String,
+            required: true
+        },
+        date: {
+            type: String,
+            required: true
+        },
+        content: {
+            type: String,
+            required: true
+        }
+    }
 
 }
 </script>
