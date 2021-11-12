@@ -12,8 +12,7 @@
                         </label>
                     </div>
                 <nav class="header__nav">
-                    <a href="#" class="header__nav-item git-hub">
-                        <span>GitHub</span>
+                    <a href="" @click.prevent="toggleModal" class="header__nav-item github">GitHub
                         <div class="new-badge">new</div>
                     </a>
                     <a href="" @click.prevent="toggleModal" class="header__nav-item login">Sign up</a>
@@ -47,7 +46,7 @@ export default {
             let len =  event.target.classList.length;
             this.modalData.name = event.target.classList[len - 1];
 
-            // console.log("HEADER:",tabClass, this.showModal)
+            console.log("HEADER:", this.showModal)
             this.$emit('toggleModal', this.modalData)
             return this.showModal
         }
