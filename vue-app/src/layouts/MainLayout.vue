@@ -34,9 +34,11 @@ export default {
             this.modalData = value;
             return this.modalData
         },
-        outerClickHandler: function() {
-            this.modalData.name = ''
-            this.modalData.showModal = false;
+        outerClickHandler: function(event) {
+            if(event.target.classList[0] === 'modal') {
+                this.modalData.name = ''
+                this.modalData.showModal = false;
+            }
         }
     },
     components: {

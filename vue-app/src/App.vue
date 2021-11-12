@@ -1020,7 +1020,7 @@ export default {
       background-color: #fff;
       display: grid;
       grid-template-rows: repeat(2, 100px);
-      z-index: 1;
+      z-index: 2;
   }
 
   .modal-bom.hidden,
@@ -1101,6 +1101,7 @@ export default {
       height: 400px;
       align-items: center;
       justify-content: center;
+      z-index: 2;
   }
 
   .modal-github .top-row,
