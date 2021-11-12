@@ -16,7 +16,7 @@
                         <span>GitHub</span>
                         <div class="new-badge">new</div>
                     </a>
-                    <span @click.prevent="toggleModal" class="header__nav-item sign-up">Sign up</span>
+                    <span @click.prevent="toggleModal" class="header__nav-item login">Sign up</span>
                     <a href="#" class="header__nav-item bom">BOM</a>
                     <router-link :to="{ name: 'products' }" class="header__nav-item">Products</router-link>
                     <a href="https://www.google.com/" target="_blank" class="header__nav-item">History</a>
@@ -113,7 +113,7 @@ header {
     display: none;
 }
 
-.header__nav-item.sign-up {
+.header__nav-item.login {
     padding: 0 5px;
     line-height: 22px;
     background: linear-gradient(to left, salmon 50%, rgb(25, 153, 175) 50%) right;
@@ -121,7 +121,7 @@ header {
     transition: 0.5s all ease;
 }
 
-.header__nav-item.sign-up.hidden {
+.header__nav-item.login.hidden {
     display: none;
 }
 
@@ -134,7 +134,7 @@ header {
 }
 
 
-.header__nav-item.sign-up:hover {
+.header__nav-item.login:hover {
     background-position: left;
 }
 
@@ -171,7 +171,7 @@ header {
         margin-top: 10px;
     }
 }
-.header__nav-item.sign-up::after {
+.header__nav-item.login::after {
     content: "";
     position: absolute;
     right: 0;
@@ -181,12 +181,12 @@ header {
     background: #fff;
 }
 
-.header__nav-item.sign-up::before {
+.header__nav-item.login::before {
     width: 2px;
     height: 100%;
 }
 
-.header__nav-item.sign-up:hover::before {
+.header__nav-item.login:hover::before {
     background: #fff;
 }
 

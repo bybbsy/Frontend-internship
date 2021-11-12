@@ -725,7 +725,7 @@ export default {
       margin: 2px 0 2px 15px;
   }
 
-  .login-block {
+  /* .login-block {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -734,7 +734,6 @@ export default {
       background-color: #fff;
       column-gap: 15px;
       display: grid;
-      /* padding: 15px; */
       grid-template-columns: minmax(270px, 350px);
       grid-template-rows: repeat(6, 50px) 70px;
       row-gap: 15px;
@@ -952,7 +951,7 @@ export default {
 
   .login-block__signup-btn {
       background-color: teal;
-  }
+  } */
 
   /* .footer-block {
       display: flex;
