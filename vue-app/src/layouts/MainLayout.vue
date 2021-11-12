@@ -3,8 +3,9 @@
         <Header @toggleModal="onClickChild"/>
         <router-view />
         <Footer />
-        <div class="modal" :class="{ 'hidden': !modalData.showModal }">
+        <div class="modal" :class="{ 'hidden': !modalData.showModal }" @click="outerClickHandler">
             <SignupModal :modalData="modalData" class="login-block" :class="{ hidden: modalData.name !== 'login' }"/>
+            <BomModal :modalData="modalData" class="modal-bom" :class="{ hidden: modalData.name !== 'bom' }"/>
         </div>
     </div>
 </template>
@@ -13,6 +14,7 @@
 import Header from '@/components/TheHeader.vue'
 import Footer from '@/components/TheFooter.vue'
 import SignupModal from '@/components/SignupModal.vue'
+import BomModal from '@/components/BomModal.vue'
 
 export default {
     name: 'main-layout',
@@ -24,16 +26,20 @@ export default {
             }
         }
     },
-    components: {
-        Header, Footer, SignupModal
-    },
     methods: {
-        onClickChild (value) {
-            console.log(value)
+        onClickChild: function (value) {
+            console.log("LAYOUT:", this.modalData.name, this.modalData.showModal )
             this.modalData = value;
             return this.modalData
+        },
+        outerClickHandler: function() {
+            this.modalData.name = ''
+            this.modalData.showModal = false;
         }
     },
+    components: {
+        Header, Footer, SignupModal, BomModal
+    }
 }
 </script>
 

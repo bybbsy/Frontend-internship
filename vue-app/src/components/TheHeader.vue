@@ -16,8 +16,8 @@
                         <span>GitHub</span>
                         <div class="new-badge">new</div>
                     </a>
-                    <span @click.prevent="toggleModal" class="header__nav-item login">Sign up</span>
-                    <a href="#" class="header__nav-item bom">BOM</a>
+                    <a href="" @click.prevent="toggleModal" class="header__nav-item login">Sign up</a>
+                    <a href="" @click.prevent="toggleModal" class="header__nav-item bom">BOM</a>
                     <router-link :to="{ name: 'products' }" class="header__nav-item">Products</router-link>
                     <a href="https://www.google.com/" target="_blank" class="header__nav-item">History</a>
                     <a href="https://www.google.com/" target="_blank" class="header__nav-item">Gallery</a>
@@ -34,19 +34,22 @@ export default {
     name: 'the-header',
     data: function() {
         return {
-            showModal: false
+            modalData: {
+                name: '',
+                showModal: false
+            }
         }
     },
     methods: {
         toggleModal(event) {
-            this.showModal = !this.showModal;
+             
+            this.modalData.showModal = !this.modalData.showModal;
             let len =  event.target.classList.length;
-            let tabClass = event.target.classList[len - 1];
-            
-            this.$emit('toggleModal', {
-                name: tabClass,
-                showModal: this.showModal
-            })
+            this.modalData.name = event.target.classList[len - 1];
+
+            // console.log("HEADER:",tabClass, this.showModal)
+            this.$emit('toggleModal', this.modalData)
+            return this.showModal
         }
     }
 }
