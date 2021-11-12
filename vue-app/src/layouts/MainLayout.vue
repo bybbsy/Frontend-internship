@@ -1,6 +1,7 @@
 <template>
     <div class="wrapper">
-        <Header />
+        <Header @toggleModal="onClickChild"/>
+        <span v-bind="modal">SPAN: {{ modal ? modal.showModal : 'empty :c'}}</span>
         <router-view />
         <Footer />
     </div>
@@ -12,9 +13,20 @@ import Footer from '../components/TheFooter.vue'
 
 export default {
     name: 'main-layout',
+    data: function() {
+        return {
+            modal: null
+        }
+    },
     components: {
         Header, Footer
-    }
+    },
+    methods: {
+        onClickChild (value) {
+            this.modal = value;
+            return this.modal
+        }
+    },
 }
 </script>
 

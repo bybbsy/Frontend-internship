@@ -16,7 +16,7 @@
                         <span>GitHub</span>
                         <div class="new-badge">new</div>
                     </a>
-                    <a href="#sign-up" class="header__nav-item sign-up">Sign up</a>
+                    <span @click.prevent="toggleModal" class="header__nav-item sign-up">Sign up</span>
                     <a href="#" class="header__nav-item bom">BOM</a>
                     <router-link :to="{ name: 'products' }" class="header__nav-item">Products</router-link>
                     <a href="https://www.google.com/" target="_blank" class="header__nav-item">History</a>
@@ -31,7 +31,24 @@
 
 <script>
 export default {
-
+    name: 'the-header',
+    data: function() {
+        return {
+            showModal: false
+        }
+    },
+    methods: {
+        toggleModal(event) {
+            this.showModal = !this.showModal;
+            let len =  event.target.classList.length;
+            let tabClass = event.target.classList[len - 1];
+            
+            this.$emit('toggleModal', {
+                name: tabClass,
+                showModal: this.showModal
+            })
+        }
+    }
 }
 </script>
 
