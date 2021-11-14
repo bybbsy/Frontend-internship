@@ -1,11 +1,12 @@
 <template>
   <ul class="messages-list">
       <YellowBlockMessage 
-        v-for="(message, index) in messages"
+        v-for="(message, index) in filteredMessages"
         :key="index"
         :date="message.date"
         :author="message.author"
         :content="message.content"
+        :class="{ spam: message.spam }"
         />
   </ul>
 </template>
@@ -17,6 +18,7 @@ export default {
     name: 'yellow-block-messages-list',
     data: function() {
         return {
+            filterKeys: ['message', 'subscribed', 'notifications'],
             messages: [
                 {
                     date: '12.02.21',
@@ -40,6 +42,32 @@ export default {
                 }
             ]
         }
+    },
+    computed: {
+      filteredMessages() {
+        return this.messages.map(message => {
+          let spamMsg = this.filterMessage(message.content);
+
+          if(spamMsg) {
+            message.spam = true
+          }
+          else {
+            message.spam = false
+          }
+          return message
+        })
+      },
+    },
+    methods: {
+      filterMessage(msg) {
+        // console.log(msg)
+        for(let key in this.filterKeys) {
+          if(msg.includes(this.filterKeys[key])) {
+            return true
+          } 
+        }
+        return false
+      }
     },
     components: {
         YellowBlockMessage
