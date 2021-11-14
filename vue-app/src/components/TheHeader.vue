@@ -3,7 +3,7 @@
         <div class="container hf">
             <div class="header__row">
                 <div class="header__info" id="header-info">
-                    <h3>Hey, <span class="header-username"></span> it's a simple html webpage</h3>
+                    <h3>Hey, <span class="header-username"> {{ username }}</span> it's a simple html webpage</h3>
                 </div>
                     <div class="header__nav-icon">
                         <input type="checkbox" class="header__nav-input" id="nav-bars">
@@ -15,13 +15,15 @@
                     <a href="" @click.prevent="toggleModal" class="header__nav-item github">GitHub
                         <div class="new-badge">new</div>
                     </a>
-                    <a href="" @click.prevent="toggleModal" class="header__nav-item login">Sign up</a>
+                    <a href="" @click.prevent="toggleModal" class="header__nav-item login"
+                      v-if="username === defaultUsername"
+                    >Sign up</a>
                     <a href="" @click.prevent="toggleModal" class="header__nav-item bom">BOM</a>
                     <router-link :to="{ name: 'products' }" class="header__nav-item">Products</router-link>
                     <a href="https://www.google.com/" target="_blank" class="header__nav-item">History</a>
                     <a href="https://www.google.com/" target="_blank" class="header__nav-item">Gallery</a>
                     <a href="https://www.google.com/" target="_blank" class="header__nav-item">Docs</a>
-                    <button class="header__nav-item exit-input hidden" type="submit">Log out </button>
+                    <button class="header__nav-item exit-input" :class="{ hidden: username === defaultUsername }" @click="logoutHandler" type="submit">Log out </button>
                 </nav>
             </div>
         </div>
@@ -36,8 +38,13 @@ export default {
             modalData: {
                 name: '',
                 showModal: false
-            }
+            },
+            defaultUsername: 'Stranger',
+            username: '',
         }
+    },
+    created: function() {
+      this.username = localStorage.getItem('username') ?? this.defaultUsername;
     },
     methods: {
         toggleModal(event) {
@@ -49,6 +56,12 @@ export default {
             console.log("HEADER:", this.showModal)
             this.$emit('toggleModal', this.modalData)
             return this.showModal
+        },
+        logoutHandler() {
+          if(localStorage.getItem('username')) {
+            localStorage.removeItem('username');
+            this.$router.go()
+          }
         }
     }
 }

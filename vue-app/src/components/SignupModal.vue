@@ -1,29 +1,29 @@
 <template>
-    <form method="post">
+    <form @submit="signupHandler">
         <div class="login-block__signup-info">
             <h4>Sign up</h4>
         </div>
         <div class="login-block__username-block">
             <span class="login-block__username-label">Username</span>
-            <input name="username" type="text" class="login-block__username-username" required>
+            <input name="username" v-model="username" type="text" class="login-block__username-username" required>
         </div>
         <div class="login-block__details-block">
             <div class="login-block__sex-block">
                 <span class="login-block__sex-label">Sex</span>
                 <div class="login-block__sex-female">
                     <label for="input-female" class="login-block__female-label">F</label>
-                    <input type="radio" class="login-block__sex-female" name="sex" value="female" id="input-female">
+                    <input type="radio" v-model="sex" class="login-block__sex-female" name="sex" value="female" id="input-female">
                     <span class="radiomark"></span>
                 </div>
                 <div class="login-block__sex-male">
                     <label for="input-male" class="login-block__male-label">M</label>
-                    <input type="radio" class="login-block__sex-male" name="sex" value="male" id="input-male">
+                    <input type="radio" v-model="sex" class="login-block__sex-male" name="sex" value="male" id="input-male">
                     <span class="radiomark"></span>
                 </div>
             </div>
             <div class="login-block__country-block">
                 <span class="login-block__country-label">Country</span>
-                <select name="country" class="login-block__country-select">
+                <select name="country" v-model="country" class="login-block__country-select">
                     <option value="USA">USA</option>
                     <option value="UK">UK</option>
                     <option value="Russia">Russia</option>
@@ -33,15 +33,15 @@
         </div>
         <div class="login-block__email-block">
             <span class="login-block__email-label">E-mail</span>
-            <input name="email" type="email" class="login-block__email-email" required>
+            <input name="email" v-model="email" type="email" class="login-block__email-email" required>
         </div>
         <div class="login-block__password-block">
             <span class="login-block__password-label">Password</span>
-            <input name="password" type="password" class="login-block__password-password" required>
+            <input name="password" v-model="password" type="password" class="login-block__password-password" required>
         </div>
         <div class="login-block__phone-block">
             <span class="login-block__phone-label">Phone number</span>
-            <input name="phone" type="tel" class="login-block__phone-phone" required>
+            <input name="phone" v-model="phoneNumber" type="tel" class="login-block__phone-phone" required>
         </div>
         <div class="login-block__button-block">
             <input type="submit" value="Sign up" class="login-block__signup-btn">
@@ -53,12 +53,25 @@
 <script>
 export default {
     name: 'sign-up-modal',
+    data: function() {
+      return {
+        username: '',
+        sex: '',
+        country: '',
+        email: '',
+        password: '',
+        phoneNumber: ''
+      }
+    },
     props: {
         modalData: Object
     },
     methods: {
         declineClickHandler() {
             return this.modalData.showModal = false;
+        },
+        signupHandler() {
+          localStorage.setItem('username', this.username)
         }
     }
 }
