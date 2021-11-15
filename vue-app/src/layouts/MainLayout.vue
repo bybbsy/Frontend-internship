@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper" :class="{'no-scroll': modalData.showModal}">
         <Header @toggleModal="onClickChild"/>
         <router-view />
         <Footer />

@@ -60,8 +60,13 @@ export default {
             this.emptyArray = false;
             this.reposList = [];
             
-            const result = await fetch(URL);
-            let data = await result.json();
+            try {
+                const result = await fetch(URL);
+                var data = await result.json();
+            }
+            catch(e) {
+                this.catchError(e);
+            }
             
             this.reposList = data;
             this.emptyArray = data.length > 0 ? false : true;
@@ -69,6 +74,16 @@ export default {
         },
         catchError(reason = "Error code is not defined") {
             throw new Error(`Something went wrong. Error code: ${reason}`)
+        }
+    },
+    watch: {
+        // Replaces the first digit in the input field with '@'
+        username: function(value) {
+            const reg = /^[0-9]/
+            if(value.match(reg)) {
+                let newValue = value.replace(reg, '@');
+                this.username = newValue;
+            }
         }
     },
     components: {
