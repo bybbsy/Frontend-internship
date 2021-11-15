@@ -15,7 +15,8 @@ npm install
 ```npm run lint``` lints with the defualt specs
 
 ### Building with custom webpack :white_check_mark:
-To build with webpack you need to add ```"build-webpack": "npm run webpack"``` in scripts
+To build with webpack you need to add ```"build-webpack": "npm run webpack"``` in scripts in your package.json
+
 Or you can just run ```npm run webpack```
 
 ### Customize configuration
