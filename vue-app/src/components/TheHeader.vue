@@ -234,4 +234,58 @@ header {
 .header__nav-bars {
     font-size: 2em;
 }
+
+@media screen and (max-width: 930px) {
+      .header__nav {
+          position: absolute;
+          top: 0;
+          right: -100%;
+          margin-top: 60px;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          background: tomato;
+          padding: 15px 0;
+          transition: 0.7s ease;
+          z-index: 2;
+      }
+
+      .header__nav-item.js-features {
+          background: unset;
+      }
+      .header__nav-item.js-features .new-badge {
+          display: none;
+      }
+
+      .header__nav-item.sign-up {
+          background: unset;
+          background-size: unset;
+      }
+      .header__nav-item.sign-up::before {
+          display: none;
+      }
+
+      .header__nav-item::before {
+          display: none;
+      }
+      .header__nav.expanded {
+          right: 0;
+      }
+
+      .header__nav-item {
+          margin: 25px 0;
+          text-align: center;
+          font-size: 1.25em;
+      }
+
+      .header__nav-icon {
+          display: block;
+          margin-left: auto;
+          margin-right: 0 ;
+      }
+
+      .header__nav-item::after {
+          display: none;
+      }
+  }
 </style>

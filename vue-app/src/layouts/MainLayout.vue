@@ -4,6 +4,7 @@
         <router-view />
         <Footer />
         <div class="modal" :class="{ 'hidden': !modalData.showModal }" @click="outerClickHandler ">
+            <div class="pop-up__list"></div>
             <SignupModal :modalData="modalData" class="login-block" :class="{ hidden: modalData.name !== 'login' }"/>
             <BomModal :modalData="modalData" class="modal-bom" :class="{ hidden: modalData.name !== 'bom' }"/>
             <GithubModal :modalData="modalData" class="modal-github" :class="{ hidden: modalData.name !== 'github' }"/>
@@ -56,5 +57,14 @@ export default {
       height: 100%;
       background-color: rgba(82, 82, 82, 0.479);
       z-index: 1;
+  }
+  .pop-up__list {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 1.5em;
+      display: flex;
+      flex-direction: column;
   }
 </style>

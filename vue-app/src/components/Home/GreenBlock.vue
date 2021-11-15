@@ -39,6 +39,16 @@ export default {
       background: var(--block-color);
       border-radius: 20px 0px 20px 0px;
   }
+  .item {
+      display: flex;
+      width: 100px;
+      height: 100px;
+      background-color: rgba(121, 187, 121, 0.582);
+      flex: 1 1 100%;
+      margin: 20px 0;
+      flex-wrap: wrap;
+      align-items: center;
+  }
 
   @media screen and (max-width: 1280px) {
       .green-block {
@@ -47,6 +57,10 @@ export default {
           align-items: center;
           justify-content: space-between;
           margin-bottom: 10px;
+      }
+      
+      .item {
+          flex: 0 0 100px;
       }
   }
 </style>
