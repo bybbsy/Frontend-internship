@@ -3,16 +3,10 @@
       <component :is="layout">
           <router-view />
       </component>
-    <!-- <div class="wrapper"> -->
-      <!-- <Header /> -->
-      <!-- <Footer /> -->
     </div>
-  <!-- </div> -->
 </template>
 
 <script>
-// import Header from './components/TheHeader.vue'
-// import Footer from './components/TheFooter.vue'
 
 import MainLayout from './layouts/MainLayout.vue'
 import EmptyLayout from './layouts/EmptyLayout.vue'
