@@ -7,11 +7,11 @@
                 </div>
                     <div class="header__nav-icon">
                         <input type="checkbox" class="header__nav-input" id="nav-bars">
-                        <label for="nav-bars" class="header__nav-bars">
+                        <label for="nav-bars" class="header__nav-bars" @click="toggleMenu">
                             <i class="fas fa-bars"></i>
                         </label>
                     </div>
-                <nav class="header__nav">
+                <nav class="header__nav" :class="{ 'expanded': showMenu }">
                     <a href="" @click.prevent="toggleModal" class="header__nav-item github">GitHub
                         <div class="new-badge">new</div>
                     </a>
@@ -39,6 +39,7 @@ export default {
                 name: '',
                 showModal: false
             },
+            showMenu: false,
             defaultUsername: 'Stranger',
             username: '',
         }
@@ -48,13 +49,21 @@ export default {
     },
     methods: {
         toggleModal(event) {
-             
+            console.log(this.showMenu)
+            
+            if(this.showMenu) {
+                this.showMenu = !this.showMenu;
+            }
+
             this.modalData.showModal = !this.modalData.showModal;
             let len =  event.target.classList.length;
             this.modalData.name = event.target.classList[len - 1];
-            
             this.$emit('toggleModal', this.modalData)
             return this.showModal
+        },
+        toggleMenu() {
+            this.showMenu = !this.showMenu;
+            this.$emit('showMenu', this.showMenu)
         },
         logoutHandler() {
           if(localStorage.getItem('username')) {

@@ -1,11 +1,11 @@
 <template>
-    <div class="wrapper" :class="{'no-scroll': modalData.showModal}">
-        <Header @toggleModal="onClickChild"/>
+    <div class="wrapper" :class="{'no-scroll': modalData.showModal || showMenu }">
+        <Header @toggleModal="onClickChildHandler" @showMenu="onToggleMenuHander"/>
         <router-view />
         <Footer />
         <div class="modal" :class="{ 'hidden': !modalData.showModal }" @click="outerClickHandler ">
             <div class="pop-up__list">
-                <ModalPopup :onSignUp="onSignUp" v-if="onSignUp.message" />
+                <ModalPopup :onSignUp="onSignUpHandler" v-if="onSignUp.message" />
             </div>
             <SignupModal :modalData="modalData" @signed-up="onSignUpHandler" class="login-block" :class="{ hidden: modalData.name !== 'login' }"/>
             <BomModal :modalData="modalData" class="modal-bom" :class="{ hidden: modalData.name !== 'bom' }"/>
@@ -33,11 +33,12 @@ export default {
             onSignUp: {
                 message: '',
                 type: ''
-            }
+            },
+            showMenu: false
         }
     },
     methods: {
-        onClickChild: function (value) {
+        onClickChildHandler: function (value) {
             this.modalData = value;
             return this.modalData
         },
@@ -50,6 +51,9 @@ export default {
         onSignUpHandler(value) {
             this.onSignUp.message = value.message
             this.onSignUp.type = value.type
+        },
+        onToggleMenuHander(value) {
+            this.showMenu = value;
         }
     },
     components: {
