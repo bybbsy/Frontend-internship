@@ -1,7 +1,7 @@
 <template>
-    <div class="pop-up">
+    <div class="pop-up" :class="{ [onSignUp.type]: onSignUp.type }">
         <div class="pop-up__wrapper">
-            <p>{{ message }}</p>
+            <p>{{ onSignUp.message }}</p>
         </div>
     </div>
 </template>
@@ -10,11 +10,7 @@
 export default {
     name: 'pop-up',
     props: {
-        message: {
-            type: String,
-            required: true,
-            default: 'Empty :c'
-        }
+        onSignUp: Object
     }
 }
 </script>

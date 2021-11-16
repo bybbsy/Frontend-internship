@@ -63,7 +63,7 @@ export default {
         phoneNumber: '',
         signUp: {
             success: 'New account has been successfully created',
-            type: 'success'
+            type: 'successful'
         },
         delay: 2000
       }

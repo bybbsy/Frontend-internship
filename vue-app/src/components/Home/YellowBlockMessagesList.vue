@@ -60,7 +60,6 @@ export default {
     },
     methods: {
       filterMessage(msg) {
-        // console.log(msg)
         for(let key in this.filterKeys) {
           if(msg.includes(this.filterKeys[key])) {
             return true
