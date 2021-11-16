@@ -15,9 +15,7 @@ npm install
 ```npm run lint``` lints with the defualt specs
 
 ### Building with custom webpack :white_check_mark:
-To build with webpack you need to add ```"build-webpack": "npm run webpack"``` in scripts in your package.json
-
-Or you can just run ```npm run webpack```
+```npm run build-webpack``` builds app in production mode and stores it in dist folder
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
