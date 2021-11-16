@@ -4,8 +4,10 @@
         <router-view />
         <Footer />
         <div class="modal" :class="{ 'hidden': !modalData.showModal }" @click="outerClickHandler ">
-            <div class="pop-up__list"></div>
-            <SignupModal :modalData="modalData" class="login-block" :class="{ hidden: modalData.name !== 'login' }"/>
+            <div class="pop-up__list">
+                <ModalPopup :message="onSignUp.message" v-if="onSignUp.message" />
+            </div>
+            <SignupModal :modalData="modalData" @signed-up="onSignUpHandler" class="login-block" :class="{ hidden: modalData.name !== 'login' }"/>
             <BomModal :modalData="modalData" class="modal-bom" :class="{ hidden: modalData.name !== 'bom' }"/>
             <GithubModal :modalData="modalData" class="modal-github" :class="{ hidden: modalData.name !== 'github' }"/>
         </div>
@@ -18,6 +20,7 @@ import Footer from '@/components/TheFooter.vue'
 import SignupModal from '@/components/SignupModal.vue'
 import BomModal from '@/components/BomModal.vue'
 import GithubModal from '@/components/GithubModal.vue'
+import ModalPopup from '@/components/ModalPopup.vue'
 
 export default {
     name: 'main-layout',
@@ -26,12 +29,15 @@ export default {
             modalData: {
                 name: '',
                 showModal: false
+            },
+            onSignUp: {
+                message: '',
+                type: ''
             }
         }
     },
     methods: {
         onClickChild: function (value) {
-            console.log("LAYOUT:", this.modalData.name, this.modalData.showModal )
             this.modalData = value;
             return this.modalData
         },
@@ -40,10 +46,15 @@ export default {
                 this.modalData.name = ''
                 this.modalData.showModal = false;
             }
+        },
+        onSignUpHandler(value) {
+            this.onSignUp.message = value.message
+            this.onSignUp.type = value.type
+            console.log(this.onSignUp.message, value)
         }
     },
     components: {
-        Header, Footer, SignupModal, BomModal, GithubModal
+        Header, Footer, SignupModal, BomModal, GithubModal, ModalPopup
     }
 }
 </script>

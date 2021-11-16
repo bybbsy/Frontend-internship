@@ -1,5 +1,5 @@
 <template>
-    <form @submit="signupHandler">
+    <form @submit.prevent="signupHandler">
         <div class="login-block__signup-info">
             <h4>Sign up</h4>
         </div>
@@ -60,7 +60,12 @@ export default {
         country: '',
         email: '',
         password: '',
-        phoneNumber: ''
+        phoneNumber: '',
+        signUp: {
+            success: 'New account has been successfully created',
+            type: 'success'
+        },
+        delay: 2000
       }
     },
     props: {
@@ -72,6 +77,12 @@ export default {
         },
         signupHandler() {
           localStorage.setItem('username', this.username)
+          this.$emit('signed-up', { 
+              message: this.signUp.success,
+              type: this.signUp.type
+           })
+
+           setTimeout(() => this.$router.go(), this.delay)
         }
     }
 }

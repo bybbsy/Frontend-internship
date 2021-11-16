@@ -52,8 +52,7 @@ export default {
             this.modalData.showModal = !this.modalData.showModal;
             let len =  event.target.classList.length;
             this.modalData.name = event.target.classList[len - 1];
-
-            console.log("HEADER:", this.showModal)
+            
             this.$emit('toggleModal', this.modalData)
             return this.showModal
         },
