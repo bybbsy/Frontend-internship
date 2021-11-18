@@ -1,15 +1,15 @@
 <template>
   <div>
         <div class="row__current-url">
-            <p>Current URL: <a href="#" class="current-url__value">Nope:c</a></p>
-            <p><a href="next-page.html" class="current-url__next">Click here to achieve forward link! 🚀🚀🚀</a></p>
+            <p>Current URL: <router-link :to="{ name: 'home' }" class="current-url__value">{{ currentUrl }}</router-link></p>
+            <p><router-link :to="{ name: 'bom' }" class="current-url__next">Click here to achieve forward link! 🚀🚀🚀</router-link></p>
         </div>
         <div class="row__manage-history">
-            <div class="manage-back">
+            <div class="manage-back" @click="goBack">
                 <i class="fas fa-backward"></i>
                 <div class="hint">Go to the previous page</div>
             </div>
-            <div class="manage-forward">
+            <div class="manage-forward" @click="goForward">
                 <i class="fas fa-forward"></i>
                 <div class="hint">Go the the next page</div>
             </div>
@@ -22,6 +22,22 @@ export default {
     name: 'bom-modal',
     props: {
         modalData: Object
+    },
+    data: function() {
+        return {
+            currentUrl: null
+        }
+    },
+    created: function() {
+        this.currentUrl = location.href
+    },
+    methods: {
+        goForward: function() {
+            this.$router.go(1)
+        },
+        goBack: function() {
+            this.$router.go(-1)
+        }
     }
 }
 </script>

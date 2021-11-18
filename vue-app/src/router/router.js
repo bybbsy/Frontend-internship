@@ -14,7 +14,12 @@ export default new Router({
             meta: { layout: 'main' },
             component: Home
         },
-        // { path: '/bom', name: 'bom', component: '' },
+        {
+            path: '/bom',
+            name: 'bom',
+            meta: { layout: 'empty'},
+            component: () => import('../views/NextPage.vue')
+        },
         {
             path: '/products',
             name: 'products',

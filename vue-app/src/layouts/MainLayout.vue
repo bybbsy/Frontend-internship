@@ -5,7 +5,7 @@
         <Footer />
         <div class="modal" :class="{ 'hidden': !modalData.showModal }" @click="outerClickHandler ">
             <div class="pop-up__list">
-                <ModalPopup :onSignUp="onSignUpHandler" v-if="onSignUp.message" />
+                <ModalPopup :onSignUp="onSignUp" v-if="onSignUp.message" />
             </div>
             <SignupModal :modalData="modalData" @signed-up="onSignUpHandler" class="login-block" :class="{ hidden: modalData.name !== 'login' }"/>
             <BomModal :modalData="modalData" class="modal-bom" :class="{ hidden: modalData.name !== 'bom' }"/>
