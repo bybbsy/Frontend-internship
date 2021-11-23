@@ -22,7 +22,6 @@ export default new Router({
         },
         {
             path: '/products',
-            name: 'productsLayout',
             component: () => import('../layouts/MainLayout.vue'),
             children: [
                 {

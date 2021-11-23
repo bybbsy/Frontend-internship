@@ -31,11 +31,9 @@ export default {
     }
   },
   beforeCreate() {
-    let data = fetch('https://jsonplaceholder.typicode.com/photos?_start=0&_limit=10')
+    return fetch('https://jsonplaceholder.typicode.com/photos?_start=0&_limit=10')
           .then(response => response.json())
           .then(json => this.receivedData = json)
-
-    console.log(data)
   },
   components: {
     Card
