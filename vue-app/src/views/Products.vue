@@ -3,7 +3,7 @@
       <aside class="sub-header">
         <h5>Products list</h5>
         <div class="info-block">
-          <p>Fake data provided by <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSON Placholed</a> </p> 
+          <p>Fake data provided by <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSON Placholder</a> </p> 
         </div>
       </aside>
 
