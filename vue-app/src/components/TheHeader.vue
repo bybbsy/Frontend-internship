@@ -2,8 +2,8 @@
   <header class="header">
         <div class="container hf">
             <div class="header__row">
-                <div class="header__info" id="header-info">
-                    <h3>Hey, <span class="header-username"> {{ username }}</span> it's a simple html webpage</h3>
+                <div class="header__info">
+                    <h3>Hey, <span ref='headerUsername' class="header-username"> {{ username }}</span> it's a simple html webpage</h3>
                 </div>
                     <div class="header__nav-icon">
                         <input type="checkbox" class="header__nav-input" id="nav-bars">
@@ -12,6 +12,8 @@
                         </label>
                     </div>
                 <nav class="header__nav" :class="{ 'expanded': showMenu }">
+                    
+                    <router-link :to="{ name: 'home' }" class="header__nav-item">Home</router-link>
                     <a href="" @click.prevent="toggleModal" class="header__nav-item github">GitHub
                         <div class="new-badge">new</div>
                     </a>
@@ -20,7 +22,6 @@
                     >Sign up</a>
                     <a href="" @click.prevent="toggleModal" class="header__nav-item bom">BOM</a>
                     <router-link :to="{ name: 'products' }" class="header__nav-item">Products</router-link>
-                    <a href="https://www.google.com/" target="_blank" class="header__nav-item">History</a>
                     <a href="https://www.google.com/" target="_blank" class="header__nav-item">Gallery</a>
                     <a href="https://www.google.com/" target="_blank" class="header__nav-item">Docs</a>
                     <button class="header__nav-item exit-input" :class="{ hidden: username === defaultUsername }" @click="logoutHandler" type="submit">Log out </button>
