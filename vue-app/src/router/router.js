@@ -22,9 +22,20 @@ export default new Router({
         },
         {
             path: '/products',
-            name: 'products',
-            meta: { layout: 'main' },
-            component: () => import('../views/Products.vue')
+            name: 'productsLayout',
+            component: () => import('../layouts/MainLayout.vue'),
+            children: [
+                {
+                    path: '',
+                    name: 'products',
+                    component: () => import('../views/Products.vue')
+                },
+                {
+                    path: 'id=:id',
+                    name: 'product',
+                    component: () => import('../views/Product.vue')
+                }
+            ]
         },
         {
             path: '*',
