@@ -73,7 +73,8 @@ export default {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
-  a {
+  a,
+  a:visited {
       text-decoration: none;
   }
 
