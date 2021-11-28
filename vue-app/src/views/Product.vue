@@ -1,7 +1,8 @@
 <template>
   <div class="product-block">
       <div class="product-wrapper">
-          <h5>Product information</h5>
+          <h5 class="wrapper-info">Product information</h5>
+          <router-link :to="{ name: 'products' }" class="link__go-back">Go back</router-link>
           <div class="product-info">
 
               <div class="product-title">{{ title }}</div>
@@ -48,6 +49,12 @@ export default {
     height: 100%;
 }
 
+.wrapper-info {
+    font-size: 1.2em;
+    text-align: center;
+    margin: 5px 0;
+}
+
 .product-info {
     display: grid; 
     margin: 0 25px;
@@ -55,8 +62,19 @@ export default {
     grid-auto-rows: 50px minmax(250px, 300px) minmax(150px, 200px);
     background-color: rgba(255, 255, 255, 0.842);
     border-radius: 15px;
+    gap: 10px;
 }
 
+.link__go-back {
+    display: inline-flex;
+    font-size: 1.1em;
+    background-color: tomato;
+    border-radius: 2px;
+    color: #fff;
+    line-height: 1.1em;
+    padding: 2px 3px;
+    margin: 5px 0 5px 15px;
+}
 .product-title {
     grid-column: 1 / 2;
     grid-row: 1 / 1;
@@ -79,7 +97,10 @@ export default {
 .product-desc {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+    overflow-y: auto;
     font-size: 1.1em;
+    margin-left: 5px;
+    margin-bottom: 5px;
 }
 
 .buttons {
@@ -102,5 +123,34 @@ export default {
 
 .buttons button:hover {
     box-shadow: 0px 0px 100px 100px rgba(17, 17, 17, 0.205) inset;;
+}
+
+@media screen and (max-width: 660px) {
+    .product-info {
+        grid-auto-columns: minmax(150px, 200px) 1fr;
+        grid-auto-rows: 50px minmax(150px, 200px) minmax(100px, 150px);
+    }
+
+    .product-title {
+        grid-column: 1 / 3;
+    }
+
+    .product-desc {
+        font-size: 0.9em;
+    }
+
+    .buttons {
+        grid-column: 1 / 3;
+        grid-row: 3 / 4;
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .product-info {
+        gap: 5px;
+        grid-auto-columns: minmax(70px, 120px) 1fr;
+        grid-auto-rows: 50px minmax(250px, 300px) minmax(70px, 100px);
+    }
 }
 </style>
