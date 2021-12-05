@@ -75,6 +75,7 @@ export default {
     padding: 2px 3px;
     margin: 5px 0 5px 15px;
 }
+
 .product-title {
     grid-column: 1 / 2;
     grid-row: 1 / 1;

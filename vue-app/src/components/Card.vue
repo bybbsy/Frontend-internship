@@ -3,17 +3,37 @@
       <div class="card-img">
           <img :src="card.url" alt="">
       </div>
-      <div class="title">{{ card.title }}</div>
+      <div class="title">{{ card.title | cropTitle(5)}}</div>
+      <div class="price">
+          <div class="price__value">0.00</div>
+          <div class="price__currency" ref="PriceCurrency"></div>
+      </div>
       <router-link :to="{ name: 'product', params: { id: card.id }}" class="link">Details</router-link>
       <router-view :key="$route.path"/>
   </div>
 </template>
 
 <script>
+import cropTitle from '../filters/cropTitle';
+
 export default {
     props: {
         card: Object
-    }
+    },
+    filters: {
+        cropTitle
+    },
+    data: function() {
+        return {
+            currency: '₽'
+        }
+    },
+    beforeMount() {
+        this.currency = '$'
+    },
+    mounted() {
+        this.$refs.PriceCurrency.innerHTML = this.currency;  
+    },
 }
 </script>
 
@@ -23,7 +43,7 @@ export default {
     display: flex;
     flex-direction: column;
     width: 300px;
-    height: 330px;
+    min-height: 330px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 0px 5px 1px #111;
@@ -53,6 +73,16 @@ export default {
     text-align: center;
     font-size: 1.1em;
     font-weight: bold;
+}
+
+.price {
+    display: inline-flex;
+    justify-content: center;
+}
+
+.price__value,
+.price__currency {
+    display: flex;
 }
 
 .link {

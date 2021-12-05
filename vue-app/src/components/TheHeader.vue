@@ -50,8 +50,6 @@ export default {
     },
     methods: {
         toggleModal(event) {
-            console.log(this.showMenu)
-            
             if(this.showMenu) {
                 this.showMenu = !this.showMenu;
             }
