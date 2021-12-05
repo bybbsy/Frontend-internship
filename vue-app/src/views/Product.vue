@@ -46,7 +46,7 @@ export default {
 
 <style>
 .product-block {
-    height: 100%;
+    min-height: 100%;
 }
 
 .wrapper-info {
