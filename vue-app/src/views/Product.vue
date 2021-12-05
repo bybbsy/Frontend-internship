@@ -22,13 +22,57 @@
               </div>
           </div>
       </div>
-      <div class="product-advertisement">
-
-      </div>
+      <TheAccordion>
+          <template v-slot:accordion-title>
+              <span class="accordion-title">Specifications</span>
+          </template>
+          <template v-slot:content>
+              <div class="accordion-content">
+                  <ul>
+                      <li>Spec 1</li>
+                      <li>Spec 2</li>
+                      <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto voluptatibus sapiente, quibusdam iure eligendi rem eveniet velit vitae tenetur natus? Tempora animi sed qui aperiam doloremque, sit quas pariatur ab!
+                      Molestias quo ab ratione, facere nesciunt suscipit laborum vero eius labore nobis pariatur at officiis veritatis recusandae quisquam rem? Mollitia delectus ipsam minima earum suscipit incidunt, ab error beatae doloribus.
+                      Culpa veritatis corrupti quisquam enim exercitationem vitae reiciendis quos aspernatur perspiciatis quo nesciunt et voluptatem expedita itaque eius placeat at mollitia, tempora repudiandae alias quae. Ut amet nisi perspiciatis ipsum.
+                      Distinctio sequi similique eum excepturi, asperiores illo voluptates culpa consequatur aspernatur placeat eveniet quibusdam ipsam necessitatibus? Aut, doloribus. Porro maxime veniam necessitatibus voluptatibus assumenda nihil quaerat possimus officia ipsam vero?
+                      Molestiae magni velit, voluptatum adipisci praesentium consequuntur reiciendis voluptates odio vitae quos unde aut. Porro explicabo dolores incidunt eligendi? Quisquam nulla repellat rem aspernatur adipisci eius dicta tempore tempora voluptatibus!
+                      Nemo magni debitis vero quis iusto modi quo amet. Pariatur quisquam sapiente autem, labore accusamus sit maiores. Quia animi quod rem sunt at in ipsum. Nostrum minus similique molestiae autem.
+                      Voluptatem sed adipisci soluta corporis tempora id animi dolores, iure consequuntur enim quas error suscipit nostrum nesciunt quisquam ducimus, repudiandae aspernatur in consectetur beatae iste maxime non aut. Necessitatibus, consequatur!
+                      Quia distinctio aliquam repudiandae nihil id corrupti nisi quaerat. Tempora, autem natus eaque maiores architecto delectus atque quod veniam officia. Ducimus accusamus quibusdam praesentium consequuntur minus officia eum enim non. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt porro magnam vero, praesentium saepe labore amet vitae esse minima eligendi asperiores iste officia vel ratione velit maiores odit nisi explicabo.</li>
+                  </ul>
+              </div>
+          </template>
+      </TheAccordion>
+      <TheAccordion>
+          <template v-slot:accordion-title>
+              <span class="accordion-title">Contents</span>
+          </template>
+          <template v-slot:content>
+              <div class="accordion-content">
+                  <ul>
+                      <li>Gearbox</li>
+                      <li>Box</li>
+                      <li>Toolkit</li>
+                  </ul>
+              </div>
+          </template>
+      </TheAccordion>
+      <TheAccordion>
+          <template v-slot:accordion-title>
+              <span class="accordion-title">Delivery information</span>
+          </template>
+          <template v-slot:content>
+              <div class="accordion-content">
+                  <p>We do not deliver this stuff in you country :c</p>
+              </div>
+          </template>
+      </TheAccordion>
   </div>
 </template>
 
 <script>
+import TheAccordion from '../components/TheAccordion.vue'
+
 export default {
     data: function() {
         return {
@@ -43,13 +87,16 @@ export default {
               this.title = json.title
               this.url = json.url
           })
+    },
+    components: {
+        TheAccordion
     }
 }
 </script>
 
 <style>
 .product-block {
-    height: 100%;
+    min-height: 100%;
 }
 
 .wrapper-info {
@@ -127,6 +174,12 @@ export default {
 
 .buttons button:hover {
     box-shadow: 0px 0px 100px 100px rgba(17, 17, 17, 0.205) inset;;
+}
+
+.accordion-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-right: 9px;
 }
 
 @media screen and (max-width: 660px) {
