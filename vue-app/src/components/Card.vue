@@ -15,11 +15,12 @@
 
 <script>
 import cropTitle from '../filters/cropTitle';
-
+// import { bus } from '../main'
 export default {
     props: {
         card: Object
     },
+    
     filters: {
         cropTitle
     },
@@ -34,6 +35,9 @@ export default {
     mounted() {
         this.$refs.PriceCurrency.innerHTML = this.currency;  
     },
+    // created() {
+    //     bus.$on('showMenu', (msg) => console.log(msg))
+    // }
 }
 </script>
 
