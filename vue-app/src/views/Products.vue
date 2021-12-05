@@ -73,6 +73,7 @@ export default {
 .cards-block {
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start ;
+  padding: 0 20px;
+  justify-content: center;
 }
 </style>
