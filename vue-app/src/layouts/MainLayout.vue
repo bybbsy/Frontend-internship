@@ -21,6 +21,7 @@ import SignupModal from '@/components/SignupModal.vue'
 import BomModal from '@/components/BomModal.vue'
 import GithubModal from '@/components/GithubModal.vue'
 import ModalPopup from '@/components/ModalPopup.vue'
+// import { bus } from '../main'
 
 export default {
     name: 'main-layout',
@@ -58,7 +59,12 @@ export default {
     },
     components: {
         Header, Footer, SignupModal, BomModal, GithubModal, ModalPopup
-    }
+    },
+    // created() {
+    //     bus.$on('showMenu', (msg) => {
+    //         this.modalData = value;
+    //     })
+    // }
 }
 </script>
 
