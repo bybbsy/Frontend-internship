@@ -22,6 +22,9 @@
               </div>
           </div>
       </div>
+      <div class="product-advertisement">
+
+      </div>
   </div>
 </template>
 
@@ -33,7 +36,7 @@ export default {
             url: null
         }
     },
-    beforeCreate() {
+    async beforeCreate() {
         return fetch(`https://jsonplaceholder.typicode.com/photos/${this.$route.params.id}`)
           .then(response => response.json())
           .then(json => {
@@ -151,7 +154,22 @@ export default {
     .product-info {
         gap: 5px;
         grid-auto-columns: minmax(70px, 120px) 1fr;
-        grid-auto-rows: 50px minmax(250px, 300px) minmax(70px, 100px);
+        grid-auto-rows: 50px minmax(100px, 120px) 150px 50px;
+    }
+
+    .product-pic {
+        grid-column: 1 / 3;
+    }
+
+    .product-desc {
+        grid-column: 1 / 3;
+        grid-row: 3 / 3;
+        margin: 0 5px;
+    }
+
+    .buttons {
+        align-items: center;
+        grid-row: 4 / 5;
     }
 }
 </style>
