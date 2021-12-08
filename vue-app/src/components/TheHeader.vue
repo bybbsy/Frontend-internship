@@ -32,8 +32,6 @@
 </template>
 
 <script>
-// import { bus } from '../main'
-
 export default {
     name: 'the-header',
     data: function() {

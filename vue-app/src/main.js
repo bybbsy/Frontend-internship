@@ -4,7 +4,6 @@ import router from './router/router.js'
 
 Vue.config.productionTip = false
 Vue.config.silent = true
-export const bus = new Vue();
 
 new Vue({
   router,

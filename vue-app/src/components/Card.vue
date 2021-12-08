@@ -15,7 +15,6 @@
 
 <script>
 import cropTitle from '../filters/cropTitle';
-// import { bus } from '../main'
 export default {
     props: {
         card: Object
