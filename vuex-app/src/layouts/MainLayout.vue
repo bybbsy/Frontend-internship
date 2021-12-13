@@ -42,18 +42,12 @@ export default {
     methods: {
         outerClickHandler: function(event) {
             if(event.target.classList[0] === 'modal') {
-                this.$store.commit('setModalData', {
-                    name: '',
-                    showModal: false
-                })
+                this.$store.commit('closeModal')
             }
         },
-        onSignUpHandler() {
-            // this.onSignUp.message = value.message
-            // this.onSignUp.type = value.type
-        },
-        onToggleMenuHander() {
-            // this.showMenu = value;
+        onSignUpHandler(value) {
+            this.onSignUp.message = value.message
+            this.onSignUp.type = value.type
         }
     },
     components: {

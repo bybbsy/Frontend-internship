@@ -27,6 +27,12 @@ export default createStore({
     },
     setModalData(state, payload) {
       state.modalData = payload;
+    },
+    closeModal() {
+      this.commit('setModalData', {
+        name:'',
+        showModal: false
+      })
     }
   },
   actions: {

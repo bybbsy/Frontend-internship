@@ -51,6 +51,7 @@
 </template>
 
 <script>
+
 export default {
     name: 'sign-up-modal',
     data: function() {
@@ -68,23 +69,20 @@ export default {
         delay: 2000
       }
     },
-    // props: {
-    //     modalData: Object
-    // },
-    // methods: {
-    //     declineClickHandler() {
-    //         return this.modalData.showModal = false;
-    //     },
-    //     signupHandler() {
-    //       localStorage.setItem('username', this.username)
-    //       this.$emit('signed-up', { 
-    //           message: this.signUp.success,
-    //           type: this.signUp.type
-    //        })
+    methods: {
+        declineClickHandler() {
+            this.$store.commit('closeModal')
+        },
+        signupHandler() {
+          localStorage.setItem('username', this.username)
+          this.$emit('signed-up', { 
+              message: this.signUp.success,
+              type: this.signUp.type
+           })
 
-    //        setTimeout(() => this.$router.go(), this.delay)
-    //     }
-    // }
+           setTimeout(() => this.$router.go(), this.delay)
+        }
+    }
 }
 </script>
 

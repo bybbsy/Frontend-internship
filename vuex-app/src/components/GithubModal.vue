@@ -38,9 +38,6 @@ import GithubModalRepo from '@/components/GithubModalRepo.vue'
 
 export default {
     name: 'github-modal',
-    props: {
-        // modalData: Object
-    },
     data: function() {
         return {
             username: null,
@@ -51,7 +48,7 @@ export default {
     },
     methods: {
         declineClickHandler() {
-            return this.modalData.showModal = false
+            this.$store.commit('closeModal')
         },
         async searchForRepo() {
             const URL = `https://api.github.com/users/${this.username}/repos`;
