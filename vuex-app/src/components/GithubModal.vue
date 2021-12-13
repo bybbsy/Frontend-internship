@@ -35,52 +35,59 @@
 
 <script>
 import GithubModalRepo from '@/components/GithubModalRepo.vue'
+import { ref, watch } from 'vue'
+import { useStore } from 'vuex'
 
 export default {
     name: 'github-modal',
-    data: function() {
-        return {
-            username: null,
-            reposList: [],
-            searching: false,
-            emptyArray: false
-        }
-    },
-    methods: {
-        declineClickHandler() {
-            this.$store.commit('closeModal')
-        },
-        async searchForRepo() {
-            const URL = `https://api.github.com/users/${this.username}/repos`;
-             
-            this.searching = true;
-            this.emptyArray = false;
-            this.reposList = [];
-            
+    setup() {
+        let username = ref(null);
+        let reposList = ref([]);
+        let searching = ref(false);
+        let emptyArray = ref(false);
+        let store = useStore();
+
+        async function searchForRepo() {
+            const URL = `https://api.github.com/users/${username.value}/repos`;
+
+            searching.value = true;
+
             try {
-                const result = await fetch(URL);
-                var data = await result.json();
+                const response = await fetch(URL);
+                reposList.value = await response.json();
+                
+                emptyArray.value = reposList.value.length > 0 ? false : true;
+                searching.value = false;
+            } catch(e) {
+                catchError(e)
             }
-            catch(e) {
-                this.catchError(e);
-            }
-            
-            this.reposList = data;
-            this.emptyArray = data.length > 0 ? false : true;
-            this.searching = false;
-        },
-        catchError(reason = "Error code is not defined") {
+        }
+
+        function catchError(reason = "Error code is not defined") {
             throw new Error(`Something went wrong. Error code: ${reason}`)
         }
-    },
-    watch: {
+
+        function declineClickHandler() {
+            store.commit('closeModal')
+        }
+
         // Replaces the first digit in the input field with '@'
-        username: function(value) {
+        watch(username, (value) => {
             const reg = /^[0-9]/
             if(value.match(reg)) {
                 let newValue = value.replace(reg, '@');
-                this.username = newValue;
+                username.value = newValue;
             }
+        })
+        
+        return {
+            username,
+            reposList,
+            searching,
+            emptyArray,
+            declineClickHandler,
+            searchForRepo,
+            catchError
         }
     },
     components: {
