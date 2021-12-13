@@ -32,34 +32,34 @@
 </template>
 
 <script>
+import { ref, methods } from 'vue'
 import { mapMutations, mapGetters} from 'vuex'
+
 export default {
     name: 'the-header',
-    data: function() {
-        return {
-            defaultUsername: 'Stranger',
-            username: '',
+    setup() {
+        const defaultUsername = ref('Stranger');
+        const username = ref(localStorage.getItem('username') ?? defaultUsername);
+
+        
+        function logoutHandler () {
+            if(localStorage.getItem('username')) {
+                localStorage.removeItem('username');
+                this.$router.go()
+            }
         }
-    },
-    created: function() {
-      this.username = localStorage.getItem('username') ?? this.defaultUsername;
-    },
-    computed: {
-        ...mapGetters([
-            'modalData',
-            'showMenu'
-        ]),
-    },
-    methods: {
-        ...mapMutations([
-            'toggleMenu',
-            'toggleModal'
-        ]),
-        logoutHandler() {
-          if(localStorage.getItem('username')) {
-            localStorage.removeItem('username');
-            this.$router.go()
-          }
+
+        return {
+            ...mapGetters([
+                'modalData',
+                'showMenu'
+            ]),
+            ...mapMutations([
+                'toggleMenu',
+                'toggleModal'
+            ]),
+            defaultUsername,
+            username
         }
     }
 }
