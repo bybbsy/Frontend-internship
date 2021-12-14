@@ -3,12 +3,6 @@
                                 Sed quam provident quaerat, saepe, mollitia nihil placeat dignissimos ipsa delectus eius fugiat omnis deserunt sapiente inventore, labore ipsam dolores at beatae explicabo. Nobis architecto fugiat quasi voluptas velit omnis!</p></aside>
 </template>
 
-<script>
-export default {
-
-}
-</script>
-
 <style>
 .pink-block {
       display: flex;

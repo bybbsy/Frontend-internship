@@ -24,12 +24,6 @@
     </aside>
 </template>
 
-<script>
-export default {
-
-}
-</script>
-
 <style>
     .green-block {
       display: flex;
