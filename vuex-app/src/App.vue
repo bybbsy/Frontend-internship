@@ -7,15 +7,20 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 
 import MainLayout from './layouts/MainLayout.vue'
 // import EmptyLayout from './layouts/EmptyLayout.vue'
 
 export default {
     name: 'App',
-    computed: {
-        layout() {
-            return (this.$route.meta.layout ?? 'empty') + '-layout'
+    setup() {
+        let route = useRoute();
+        let layout = computed(() => (route.meta.layout ?? 'empty') + '-layout')
+
+        return {
+            layout
         }
     },
     components: {
