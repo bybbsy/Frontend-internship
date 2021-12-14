@@ -6,8 +6,6 @@
 
 <script>
 export default {
-    name: 'no-page-layout',
-    components: {
-    }
+    name: 'no-page-layout'
 }
 </script>
