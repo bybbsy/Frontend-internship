@@ -31,7 +31,7 @@ const routes = [
   //     ]
   // },
   {
-      path: '*',
+      path: '/:pathMatch(.*)*',
       name: 'no-page',
       meta: { layout: 'empty' },
       component: () => import('../views/ErrorPage.vue')
