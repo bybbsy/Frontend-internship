@@ -2,7 +2,7 @@
   <div>
         <div class="row__current-url">
             <p>Current URL: <router-link :to="{ name: 'home' }" class="current-url__value">{{ currentUrl }}</router-link></p>
-            <!-- <p><router-link :to="{ name: 'bom' }" class="current-url__next">Click here to achieve forward link! 🚀🚀🚀</router-link></p> -->
+            <p><router-link :to="{ name: 'bom' }" class="current-url__next">Click here to achieve forward link! 🚀🚀🚀</router-link></p>
         </div>
         <div class="row__manage-history">
             <div class="manage-back" @click="goBack">
@@ -18,25 +18,31 @@
 </template>
 
 <script>
+import { ref } from '@vue/reactivity'
+import { useRouter } from 'vue-router';
 export default {
     name: 'bom-modal',
     props: {
         modalData: Object
     },
-    data: function() {
-        return {
-            currentUrl: null
+    setup() {
+        let currentUrl = ref('');
+        let router = useRouter();
+
+        currentUrl = location.href;
+
+        function goForward() {
+            router.go(1)
         }
-    },
-    created: function() {
-        this.currentUrl = location.href
-    },
-    methods: {
-        goForward: function() {
-            this.$router.go(1)
-        },
-        goBack: function() {
-            this.$router.go(-1)
+        
+        function goBack() {
+            router.go(-1)
+        }
+
+        return {
+            currentUrl,
+            goForward,
+            goBack
         }
     }
 }
