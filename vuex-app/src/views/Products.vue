@@ -20,21 +20,33 @@
 </template>
 
 <script>
+import { computed, reactive } from '@vue/runtime-core';
+import { useStore } from 'vuex';
 import Card from "../components/Card.vue";
 
 export default {
 
   name: 'Products',
-  data: function() {
-    return {
-      receivedData: null
-    }
+  setup() {
+      const store = useStore();
+      store.dispatch('fetchProducts');
+      let receivedData = reactive([]);
+      receivedData = computed(() => store.getters.getReceivedProducts)
+
+      return {
+          receivedData,
+      }
   },
-  async beforeCreate() {
-    return fetch('https://jsonplaceholder.typicode.com/photos?_start=0&_limit=10')
-          .then(response => response.json())
-          .then(json => this.receivedData = json)
-  },
+//   data: function() {
+//     return {
+//       receivedData: null
+//     }
+//   },
+//   async beforeCreate() {
+//     return fetch('https://jsonplaceholder.typicode.com/photos?_start=0&_limit=10')
+//           .then(response => response.json())
+//           .then(json => this.receivedData = json)
+//   },
   components: {
     Card
   }

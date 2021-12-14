@@ -6,7 +6,8 @@ export default createStore({
       name: '',
       showModal: false
     },
-    showMenu: false
+    showMenu: false,
+    receivedProducts: []
   },
   mutations: {
     toggleMenu(state) {
@@ -33,9 +34,19 @@ export default createStore({
         name:'',
         showModal: false
       })
-    }
+    },
+    setProducts(state, products) {
+      state.receivedProducts = products
+    } 
   },
   actions: {
+    async fetchProducts(context) {
+      return fetch('https://jsonplaceholder.typicode.com/photos?_start=0&_limit=10')
+          .then(response => response.json())
+          .then(json => {
+            context.commit('setProducts', json)
+          })
+    }
   },
   modules: {
   },
@@ -46,6 +57,9 @@ export default createStore({
     },
     showMenu(state) {
       return state.showMenu;
+    },
+    getReceivedProducts(state) { 
+      return state.receivedProducts
     }
   }
 })

@@ -3,40 +3,33 @@
       <div class="card-img">
           <img :src="card.url" alt="">
       </div>
-      <div class="title">{{ cropTitle(card.title, 5)}}</div>
+      <div class="title">{{ card.title }}</div>
       <div class="price">
           <div class="price__value">0.00</div>
-          <div class="price__currency" ref="PriceCurrency"></div>
+          <div class="price__currency" ref="priceCurrency"></div>
       </div>
-      <router-link :to="{ name: 'product', params: { id: card.id }}" class="link">Details</router-link>
+      <!-- <router-link :to="{ name: 'product', params: { id: card.id }}" class="link">Details</router-link> -->
       <router-view :key="$route.path"/>
   </div>
 </template>
 
 <script>
+import {  onBeforeMount } from 'vue'
 import cropTitle from '../filters/cropTitle';
 export default {
     props: {
         card: Object
     },
-    
-    filters: {
-        cropTitle
-    },
-    data: function() {
+    setup() {
+        let priceCurrency  = '₽'
+
+        onBeforeMount(() => priceCurrency = '$')
+
         return {
-            currency: '₽'
+            priceCurrency,
+            cropTitle
         }
-    },
-    beforeMount() {
-        this.currency = '$'
-    },
-    mounted() {
-        this.$refs.PriceCurrency.innerHTML = this.currency;  
-    },
-    // created() {
-    //     bus.$on('showMenu', (msg) => console.log(msg))
-    // }
+    }
 }
 </script>
 
