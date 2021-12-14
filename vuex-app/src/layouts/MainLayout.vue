@@ -7,9 +7,9 @@
             <div class="pop-up__list">
                 <ModalPopup :onSignUp="onSignUp" v-if="onSignUp.message" />
             </div>
-            <SignupModal :modalData="modalData" @signed-up="onSignUpHandler" class="login-block" :class="{ hidden: modalData.name !== 'login' }"/>
-            <BomModal :modalData="modalData" class="modal-bom" :class="{ hidden: modalData.name !== 'bom' }"/>
-            <GithubModal :modalData="modalData" class="modal-github" :class="{ hidden: modalData.name !== 'github' }"/>
+            <SignupModal @signed-up="onSignUpHandler" class="login-block" :class="{ hidden: modalData.name !== 'login' }"/>
+            <BomModal class="modal-bom" :class="{ hidden: modalData.name !== 'bom' }"/>
+            <GithubModal class="modal-github" :class="{ hidden: modalData.name !== 'github' }"/>
         </div>
     </div>
 </template>
@@ -21,33 +21,38 @@ import SignupModal from '@/components/SignupModal.vue'
 import BomModal from '@/components/BomModal.vue'
 import GithubModal from '@/components/GithubModal.vue'
 import ModalPopup from '@/components/ModalPopup.vue'
-import { mapGetters } from 'vuex'
+import { useStore } from 'vuex'
+import { computed, reactive } from '@vue/reactivity'
 
 export default {
     name: 'main-layout',
-    data: function() {
-        return {
-            onSignUp: {
-                message: '',
-                type: ''
+    setup() {
+        let store = useStore();
+
+        let onSignUp = reactive({
+            message: '',
+            type: ''
+        })
+
+        let modalData = computed(() => store.getters.modalData)
+        let showMenu = computed(() => store.getters.showMenu)
+        
+        function outerClickHandler(event) {
+            if(event.target.classList[0] === 'modal') {
+                store.commit('closeModal')
             }
         }
-    },
-    computed: {
-        ...mapGetters([
-            'modalData',
-            'showMenu'
-        ]),
-    },
-    methods: {
-        outerClickHandler: function(event) {
-            if(event.target.classList[0] === 'modal') {
-                this.$store.commit('closeModal')
-            }
-        },
-        onSignUpHandler(value) {
-            this.onSignUp.message = value.message
-            this.onSignUp.type = value.type
+
+        function onSignUpHandler(value) {
+            onSignUp.message = value.message
+            onSignUp.type = value.type
+        }
+        return {
+            onSignUp,
+            modalData,
+            showMenu,
+            outerClickHandler,
+            onSignUpHandler
         }
     },
     components: {
