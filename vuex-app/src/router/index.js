@@ -14,22 +14,22 @@ const routes = [
     meta: { layout: 'empty'},
     component: () => import('../views/NextPage.vue')
   },
-  // {
-  //     path: '/products',
-  //     component: () => import('../layouts/MainLayout.vue'),
-  //     children: [
-  //         {
-  //             path: '',
-  //             name: 'products',
-  //             component: () => import('../views/Products.vue')
-  //         },
-  //         {
-  //             path: 'id=:id',
-  //             name: 'product',
-  //             component: () => import('../views/Product.vue')
-  //         }
-  //     ]
-  // },
+  {
+      path: '/products',
+      component: () => import('../layouts/MainLayout.vue'),
+      children: [
+          {
+              path: '',
+              name: 'products',
+              component: () => import('../views/Products.vue')
+          },
+          // {
+          //     path: 'id=:id',
+          //     name: 'product',
+          //     component: () => import('../views/Product.vue')
+          // }
+      ]
+  },
   {
       path: '/:pathMatch(.*)*',
       name: 'no-page',
