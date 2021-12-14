@@ -8,12 +8,12 @@ const routes = [
     meta: { layout: 'main' },
     component: Home
   },
-  // {
-  //   path: '/bom',
-  //   name: 'bom',
-  //   meta: { layout: 'empty'},
-  //   component: () => import('../views/NextPage.vue')
-  // },
+  {
+    path: '/bom',
+    name: 'bom',
+    meta: { layout: 'empty'},
+    component: () => import('../views/NextPage.vue')
+  },
   // {
   //     path: '/products',
   //     component: () => import('../layouts/MainLayout.vue'),
