@@ -51,38 +51,83 @@
 </template>
 
 <script>
+import { ref, reactive } from 'vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 
 export default {
     name: 'sign-up-modal',
-    data: function() {
-      return {
-        username: '',
-        sex: '',
-        country: '',
-        email: '',
-        password: '',
-        phoneNumber: '',
-        signUp: {
+    setup(props, {emit}) {
+        let store = useStore();
+        let router = useRouter();
+
+        let username = ref('');
+        let sex = ref('');
+        let country = ref('');
+        let email = ref('');
+        let password = ref('');
+        let phoneNumber = ref('');
+        const delay = 1500;
+
+        let signUp = reactive({
             success: 'New account has been successfully created',
             type: 'successful'
-        },
-        delay: 2000
-      }
-    },
-    methods: {
-        declineClickHandler() {
-            this.$store.commit('closeModal')
-        },
-        signupHandler() {
-          localStorage.setItem('username', this.username)
-          this.$emit('signed-up', { 
-              message: this.signUp.success,
-              type: this.signUp.type
-           })
+        })
 
-           setTimeout(() => this.$router.go(), this.delay)
+        function signupHandler() {
+            localStorage.setItem('username', username)
+            emit('signed-up', { 
+                message: signUp.success,
+                type: signUp.type
+            })
+
+            setTimeout(() => router.go(), delay)
         }
-    }
+        function declineClickHandler() {
+            store.commit('closeModal')
+        }
+        
+        return {
+            username,
+            sex,
+            country,
+            email,
+            password,
+            phoneNumber,
+            signUp,
+            signupHandler,
+            declineClickHandler
+        }
+    },
+    // data: function() {
+    //   return {
+    //     username: '',
+    //     sex: '',
+    //     country: '',
+    //     email: '',
+    //     password: '',
+    //     phoneNumber: '',
+    //     signUp: {
+    //         success: 'New account has been successfully created',
+    //         type: 'successful'
+    //     },
+    //     delay: 2000
+    //   }
+    // },
+    // methods: {
+    //     declineClickHandler() {
+    //         this.$store.commit('closeModal')
+    //     },
+    //     signupHandler() {
+    //       localStorage.setItem('username', this.username)
+    //       this.$emit('signed-up', { 
+    //           message: this.signUp.success,
+    //           type: this.signUp.type
+    //        })
+
+    //        setTimeout(() => this.$router.go(), this.delay)
+    //     }
+    // }
 }
 </script>
 
