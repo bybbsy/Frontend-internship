@@ -12,14 +12,14 @@
 </template>
 
 <script>
+import { computed } from '@vue/reactivity';
 import YellowBlockMessage from './YellowBlockMessage.vue'
 
 export default {
     name: 'yellow-block-messages-list',
-    data: function() {
-        return {
-            filterKeys: ['message', 'subscribed', 'notifications'],
-            messages: [
+    setup() {
+      const filterKeys = ['message', 'subscribed', 'notifications'];
+      const messages = [
                 {
                     date: '12.02.21',
                     author: 'John Doe',
@@ -40,13 +40,19 @@ export default {
                     author: 'John Doe',
                     content: 'This message was sent to you because you subscribed on our daily e-mail notifications. Just keep you posted, bud.'
                 }
-            ]
+            ];
+      
+      function filterMessage(msg) {
+        for(let key in filterKeys) {
+          if(msg.includes(filterKeys[key])) {
+            return true
+          } 
         }
-    },
-    computed: {
-      filteredMessages() {
-        return this.messages.map(message => {
-          let spamMsg = this.filterMessage(message.content);
+        return false
+      }
+      let filteredMessages = computed(() => {
+        return messages.map(message => {
+          let spamMsg = filterMessage(message.content);
 
           if(spamMsg) {
             message.spam = true
@@ -56,16 +62,11 @@ export default {
           }
           return message
         })
-      },
-    },
-    methods: {
-      filterMessage(msg) {
-        for(let key in this.filterKeys) {
-          if(msg.includes(this.filterKeys[key])) {
-            return true
-          } 
-        }
-        return false
+      })
+
+      return {
+        messages,
+        filteredMessages
       }
     },
     components: {
