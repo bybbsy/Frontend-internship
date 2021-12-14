@@ -2,7 +2,7 @@
     <div class="wrapper" :class="{'no-scroll': modalData.showModal || showMenu }">
         <Header/>
         <router-view />
-        <!-- <Footer /> -->
+        <Footer />
         <div class="modal" :class="{ 'hidden': !modalData.showModal }" @click="outerClickHandler ">
             <div class="pop-up__list">
                 <ModalPopup :onSignUp="onSignUp" v-if="onSignUp.message" />

@@ -1,17 +1,13 @@
 <template>
   <main class="container">
     <div class="main">
-      <!-- Red block -->
       <RedBlock />
       <div class="green-and-pink">
         <GreenBlock />
         <PinkBlock />
-        <!-- Green block -->
-        <!-- Pink block -->
       </div>
     </div>
     <YellowBlock />
-    <!-- Yellow block -->
   </main>
 </template>
 
