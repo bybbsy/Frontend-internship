@@ -16,7 +16,7 @@
 
 <script>
 import Header from '@/components/TheHeader.vue'
-// import Footer from '@/components/TheFooter.vue'
+import Footer from '@/components/TheFooter.vue'
 import SignupModal from '@/components/SignupModal.vue'
 import BomModal from '@/components/BomModal.vue'
 import GithubModal from '@/components/GithubModal.vue'
@@ -56,9 +56,7 @@ export default {
         }
     },
     components: {
-        Header,
-        // Footer,
-        SignupModal, BomModal, GithubModal, ModalPopup
+        Header, Footer, SignupModal, BomModal, GithubModal, ModalPopup
     },
 }
 </script>

@@ -11,7 +11,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 import MainLayout from './layouts/MainLayout.vue'
-// import EmptyLayout from './layouts/EmptyLayout.vue'
+import EmptyLayout from './layouts/EmptyLayout.vue'
 
 export default {
     name: 'App',
@@ -24,8 +24,7 @@ export default {
         }
     },
     components: {
-        MainLayout,
-        // EmptyLayout
+        MainLayout, EmptyLayout
     },
 }
 
