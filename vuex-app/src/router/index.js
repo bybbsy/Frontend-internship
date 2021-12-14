@@ -30,12 +30,12 @@ const routes = [
   //         }
   //     ]
   // },
-  // {
-  //     path: '*',
-  //     name: 'no-page',
-  //     meta: { layout: 'empty' },
-  //     component: () => import('../views/ErrorPage.vue')
-  // }
+  {
+      path: '*',
+      name: 'no-page',
+      meta: { layout: 'empty' },
+      component: () => import('../views/ErrorPage.vue')
+  }
 ]
 
 const router = createRouter({
