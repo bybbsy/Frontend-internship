@@ -32,15 +32,16 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import { mapMutations, mapGetters} from 'vuex'
+import { computed, ref } from 'vue'
+import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 export default {
     name: 'the-header',
     setup() {
         const defaultUsername = ref('Stranger');
-        const username = ref(localStorage.getItem('username') ?? defaultUsername);
+        let username = ref(localStorage.getItem('username') ?? defaultUsername);
         const router = useRouter();
+        const store = useStore();
         
         function logoutHandler () {
             if(localStorage.getItem('username')) {
@@ -53,14 +54,11 @@ export default {
             defaultUsername,
             username,
             logoutHandler,
-            ...mapGetters([
-                'modalData',
-                'showMenu'
-            ]),
-            ...mapMutations([
-                'toggleMenu',
-                'toggleModal'
-            ]),
+            showMenu: computed(() => store.getters.showMenu),
+            showModal: computed(() => store.getters.showModal),
+            toggleMenu: (event) => store.commit('toggleMenu', event),
+            toggleModal: (event) => store.commit('toggleModal', event)
+            
         }
     }
 }

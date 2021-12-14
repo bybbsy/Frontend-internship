@@ -98,36 +98,7 @@ export default {
             signupHandler,
             declineClickHandler
         }
-    },
-    // data: function() {
-    //   return {
-    //     username: '',
-    //     sex: '',
-    //     country: '',
-    //     email: '',
-    //     password: '',
-    //     phoneNumber: '',
-    //     signUp: {
-    //         success: 'New account has been successfully created',
-    //         type: 'successful'
-    //     },
-    //     delay: 2000
-    //   }
-    // },
-    // methods: {
-    //     declineClickHandler() {
-    //         this.$store.commit('closeModal')
-    //     },
-    //     signupHandler() {
-    //       localStorage.setItem('username', this.username)
-    //       this.$emit('signed-up', { 
-    //           message: this.signUp.success,
-    //           type: this.signUp.type
-    //        })
-
-    //        setTimeout(() => this.$router.go(), this.delay)
-    //     }
-    // }
+    }
 }
 </script>
 
