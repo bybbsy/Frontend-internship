@@ -75,8 +75,8 @@ export default {
         })
 
         function signupHandler() {
-            localStorage.setItem('username', username)
-            emit('signed-up', { 
+            localStorage.setItem('username', username.value)
+            emit('signed-up', {
                 message: signUp.success,
                 type: signUp.type
             })
@@ -86,7 +86,7 @@ export default {
         function declineClickHandler() {
             store.commit('closeModal')
         }
-        
+
         return {
             username,
             sex,
