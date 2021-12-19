@@ -23,11 +23,11 @@ const routes = [
               name: 'products',
               component: () => import('../views/Products.vue')
           },
-          // {
-          //     path: 'id=:id',
-          //     name: 'product',
-          //     component: () => import('../views/Product.vue')
-          // }
+          {
+              path: 'id=:id',
+              name: 'product',
+              component: () => import('../views/Product.vue')
+          }
       ]
   },
   {
