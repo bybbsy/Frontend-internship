@@ -49,7 +49,7 @@
 <script>
 import GithubModalRepo from '@/components/GithubModalRepo.vue'
 import {ref, watch} from 'vue'
-import {useStore} from 'vuex'
+import {declineClickHandler} from '../helpers/useDeclineModal.js'
 
 export default {
   name: 'github-modal',
@@ -58,7 +58,6 @@ export default {
     let reposList = ref([]);
     let searching = ref(false);
     let emptyArray = ref(false);
-    let store = useStore();
 
     async function searchForRepo() {
       const URL = `https://api.github.com/users/${username.value}/repos`;
@@ -78,10 +77,6 @@ export default {
 
     function catchError(reason = "Error code is not defined") {
       throw new Error(`Something went wrong. Error code: ${reason}`)
-    }
-
-    function declineClickHandler() {
-      store.commit('closeModal')
     }
 
     // Replaces the first digit in the input field with '@'

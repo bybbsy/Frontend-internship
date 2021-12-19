@@ -52,13 +52,12 @@
 
 <script>
 import {ref, reactive} from 'vue'
-import {useStore} from 'vuex'
 import {useRouter} from 'vue-router'
+import {declineClickHandler} from '../helpers/useDeclineModal.js'
 
 export default {
   name: 'sign-up-modal',
   setup(props, {emit}) {
-    let store = useStore();
     let router = useRouter();
 
     let username = ref('');
@@ -82,10 +81,6 @@ export default {
       })
 
       setTimeout(() => router.go(), delay)
-    }
-
-    function declineClickHandler() {
-      store.commit('closeModal')
     }
 
     return {
