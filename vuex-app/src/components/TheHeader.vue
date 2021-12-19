@@ -42,7 +42,6 @@ export default {
         let username = ref(localStorage.getItem('username') ?? defaultUsername);
         const router = useRouter();
         const store = useStore();
-        console.log(localStorage.getItem('username'))
         function logoutHandler () {
             if(localStorage.getItem('username')) {
                 localStorage.removeItem('username');
