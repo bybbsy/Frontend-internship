@@ -3,7 +3,7 @@
     <div class="card-img">
       <img :src="card.url" alt="">
     </div>
-    <div class="title">{{ card.title }}</div>
+    <div class="title">{{ title }}</div>
     <div class="price">
       <div class="price__value">0.00</div>
       <div class="price__currency" ref="priceCurrency"></div>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import {onBeforeMount} from 'vue'
+import {computed, onBeforeMount} from 'vue'
 import cropTitle from '../filters/cropTitle';
 import {useRoute} from "vue-router";
 
@@ -22,17 +22,18 @@ export default {
   props: {
     card: Object
   },
-  setup() {
+  setup(props) {
     let priceCurrency = '₽'
     let route = useRoute();
     let routePath = route.path;
+    let title = computed(() => cropTitle(props.card.title, 5));
 
-    onBeforeMount(() => priceCurrency = '$')
+    onBeforeMount(() => priceCurrency = '$');
 
     return {
       priceCurrency,
-      cropTitle,
-      routePath
+      routePath,
+      title
     }
   }
 }
