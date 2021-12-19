@@ -19,14 +19,14 @@
             <div class="new-badge">new</div>
           </a>
           <a href="" @click.prevent="toggleModal" class="header__nav-item login"
-             v-if="username === defaultUsername"
+             v-if="isDefaultUsername(username)"
           >Sign up</a>
           <a href="" @click.prevent="toggleModal" class="header__nav-item bom">BOM</a>
           <router-link :to="{ name: 'products' }" class="header__nav-item">Products</router-link>
           <a href="https://www.google.com/" target="_blank" class="header__nav-item">Gallery</a>
           <a href="https://github.com/bybbsy/Frontend-internship/tree/main/vue-app" target="_blank"
              class="header__nav-item">Docs</a>
-          <button class="header__nav-item exit-input" :class="{ hidden: username === defaultUsername }"
+          <button class="header__nav-item exit-input" :class="{ hidden: isDefaultUsername(username) }"
                   @click="logoutHandler" type="submit">Log out
           </button>
         </nav>
@@ -36,34 +36,24 @@
 </template>
 
 <script>
-import {computed, ref} from 'vue'
+import {computed} from 'vue'
 import {useStore} from 'vuex'
-import {useRouter} from 'vue-router'
+import {logoutHandler, getUsername, isDefaultUsername} from "../helpers/useAuthManager";
 
 export default {
   name: 'the-header',
   setup() {
-    const defaultUsername = 'Stranger';
-    let username = ref(localStorage.getItem('username') ?? defaultUsername);
-    const router = useRouter();
+    let username = computed(() => getUsername());
     const store = useStore();
 
-    function logoutHandler() {
-      if (localStorage.getItem('username')) {
-        localStorage.removeItem('username');
-        router.go()
-      }
-    }
-
     return {
-      defaultUsername,
       username,
+      isDefaultUsername,
       logoutHandler,
       showMenu: computed(() => store.getters.showMenu),
       showModal: computed(() => store.getters.showModal),
       toggleMenu: (event) => store.commit('toggleMenu', event),
       toggleModal: (event) => store.commit('toggleModal', event)
-
     }
   }
 }

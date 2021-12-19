@@ -3,7 +3,7 @@
     <div class="information__title">
       <h4>Hello, <span class="username">{{ username }}</span>, it's the next page</h4>
     </div>
-    <form class="information__auth" v-if="username !== 'Stranger'" @submit.prevent="logOut">
+    <form class="information__auth" v-if="!isDefaultUsername(username)" @submit.prevent="logoutHandler">
       <h5 class="information__auth-info">
         <span class="e-mail">mail@mail.ru</span>
         <input type="submit" class="exit-button" value="Log out">
@@ -20,38 +20,70 @@
       </ul>
     </div>
     <div class="information__go-back">
-      <div class="button" @click="goBack">Go back</div>
+      <div class="button" @click="goBack" >Go back</div>
     </div>
   </div>
 </template>
 
 <script>
+import {ref, computed, onMounted} from "vue";
+import {goBack} from "../helpers/useRouteNavigator";
+import {getUsername, isDefaultUsername, logoutHandler} from "../helpers/useAuthManager";
+
 export default {
   name: 'bom',
-  data: function () {
-    return {
-      username: 'Stranger',
-      currentUrl: null,
-      language: null,
-      UA: null
-    }
-  },
-  created: function () {
-    this.currentUrl = location.href;
-    this.language = navigator.language;
-    this.UA = navigator.userAgent;
+  setup() {
+    let username = computed(() => getUsername());
+    let currentUrl = ref(null);
+    let language = ref(null);
+    let UA = ref(null);
 
-    this.username = localStorage.getItem('username')
-  },
-  methods: {
-    goBack: function () {
-      this.$router.go(-1)
-    },
-    logOut: function () {
-      localStorage.removeItem('username');
-      this.username = 'Stranger'
+    onMounted(() => {
+      currentUrl.value = location.href;
+      language.value = navigator.language;
+      UA.value = navigator.userAgent;
+    })
+
+    return {
+      username,
+      currentUrl,
+      language,
+      UA,
+      goBack,
+      isDefaultUsername,
+      logoutHandler
     }
-  }
+
+  },
+  // data: function () {
+  //   return {
+  //     username: 'Stranger',
+  //     currentUrl: null,
+  //     language: null,
+  //     UA: null
+  //   }
+  // },
+  // created: function () {
+  //   this.currentUrl = location.href;
+  //   this.language = navigator.language;
+  //   this.UA = navigator.userAgent;
+  //
+  //   this.username = localStorage.getItem('username')
+  //
+  //   // function logOut() {
+  //   //   localStorage.removeItem('username');
+  //   //   username.value = 'Stranger'
+  //   // }
+  // },
+  // // methods: {
+  // //   goBack: function () {
+  // //     this.$router.go(-1)
+  // //   },
+  // //   logOut: function () {
+  // //     localStorage.removeItem('username');
+  // //     this.username = 'Stranger'
+  // //   }
+  // // }
 }
 </script>
 
