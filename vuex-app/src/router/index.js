@@ -16,12 +16,14 @@ const routes = [
   },
   {
       path: '/products',
-      component: () => import('../layouts/MainLayout.vue'),
+      name: 'products-page',
+      meta: { layout: 'main' },
+      component: () => import('../views/ProductsPage.vue'),
       children: [
           {
               path: '',
               name: 'products',
-              component: () => import('../views/Products.vue')
+              component: () => import('../views/Products.vue'),
           },
           {
               path: 'id=:id',
