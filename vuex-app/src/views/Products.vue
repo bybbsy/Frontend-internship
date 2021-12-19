@@ -25,7 +25,6 @@ import { useStore } from 'vuex';
 import Card from "../components/Card.vue";
 
 export default {
-
   name: 'products',
   setup() {
       const store = useStore();
@@ -37,16 +36,6 @@ export default {
           receivedData,
       }
   },
-//   data: function() {
-//     return {
-//       receivedData: null
-//     }
-//   },
-//   async beforeCreate() {
-//     return fetch('https://jsonplaceholder.typicode.com/photos?_start=0&_limit=10')
-//           .then(response => response.json())
-//           .then(json => this.receivedData = json)
-//   },
   components: {
     Card
   }

@@ -46,6 +46,7 @@ export default createStore({
           .then(json => {
             context.commit('setProducts', json)
           })
+          .catch(e => console.log('error: ', e))
     }
   },
   modules: {
