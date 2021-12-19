@@ -78,21 +78,19 @@ import { useRoute } from 'vue-router'
 export default {
   name: 'product',
   setup() {
-    let cardInfo = reactive({
-      title: '',
-      url: ''
-    })
-    // let title = ref(null);
-    // let url = ref('');
+    let title = ref(null);
+    let url = ref('');
     const route = useRoute();
 
     fetch(`https://jsonplaceholder.typicode.com/photos/${route.params.id}`)
         .then(response => response.json())
         .then(json => {
-          cardInfo.title = json.title
-          cardInfo.url = json.url
+          title.value = json.title
+          url.value = json.url
         })
     return {
+      title,
+      url
     }
   },
   components: {
@@ -114,7 +112,7 @@ export default {
 
 .product-info {
   display: grid;
-  margin: 0 25px;
+  margin: 0 25px 15px;
   grid-auto-columns: minmax(350px, 450px) 1fr;
   grid-auto-rows: 50px minmax(250px, 300px) minmax(150px, 200px);
   background-color: rgba(255, 255, 255, 0.842);
