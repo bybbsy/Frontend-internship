@@ -1,6 +1,6 @@
 <template>
   <ul class="messages-list">
-      <YellowBlockMessage 
+      <YellowBlockMessage
         v-for="(message, index) in filteredMessages"
         :key="index"
         :date="message.date"
@@ -41,15 +41,16 @@ export default {
                     content: 'This message was sent to you because you subscribed on our daily e-mail notifications. Just keep you posted, bud.'
                 }
             ];
-      
+
       function filterMessage(msg) {
         for(let key in filterKeys) {
           if(msg.includes(filterKeys[key])) {
             return true
-          } 
+          }
         }
         return false
       }
+
       let filteredMessages = computed(() => {
         return messages.map(message => {
           let spamMsg = filterMessage(message.content);
@@ -77,15 +78,16 @@ export default {
 
 <style>
 .messages-list {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      margin: 0;
-      padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 1280px) {
+  .messages-list {
+    height: 100%;
   }
-   @media screen and (max-width: 1280px) {
-      .messages-list {
-          height: 100%;
-      }
-   }
+}
 </style>

@@ -18,15 +18,15 @@ export default {
 </script>
 
 <style>
-    .red-block {
-        display: flex;
-        flex-direction: column;
-        background: red;
-        flex: 2 0 100%;
-        margin-bottom: 5px;
-        min-height: 200px;
-        padding: 10px;
-        background: var(--block-color);
-        border-radius: 5px;
-    }
+.red-block {
+  display: flex;
+  flex-direction: column;
+  background: red;
+  flex: 2 0 100%;
+  margin-bottom: 5px;
+  min-height: 200px;
+  padding: 10px;
+  background: var(--block-color);
+  border-radius: 5px;
+}
 </style>

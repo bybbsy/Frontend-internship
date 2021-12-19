@@ -1,11 +1,11 @@
 <template>
-    <div class="empty-wrapper">
-        <router-view />
-    </div>
+  <div class="empty-wrapper">
+    <router-view/>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'no-page-layout'
+  name: 'no-page-layout'
 }
 </script>

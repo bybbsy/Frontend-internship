@@ -11,9 +11,14 @@
         </div>
 
         <div class="product-desc">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo sed minus in ut facere cupiditate, dolor perferendis fugiat velit nesciunt. Repellat, hic quis nobis minus ipsam quam aut fugit vel!
-            Optio animi corporis placeat. Obcaecati at minima, voluptas cum est iusto aliquam aspernatur harum perspiciatis aut, qui iure ab suscipit tenetur! Saepe provident eaque voluptas enim cupiditate ut et deleniti.
-            Quaerat tempore asperiores voluptates sit dolore fugit illo! Aliquam, quisquam ipsa, molestiae quibusdam dolorum, labore officiis quaerat perspiciatis consequatur necessitatibus harum minus vel natus at assumenda recusandae incidunt maxime eum.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo sed minus in ut facere cupiditate, dolor
+            perferendis fugiat velit nesciunt. Repellat, hic quis nobis minus ipsam quam aut fugit vel!
+            Optio animi corporis placeat. Obcaecati at minima, voluptas cum est iusto aliquam aspernatur harum
+            perspiciatis aut, qui iure ab suscipit tenetur! Saepe provident eaque voluptas enim cupiditate ut et
+            deleniti.
+            Quaerat tempore asperiores voluptates sit dolore fugit illo! Aliquam, quisquam ipsa, molestiae quibusdam
+            dolorum, labore officiis quaerat perspiciatis consequatur necessitatibus harum minus vel natus at assumenda
+            recusandae incidunt maxime eum.</p>
         </div>
 
         <div class="buttons">
@@ -31,14 +36,32 @@
           <ul>
             <li>Spec 1</li>
             <li>Spec 2</li>
-            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto voluptatibus sapiente, quibusdam iure eligendi rem eveniet velit vitae tenetur natus? Tempora animi sed qui aperiam doloremque, sit quas pariatur ab!
-              Molestias quo ab ratione, facere nesciunt suscipit laborum vero eius labore nobis pariatur at officiis veritatis recusandae quisquam rem? Mollitia delectus ipsam minima earum suscipit incidunt, ab error beatae doloribus.
-              Culpa veritatis corrupti quisquam enim exercitationem vitae reiciendis quos aspernatur perspiciatis quo nesciunt et voluptatem expedita itaque eius placeat at mollitia, tempora repudiandae alias quae. Ut amet nisi perspiciatis ipsum.
-              Distinctio sequi similique eum excepturi, asperiores illo voluptates culpa consequatur aspernatur placeat eveniet quibusdam ipsam necessitatibus? Aut, doloribus. Porro maxime veniam necessitatibus voluptatibus assumenda nihil quaerat possimus officia ipsam vero?
-              Molestiae magni velit, voluptatum adipisci praesentium consequuntur reiciendis voluptates odio vitae quos unde aut. Porro explicabo dolores incidunt eligendi? Quisquam nulla repellat rem aspernatur adipisci eius dicta tempore tempora voluptatibus!
-              Nemo magni debitis vero quis iusto modi quo amet. Pariatur quisquam sapiente autem, labore accusamus sit maiores. Quia animi quod rem sunt at in ipsum. Nostrum minus similique molestiae autem.
-              Voluptatem sed adipisci soluta corporis tempora id animi dolores, iure consequuntur enim quas error suscipit nostrum nesciunt quisquam ducimus, repudiandae aspernatur in consectetur beatae iste maxime non aut. Necessitatibus, consequatur!
-              Quia distinctio aliquam repudiandae nihil id corrupti nisi quaerat. Tempora, autem natus eaque maiores architecto delectus atque quod veniam officia. Ducimus accusamus quibusdam praesentium consequuntur minus officia eum enim non. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt porro magnam vero, praesentium saepe labore amet vitae esse minima eligendi asperiores iste officia vel ratione velit maiores odit nisi explicabo.</li>
+            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto voluptatibus sapiente, quibusdam
+              iure eligendi rem eveniet velit vitae tenetur natus? Tempora animi sed qui aperiam doloremque, sit quas
+              pariatur ab!
+              Molestias quo ab ratione, facere nesciunt suscipit laborum vero eius labore nobis pariatur at officiis
+              veritatis recusandae quisquam rem? Mollitia delectus ipsam minima earum suscipit incidunt, ab error beatae
+              doloribus.
+              Culpa veritatis corrupti quisquam enim exercitationem vitae reiciendis quos aspernatur perspiciatis quo
+              nesciunt et voluptatem expedita itaque eius placeat at mollitia, tempora repudiandae alias quae. Ut amet
+              nisi perspiciatis ipsum.
+              Distinctio sequi similique eum excepturi, asperiores illo voluptates culpa consequatur aspernatur placeat
+              eveniet quibusdam ipsam necessitatibus? Aut, doloribus. Porro maxime veniam necessitatibus voluptatibus
+              assumenda nihil quaerat possimus officia ipsam vero?
+              Molestiae magni velit, voluptatum adipisci praesentium consequuntur reiciendis voluptates odio vitae quos
+              unde aut. Porro explicabo dolores incidunt eligendi? Quisquam nulla repellat rem aspernatur adipisci eius
+              dicta tempore tempora voluptatibus!
+              Nemo magni debitis vero quis iusto modi quo amet. Pariatur quisquam sapiente autem, labore accusamus sit
+              maiores. Quia animi quod rem sunt at in ipsum. Nostrum minus similique molestiae autem.
+              Voluptatem sed adipisci soluta corporis tempora id animi dolores, iure consequuntur enim quas error
+              suscipit nostrum nesciunt quisquam ducimus, repudiandae aspernatur in consectetur beatae iste maxime non
+              aut. Necessitatibus, consequatur!
+              Quia distinctio aliquam repudiandae nihil id corrupti nisi quaerat. Tempora, autem natus eaque maiores
+              architecto delectus atque quod veniam officia. Ducimus accusamus quibusdam praesentium consequuntur minus
+              officia eum enim non. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt porro magnam vero,
+              praesentium saepe labore amet vitae esse minima eligendi asperiores iste officia vel ratione velit maiores
+              odit nisi explicabo.
+            </li>
           </ul>
         </div>
       </template>
@@ -72,8 +95,8 @@
 
 <script>
 import TheAccordion from '../components/TheAccordion.vue'
-import { ref } from 'vue'
-import { useRoute } from 'vue-router'
+import {ref} from 'vue'
+import {useRoute} from 'vue-router'
 
 export default {
   name: 'product',

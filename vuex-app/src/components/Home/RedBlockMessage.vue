@@ -31,66 +31,66 @@
 </template>
 
 <style>
-    .message-block {
-      display: flex;
-      flex-direction: column;
-      /* height: calc(100% - 50px); */
-  }
+.message-block {
+  display: flex;
+  flex-direction: column;
+}
 
-  .message-block__information {
-      display: flex;
-      background-color: rgba(104, 104, 104, 0.219);
-      padding: 5px;
-      border-radius: 20px 0px 20px 0px;
-  }
+.message-block__information {
+  display: flex;
+  background-color: rgba(104, 104, 104, 0.219);
+  padding: 5px;
+  border-radius: 20px 0px 20px 0px;
+}
 
-  .message-block__block-description {
-      margin-top: 2px;
-      margin-left: 15px;
-      display: flex;
-      flex-direction: column;
-  }
+.message-block__block-description {
+  margin-top: 2px;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+}
 
-  .message-block__top-row {
-      display: flex;
-      align-items: baseline;
-  }
+.message-block__top-row {
+  display: flex;
+  align-items: baseline;
+}
 
-  .message-block__top-row a {
-      display: flex;
-      font-size: 0.8em;
-      font-weight: 400;
-      color: rgb(97, 97, 97);
+.message-block__top-row a {
+  display: flex;
+  font-size: 0.8em;
+  font-weight: 400;
+  color: rgb(97, 97, 97);
 
-  }
-  .messages-block__message-date {
-      margin-left: 5px;
-  }
+}
 
-  .messages-block__message-date h5 {
-      font-weight: 500;
-  }
+.messages-block__message-date {
+  margin-left: 5px;
+}
 
-  .message-block__bottom-row {
-      margin-top: auto;
-      margin-bottom: 5px;
-  }
+.messages-block__message-date h5 {
+  font-weight: 500;
+}
 
-  .messages-block__message-addressee h5 {
-      font-weight: 500;
-  }
+.message-block__bottom-row {
+  margin-top: auto;
+  margin-bottom: 5px;
+}
 
-  .message-block__message-content {
-      display: flex;
-      width: 100%;
-      min-height: 50px;
-      margin-top: 5px;
-      background-color: rgba(104, 104, 104, 0.219);
-  }
+.messages-block__message-addressee h5 {
+  font-weight: 500;
+}
 
-  .message-block__message-message {
-      margin: 0;
-      height: 100%;
-      padding: 15px 5px;
-  }
+.message-block__message-content {
+  display: flex;
+  width: 100%;
+  min-height: 50px;
+  margin-top: 5px;
+  background-color: rgba(104, 104, 104, 0.219);
+}
+
+.message-block__message-message {
+  margin: 0;
+  height: 100%;
+  padding: 15px 5px;
+}
 </style>

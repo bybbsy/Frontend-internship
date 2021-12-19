@@ -12,6 +12,7 @@
 
 <script>
 import {ref} from "vue";
+
 export default {
   name: 'the-accordion',
   setup() {
@@ -35,6 +36,7 @@ export default {
   display: flex;
   width: fit-content;
 }
+
 .product-accordion {
   margin: 15px 25px 5px;
 }

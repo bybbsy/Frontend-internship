@@ -1,13 +1,13 @@
 <template>
   <main class="container">
     <div class="main">
-      <RedBlock />
+      <RedBlock/>
       <div class="green-and-pink">
-        <GreenBlock />
-        <PinkBlock />
+        <GreenBlock/>
+        <PinkBlock/>
       </div>
     </div>
-    <YellowBlock />
+    <YellowBlock/>
   </main>
 </template>
 
@@ -26,46 +26,46 @@ export default {
 </script>
 
 <style>
-  .container {
-      width: 100%;
-      display: flex;
-      flex-flow: row wrap;
-      flex: 0 1 100%;
-      background: var(--main-background);
-  }
+.container {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  flex: 0 1 100%;
+  background: var(--main-background);
+}
 
-  main {
-      display: flex;
-      min-height: 100%;
+main {
+  display: flex;
+  min-height: 100%;
+}
+
+.main {
+  display: flex;
+  flex: 2 1;
+  flex-flow: row wrap;
+  margin: 5px;
+}
+
+.green-and-pink {
+  display: flex;
+  flex: 0 1 auto;
+  min-height: 200px;
+  height: fit-content;
+  height: -moz-fit-content;
+}
+
+@media screen and (max-width: 1280px) {
+  .container {
+    flex-flow: column nowrap;
   }
 
   .main {
-    display: flex;
-    flex: 2 1;
-    flex-flow: row wrap;
-    margin: 5px;
+    flex: 1 1 100%;
+    order: 2;
   }
 
   .green-and-pink {
-      display: flex;
-      flex: 0 1 auto;
-      min-height: 200px;
-      height: fit-content;
-      height: -moz-fit-content;
+    flex-flow: row wrap;
   }
-  
-  @media screen and (max-width: 1280px) {
-    .container {
-        flex-flow: column nowrap;
-    }
-
-    .main {
-        flex: 1 1 100%;
-        order: 2;
-    }
-
-    .green-and-pink {
-          flex-flow: row wrap;
-      }
-  }
+}
 </style>

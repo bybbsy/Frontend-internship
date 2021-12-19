@@ -5,11 +5,11 @@
 
 <style>
 .pink-block {
-      display: flex;
-      flex-direction: column;
-      background: var(--block-color);
-      border-radius: 5px;
-      padding: 0 5px;
-      flex: 0 1 100%;
-  }
+  display: flex;
+  flex-direction: column;
+  background: var(--block-color);
+  border-radius: 5px;
+  padding: 0 5px;
+  flex: 0 1 100%;
+}
 </style>
