@@ -12,7 +12,7 @@
                         </label>
                     </div>
                 <nav class="header__nav" :class="{ 'expanded': showMenu }">
-                    
+
                     <router-link :to="{ name: 'home' }" class="header__nav-item">Home</router-link>
                     <a href="" @click.prevent="toggleModal" class="header__nav-item github">GitHub
                         <div class="new-badge">new</div>
@@ -38,11 +38,11 @@ import { useRouter } from 'vue-router'
 export default {
     name: 'the-header',
     setup() {
-        const defaultUsername = ref('Stranger');
+        const defaultUsername = 'Stranger';
         let username = ref(localStorage.getItem('username') ?? defaultUsername);
         const router = useRouter();
         const store = useStore();
-        
+        console.log(localStorage.getItem('username'))
         function logoutHandler () {
             if(localStorage.getItem('username')) {
                 localStorage.removeItem('username');
@@ -58,7 +58,7 @@ export default {
             showModal: computed(() => store.getters.showModal),
             toggleMenu: (event) => store.commit('toggleMenu', event),
             toggleModal: (event) => store.commit('toggleModal', event)
-            
+
         }
     }
 }
