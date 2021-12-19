@@ -8,26 +8,30 @@
           <div class="price__value">0.00</div>
           <div class="price__currency" ref="priceCurrency"></div>
       </div>
-      <!-- <router-link :to="{ name: 'product', params: { id: card.id }}" class="link">Details</router-link> -->
-      <router-view :key="$route.path"/>
+       <router-link :to="{ name: 'product', params: { id: card.id }}" class="link">Details</router-link>
+      <router-view :key="routePath"/>
   </div>
 </template>
 
 <script>
-import {  onBeforeMount } from 'vue'
+import { onBeforeMount } from 'vue'
 import cropTitle from '../filters/cropTitle';
+import {useRoute} from "vue-router";
 export default {
     props: {
         card: Object
     },
     setup() {
         let priceCurrency  = '₽'
+        let route = useRoute();
+        let routePath = route.path;
 
         onBeforeMount(() => priceCurrency = '$')
 
         return {
             priceCurrency,
-            cropTitle
+            cropTitle,
+            routePath
         }
     }
 }
