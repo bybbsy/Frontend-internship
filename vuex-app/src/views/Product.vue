@@ -72,41 +72,29 @@
 
 <script>
 // import TheAccordion from '../components/TheAccordion.vue'
-import { ref } from 'vue'
+import {reactive, ref} from 'vue'
 import { useRoute } from 'vue-router'
 
 export default {
   name: 'product',
   setup() {
-    let title = ref(null);
-    let url = ref('');
+    let cardInfo = reactive({
+      title: '',
+      url: ''
+    })
+    // let title = ref(null);
+    // let url = ref('');
     const route = useRoute();
 
     fetch(`https://jsonplaceholder.typicode.com/photos/${route.params.id}`)
         .then(response => response.json())
         .then(json => {
-          title.value = json.title
-          url.value = json.url
+          cardInfo.title = json.title
+          cardInfo.url = json.url
         })
     return {
-      title,
-      url
     }
   },
-  // data: function() {
-  //   return {
-  //     title: null,
-  //     url: null
-  //   }
-  // },
-  // async beforeCreate() {
-  //   return fetch(`https://jsonplaceholder.typicode.com/photos/${this.$route.params.id}`)
-  //       .then(response => response.json())
-  //       .then(json => {
-  //         this.title = json.title
-  //         this.url = json.url
-  //       })
-  // },
   components: {
     // TheAccordion
   }

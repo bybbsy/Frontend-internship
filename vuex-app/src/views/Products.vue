@@ -3,7 +3,7 @@
       <aside class="sub-header">
         <h5>Products list</h5>
         <div class="info-block">
-          <p>Fake data provided by <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSON Placholder</a> </p> 
+          <p>Fake data provided by <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSON Placholder</a> </p>
         </div>
       </aside>
 
@@ -26,7 +26,7 @@ import Card from "../components/Card.vue";
 
 export default {
 
-  name: 'Products',
+  name: 'products',
   setup() {
       const store = useStore();
       store.dispatch('fetchProducts');
