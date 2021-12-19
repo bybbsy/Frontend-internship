@@ -24,7 +24,8 @@
 
 <script>
 import { ref } from '@vue/reactivity'
-import { useRouter } from 'vue-router';
+import {goBack, goForward} from "../helpers/useRouteNavigator";
+
 export default {
     name: 'bom-modal',
     props: {
@@ -32,17 +33,8 @@ export default {
     },
     setup() {
         let currentUrl = ref('');
-        let router = useRouter();
 
         currentUrl = location.href;
-
-        function goForward() {
-            router.go(1)
-        }
-
-        function goBack() {
-            router.go(-1)
-        }
 
         return {
             currentUrl,
