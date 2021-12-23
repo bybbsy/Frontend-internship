@@ -3,7 +3,7 @@
     <div class="container hf">
       <div class="header__row">
         <div class="header__info">
-          <h3>Hey, <span ref='headerUsername' class="header-username"> {{ username }}</span> it's a simple html webpage
+          <h3>Hey, <span ref='headerUsername' class="header-username"> {{ username }}</span> it's a vue app
           </h3>
         </div>
         <div class="header__nav-icon">
@@ -16,16 +16,16 @@
 
           <router-link :to="{ name: 'home' }" class="header__nav-item">Home</router-link>
           <a href="" @click.prevent="toggleModal" class="header__nav-item github">GitHub
-            <div class="new-badge">new</div>
           </a>
+          <a href="" @click.prevent="toggleModal" class="header__nav-item bom">BOM</a>
+          <router-link :to="{ name: 'products' }" class="header__nav-item">Products</router-link>
+          <a href="https://www.google.com/" target="_blank" class="header__nav-item">Gallery
+            <div class="new-badge">new</div></a>
+          <a href="https://github.com/bybbsy/Frontend-internship/tree/main/vue-app" target="_blank"
+             class="header__nav-item">Docs</a>
           <a href="" @click.prevent="toggleModal" class="header__nav-item login"
              v-if="isDefaultUsername(username)"
           >Sign up</a>
-          <a href="" @click.prevent="toggleModal" class="header__nav-item bom">BOM</a>
-          <router-link :to="{ name: 'products' }" class="header__nav-item">Products</router-link>
-          <a href="https://www.google.com/" target="_blank" class="header__nav-item">Gallery</a>
-          <a href="https://github.com/bybbsy/Frontend-internship/tree/main/vue-app" target="_blank"
-             class="header__nav-item">Docs</a>
           <button class="header__nav-item exit-input" :class="{ hidden: isDefaultUsername(username) }"
                   @click="logoutHandler" type="submit">Log out
           </button>
@@ -245,11 +245,12 @@ header {
     z-index: 2;
   }
 
-  .header__nav-item.js-features {
+  .header__nav-item,
+  .header__nav-item.login {
     background: unset;
   }
 
-  .header__nav-item.js-features .new-badge {
+  .header__nav-item .new-badge {
     display: none;
   }
 
