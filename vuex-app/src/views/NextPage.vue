@@ -54,36 +54,7 @@ export default {
       logoutHandler
     }
 
-  },
-  // data: function () {
-  //   return {
-  //     username: 'Stranger',
-  //     currentUrl: null,
-  //     language: null,
-  //     UA: null
-  //   }
-  // },
-  // created: function () {
-  //   this.currentUrl = location.href;
-  //   this.language = navigator.language;
-  //   this.UA = navigator.userAgent;
-  //
-  //   this.username = localStorage.getItem('username')
-  //
-  //   // function logOut() {
-  //   //   localStorage.removeItem('username');
-  //   //   username.value = 'Stranger'
-  //   // }
-  // },
-  // // methods: {
-  // //   goBack: function () {
-  // //     this.$router.go(-1)
-  // //   },
-  // //   logOut: function () {
-  // //     localStorage.removeItem('username');
-  // //     this.username = 'Stranger'
-  // //   }
-  // // }
+  }
 }
 </script>
 
