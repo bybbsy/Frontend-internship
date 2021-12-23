@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .products-page__wrapper {
+    height: 100%;
+  }
 </style>

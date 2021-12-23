@@ -7,27 +7,14 @@
       </div>
     </aside>
 
-    <div class="cards-block" v-if="receivedData">
+    <div class="cards-block" v-if="receivedData.length">
       <Card v-for="(card, index) in receivedData"
             :key="index"
             :card="card"
       />
     </div>
     <div v-else>
-      <div class="lds-spinner">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+      <Loader />
     </div>
   </div>
 </template>
@@ -36,7 +23,7 @@
 import {computed, reactive} from '@vue/runtime-core';
 import {useStore} from 'vuex';
 import Card from "../components/Card.vue";
-
+import {defineAsyncComponent} from 'vue'
 export default {
   name: 'products',
   setup() {
@@ -50,7 +37,8 @@ export default {
     }
   },
   components: {
-    Card
+    Card,
+    Loader: defineAsyncComponent(() => import('../components/Loader.vue'))
   }
 }
 </script>
