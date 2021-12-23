@@ -107,9 +107,6 @@ export default {
   color: teal;
 }
 
-.information__auth {
-}
-
 .information__auth.hidden {
   display: none;
 }
