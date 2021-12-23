@@ -7,7 +7,7 @@
       </div>
     </aside>
 
-    <div class="cards-block" v-if="receivedData.length">
+    <div class="cards-block" v-if="receivedData">
       <Card v-for="(card, index) in receivedData"
             :key="index"
             :card="card"
