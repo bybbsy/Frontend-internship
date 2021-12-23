@@ -6,8 +6,8 @@
   </div>
 </template>
 
-<script>
-import {computed} from 'vue'
+<script lang="ts">
+import {computed, ComputedRef} from 'vue'
 import {useRoute} from 'vue-router'
 
 import MainLayout from './layouts/MainLayout.vue'
@@ -17,7 +17,7 @@ export default {
   name: 'App',
   setup() {
     let route = useRoute();
-    let layout = computed(() => (route.meta.layout ?? 'empty') + '-layout')
+    let layout: ComputedRef<string> = computed(() => (route.meta.layout ?? 'empty') + '-layout')
 
     return {
       layout

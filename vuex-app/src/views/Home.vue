@@ -11,7 +11,7 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
 import RedBlock from '../components/Home/RedBlock.vue'
 import GreenBlock from '../components/Home/GreenBlock.vue'
 import PinkBlock from '../components/Home/PinkBlock.vue'
