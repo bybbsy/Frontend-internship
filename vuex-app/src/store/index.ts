@@ -1,6 +1,23 @@
-import {createStore} from 'vuex'
+import {InjectionKey} from 'vue';
+import {createStore, Store} from 'vuex'
 
-export default createStore({
+interface ModalData {
+    name: string,
+    showModal: boolean
+}
+
+// Interface for state
+export interface State {
+    modalData: ModalData,
+    showMenu: boolean,
+    receivedProducts: object[]
+}
+
+// Injection key for implementing in components
+export const key: InjectionKey<Store<State>> = Symbol();
+
+// Store
+export const store = createStore<State>({
     state: {
         modalData: {
             name: '',
@@ -16,13 +33,13 @@ export default createStore({
         toggleModal(state, event) {
             // If nav menu is open calls toggleMenu and then opens a modal
             if (state.showMenu) {
-                this.commit('toggleMenu');
+                store.commit('toggleMenu');
             }
 
             state.modalData.showModal = !state.modalData.showModal;
             // Length of the class to receive the last word
             // which displays the name of link and the name of modal window to show
-            let len = event.target.classList.length;
+            const len = event.target.classList.length;
             // Puts the name of link in the name of modal to show
             state.modalData.name = event.target.classList[len - 1];
         },
@@ -30,7 +47,7 @@ export default createStore({
             state.modalData = payload;
         },
         closeModal() {
-            this.commit('setModalData', {
+            store.commit('setModalData', {
                 name: '',
                 showModal: false
             })

@@ -22,12 +22,13 @@ import BomModal from '@/components/BomModal.vue'
 import GithubModal from '@/components/GithubModal.vue'
 import ModalPopup from '@/components/ModalPopup.vue'
 import {useStore} from 'vuex'
+import {key} from '../store/index'
 import {computed, reactive} from '@vue/reactivity'
 
 export default {
   name: 'main-layout',
   setup() {
-    let store = useStore();
+    let store = useStore(key);
 
     let onSignUp = reactive({
       message: '',

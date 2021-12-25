@@ -38,13 +38,14 @@
 <script>
 import {computed} from 'vue'
 import {useStore} from 'vuex'
+import {key} from '../store/index'
 import {logoutHandler, getUsername, isDefaultUsername} from "../helpers/useAuthManager";
 
 export default {
   name: 'the-header',
   setup() {
     let username = computed(() => getUsername());
-    const store = useStore();
+    const store = useStore(key);
 
     return {
       username,
