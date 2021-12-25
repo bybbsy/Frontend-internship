@@ -36,7 +36,7 @@
 <script>
 import GithubModalRepo from '@/components/GithubModalRepo.vue'
 import {ref, watch, defineAsyncComponent} from 'vue'
-import {declineClickHandler} from '../helpers/useDeclineModal.js'
+import {declineClickHandler} from '../helpers/useDeclineModal'
 
 export default {
   name: 'github-modal',

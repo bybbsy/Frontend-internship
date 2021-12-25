@@ -53,7 +53,7 @@
 <script>
 import {ref, reactive} from 'vue'
 import {useRouter} from 'vue-router'
-import {declineClickHandler} from '../helpers/useDeclineModal.js'
+import {declineClickHandler} from '../helpers/useDeclineModal'
 
 export default {
   name: 'sign-up-modal',

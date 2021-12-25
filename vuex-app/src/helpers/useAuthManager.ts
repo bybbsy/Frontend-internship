@@ -7,14 +7,14 @@ function getUsername() {
 }
 
 // Compares username to defaultUsername and returns true/false
-function isDefaultUsername(username) {
+function isDefaultUsername(username: string) {
     return username === defaultUsername;
 }
 
 function logoutHandler() {
     if (localStorage.getItem('username')) {
         localStorage.removeItem('username');
-        router.go()
+        router.go(0)
     }
 }
 
