@@ -7,13 +7,13 @@
 </template>
 
 <script lang="ts">
-import {computed, ComputedRef} from 'vue'
+import {computed, ComputedRef, defineComponent} from 'vue'
 import {useRoute} from 'vue-router'
 
 import MainLayout from './layouts/MainLayout.vue'
 import EmptyLayout from './layouts/EmptyLayout.vue'
 
-export default {
+export default defineComponent({
   name: 'App',
   setup() {
     let route = useRoute();
@@ -26,7 +26,7 @@ export default {
   components: {
     MainLayout, EmptyLayout
   },
-}
+})
 
 </script>
 
