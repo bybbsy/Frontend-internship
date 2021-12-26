@@ -3,10 +3,17 @@ export interface ModalData {
     showModal: boolean
 }
 
+export interface Albums {
+    albumId: number,
+    id: number,
+    thumbnailUrl: string,
+    url: string
+}
+
 export interface State {
     modalData: ModalData,
     showMenu: boolean,
-    receivedProducts: object[]
+    receivedProducts: Array<Albums>
 }
 
 export const state: State = {
