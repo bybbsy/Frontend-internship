@@ -22,6 +22,8 @@ import BomModal from '@/components/BomModal.vue'
 import GithubModal from '@/components/GithubModal.vue'
 import ModalPopup from '@/components/ModalPopup.vue'
 import {useStore} from 'vuex'
+// import {getters} from '../store/getters';
+
 import {key} from '../store/index'
 import {computed, reactive} from '@vue/reactivity'
 
@@ -35,12 +37,12 @@ export default {
       type: ''
     })
 
-    let modalData = computed(() => store.getters.modalData)
-    let showMenu = computed(() => store.getters.showMenu)
-
+    let modalData = computed(() => store.getters.getModalData)
+    let showMenu = computed(() => store.getters.getShowMenu)
+    
     function outerClickHandler(event) {
       if (event.target.classList[0] === 'modal') {
-        store.commit('closeModal')
+        store.commit('CLOSE_MODAL')
       }
     }
 

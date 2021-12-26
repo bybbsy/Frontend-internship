@@ -51,10 +51,10 @@ export default {
       username,
       isDefaultUsername,
       logoutHandler,
-      showMenu: computed(() => store.getters.showMenu),
+      showMenu: computed(() => store.getters.getShowMenu),
       showModal: computed(() => store.getters.showModal),
-      toggleMenu: (event) => store.commit('toggleMenu', event),
-      toggleModal: (event) => store.commit('toggleModal', event)
+      toggleMenu: () => store.commit('TOGGLE_MENU'),
+      toggleModal: (event) => store.commit('TOGGLE_MODAL', event)
     }
   }
 }
