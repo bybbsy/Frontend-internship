@@ -5,9 +5,11 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from "@vue/runtime-core"
+
+export default defineComponent({
   name: "products-page"
-}
+})
 </script>
 
 <style scoped>

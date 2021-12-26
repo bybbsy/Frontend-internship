@@ -19,19 +19,19 @@
   </div>
 </template>
 
-<script>
-import {computed, reactive} from '@vue/runtime-core';
+<script lang="ts">
+import {computed} from '@vue/runtime-core';
 import {useStore} from 'vuex';
+import {key} from '../store/index'
+import {defineAsyncComponent, defineComponent} from 'vue'
 import Card from "../components/Card.vue";
-import {defineAsyncComponent} from 'vue'
-export default {
+
+export default defineComponent({
   name: 'products',
   setup() {
-    const store = useStore();
+    const store = useStore(key);
     store.dispatch('fetchProducts');
-    let receivedData = reactive([]);
-    receivedData = computed(() => store.getters.getReceivedProducts)
-
+    let receivedData = computed(() => store.getters.getReceivedProducts)
     return {
       receivedData,
     }
@@ -40,7 +40,7 @@ export default {
     Card,
     Loader: defineAsyncComponent(() => import('../components/Loader.vue'))
   }
-}
+})
 </script>
 
 <style>
