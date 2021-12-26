@@ -11,15 +11,9 @@ export enum MutationType {
 
 export type Mutations = {
     [MutationType.toggleMenu](state: State): void,
-    [MutationType.toggleModal](
-        state: State,
-        event: Event,
-        {commit}: {commit: Function}
-    ): void,
+    [MutationType.toggleModal](state: State, event: any): void,
     [MutationType.setModalData](state: State, payload: ModalData): void,
-    [MutationType.closeModal](
-        {commit}: {commit: Function}
-    ): void,
+    [MutationType.closeModal](state: State): void,
     [MutationType.setProducts](state: State, products: object[]): void
 }
 
@@ -27,10 +21,10 @@ export const mutations: MutationTree<State> & Mutations = {
     [MutationType.toggleMenu](state) {
         state.showMenu = !state.showMenu
     },
-    [MutationType.toggleModal](state, event, {commit}) {
+    [MutationType.toggleModal](state, event) {
         // If nav menu is open calls toggleMenu and then opens a modal
         if (state.showMenu) {
-            commit('toggleMenu');
+            this.TOGGLE_MENU;
         }
 
         state.modalData.showModal = !state.modalData.showModal;
@@ -43,14 +37,18 @@ export const mutations: MutationTree<State> & Mutations = {
     [MutationType.setModalData](state, payload) {
         state.modalData = payload;
     },
-    [MutationType.closeModal]({commit}) {
-        commit('setModalData', {
-            name: '',
+    [MutationType.closeModal](state) {
+        this.SET_MODAL_DATA(state, 
+            {name: '', 
             showModal: false
-        })
+        });
+
+        // commit('setModalData', {
+        //     name: '',
+        //     showModal: false
+        // })
     },
     [MutationType.setProducts](state, products) {
         state.receivedProducts = products
     }
-
 }

@@ -1,6 +1,7 @@
 import {InjectionKey} from 'vue';
 import {State, state} from './state'
-import { mutations } from './mutations';
+import {mutations} from './mutations';
+import {getters} from './getters';
 import {createStore, Store} from 'vuex'
 
 // Injection key for implementing in components
@@ -8,7 +9,8 @@ export const key: InjectionKey<Store<State>> = Symbol();
 
 export const store = createStore<State>({
     state,
-    mutations
+    mutations,
+    getters
 })
 // Store
 // export const store = createStore<State>({
