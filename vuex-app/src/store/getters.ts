@@ -1,4 +1,4 @@
-import { State, ModalData } from "./state";
+import {State} from "./state";
 import {GetterTree} from 'vuex'
 
 export const getters: GetterTree<State, State> = {

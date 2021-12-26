@@ -1,4 +1,4 @@
-import { State, ModalData } from "./state";
+import {State, ModalData} from "./state";
 import {MutationTree} from 'vuex'
 
 export enum MutationType {
