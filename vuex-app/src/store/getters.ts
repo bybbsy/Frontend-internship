@@ -7,7 +7,7 @@ export type Getters = {
     getReceivedProducts(state: State): Albums[]  
 }
 
-export const getters: GetterTree<State, State> = {
+export const getters: GetterTree<State, State> & Getters = {
     getModalData(state) {
         return state.modalData
     },
