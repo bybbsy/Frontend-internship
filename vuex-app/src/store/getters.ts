@@ -1,14 +1,20 @@
-import {State} from "./state";
+import {State, ModalData, Albums} from "./state";
 import {GetterTree} from 'vuex'
 
+export type Getters = {
+    getModalData(state: State): ModalData
+    getShowMenu(state: State): boolean
+    getReceivedProducts(state: State): Albums[]  
+}
+
 export const getters: GetterTree<State, State> = {
-    getModalData(state: State) {
+    getModalData(state) {
         return state.modalData
     },
-    getShowMenu(state: State) {
+    getShowMenu(state) {
         return state.showMenu
     },
-    getReceivedProducts(state: State) {
+    getReceivedProducts(state) {
         return state.receivedProducts
     }
 } 
