@@ -1,19 +1,33 @@
 <template>
   <div class="products-page__wrapper">
-    <router-view/>
+    <router-view v-slot="{ Component }">
+      <template v-if="Component">
+        <Suspense>
+          <template #default>
+            <component :is="Component"></component>
+          </template>
+          <template #fallback>
+            <Loader />
+          </template>
+        </Suspense>
+      </template>
+    </router-view>
   </div>
 </template>
 
-<script>
-import { defineComponent } from "@vue/runtime-core"
+<script lang="ts">
+import {defineAsyncComponent, defineComponent } from "vue";
 
 export default defineComponent({
-  name: "products-page"
+  name: "products-page",
+  components: {
+    Loader: defineAsyncComponent(() => import('../components/Loader.vue'))
+  }
 })
 </script>
 
 <style scoped>
   .products-page__wrapper {
-    height: 100%;
+    min-height: 100%;
   }
 </style>
