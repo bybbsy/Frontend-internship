@@ -6,39 +6,35 @@
         <p>Fake data provided by <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSON Placholder</a></p>
       </div>
     </aside>
-
-    <div class="cards-block" v-if="receivedData.length">
-      <Card v-for="(card, index) in receivedData"
-            :key="index"
-            :card="card"
+    <div class="cards-block">
+      <Card
+        v-for="(card, index) in receivedData"
+        :key="index"
+        :card="card"
       />
-    </div>
-    <div v-else>
-      <Loader />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import {computed} from '@vue/runtime-core';
 import {useStore} from 'vuex';
 import {key} from '../store/index'
-import {defineAsyncComponent, defineComponent} from 'vue'
+import {computed, defineComponent} from 'vue'
 import Card from "../components/Card.vue";
-
 export default defineComponent({
   name: 'products',
-  setup() {
+   async setup() {
     const store = useStore(key);
-    store.dispatch('fetchProducts');
+
+    await store.dispatch('fetchProducts');
     let receivedData = computed(() => store.getters.getReceivedProducts)
+   
     return {
-      receivedData,
+      receivedData
     }
   },
   components: {
-    Card,
-    Loader: defineAsyncComponent(() => import('../components/Loader.vue'))
+    Card
   }
 })
 </script>
