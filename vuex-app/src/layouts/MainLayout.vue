@@ -21,17 +21,17 @@ import SignupModal from '../components/SignupModal.vue'
 import BomModal from '../components/BomModal.vue'
 import GithubModal from '../components/GithubModal.vue'
 import ModalPopup from '../components/ModalPopup.vue'
-import {useStore} from '../store/index'
-import {computed, reactive} from 'vue'
-import {defineComponent} from 'vue'
-import {emptyModalData} from '../helpers/variables'
 
+import {computed, reactive, defineComponent} from 'vue'
+import {useStore} from '../store/index'
+import {emptyModalData} from '../helpers/variables'
+import {SignUpMessage} from '../types/index'
 export default defineComponent({
   name: 'main-layout',
   setup() {
     let store = useStore();
-    
-    let onSignUp = reactive({
+
+    let onSignUp: SignUpMessage = reactive({
       message: '',
       type: ''
     })
@@ -45,7 +45,7 @@ export default defineComponent({
       }
     }
 
-    function onSignUpHandler(value) {
+    function onSignUpHandler(value: SignUpMessage) {
       onSignUp.message = value.message
       onSignUp.type = value.type
     }
