@@ -7,7 +7,9 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from "@vue/runtime-core"
+
+export default defineComponent({
   props: {
     name: {
       type: String,
@@ -18,7 +20,7 @@ export default {
       required: true
     }
   }
-}
+})
 </script>
 
 <style>
