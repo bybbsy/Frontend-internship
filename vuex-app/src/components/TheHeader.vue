@@ -35,26 +35,42 @@
   </header>
 </template>
 
-<script>
+<script lang="ts">
 import {computed} from 'vue'
-import {useStore} from 'vuex'
-import {key} from '../store/index'
+import {useStore} from '../store/index'
 import {logoutHandler, getUsername, isDefaultUsername} from "../helpers/useAuthManager";
 
+EventTarget
 export default {
   name: 'the-header',
   setup() {
     let username = computed(() => getUsername());
-    const store = useStore(key);
+    const store = useStore();
+
+    function getTargetName(target: HTMLAnchorElement) {
+      return target.classList[target.classList.length - 1];
+    } 
+
+    function toggleModal(event: Event) {
+      // Toggling menu if it is opened
+      if(store.getters.getShowMenu) {
+        store.dispatch('TOGGLE_MENU');
+      }
+      
+      store.dispatch('toggleModal', {
+        name: getTargetName(event.target as HTMLAnchorElement),
+        showModal: true
+      })
+    }
 
     return {
       username,
       isDefaultUsername,
       logoutHandler,
+      toggleModal,
       showMenu: computed(() => store.getters.getShowMenu),
       showModal: computed(() => store.getters.showModal),
       toggleMenu: () => store.commit('TOGGLE_MENU'),
-      toggleModal: (event) => store.commit('TOGGLE_MODAL', event)
     }
   }
 }
