@@ -2,7 +2,7 @@
   <div>
     <div class="row__current-url">
       <p>Current URL:
-        <router-link :to="{ name: 'home' }" class="current-url__value">{{ currentUrl }}</router-link>
+        <span class="current-url__value">{{ currentUrl }}</span>
       </p>
       <p>
         <router-link :to="{ name: 'bom' }" class="current-url__next">Click here to achieve forward link! 🚀🚀🚀
@@ -22,27 +22,24 @@
   </div>
 </template>
 
-<script>
-import { ref } from '@vue/reactivity'
-import {goBack, goForward} from "../helpers/useRouteNavigator";
+<script lang="ts">
+import { ref } from 'vue'
+import { defineComponent } from 'vue';
+import { goBack, goForward } from "../helpers/useRouteNavigator";
 
-export default {
+export default defineComponent({
     name: 'bom-modal',
     props: {
         modalData: Object
     },
     setup() {
-        let currentUrl = ref('');
-
-        currentUrl = location.href;
-
         return {
-            currentUrl,
+            currentUrl: ref(location.href),
             goForward,
             goBack
         }
     }
-}
+})
 </script>
 
 <style>
