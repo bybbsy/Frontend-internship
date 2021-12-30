@@ -18,13 +18,12 @@
 
 <script lang="ts">
 import {useStore} from 'vuex';
-import {key} from '../store/index'
 import {computed, defineComponent} from 'vue'
 import Card from "../components/Card.vue";
 export default defineComponent({
   name: 'products',
    async setup() {
-    const store = useStore(key);
+    const store = useStore();
 
     await store.dispatch('fetchProducts');
     let receivedData = computed(() => store.getters.getReceivedProducts)
