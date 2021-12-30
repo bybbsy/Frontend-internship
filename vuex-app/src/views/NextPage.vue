@@ -25,18 +25,18 @@
   </div>
 </template>
 
-<script>
-import {ref, computed, onMounted} from "vue";
+<script lang="ts">
+import {ref, computed, onMounted, defineComponent, ComputedRef} from "vue";
 import {goBack} from "../helpers/useRouteNavigator";
 import {getUsername, isDefaultUsername, logoutHandler} from "../helpers/useAuthManager";
 
-export default {
+export default defineComponent({
   name: 'bom',
   setup() {
-    let username = computed(() => getUsername());
-    let currentUrl = ref(null);
-    let language = ref(null);
-    let UA = ref(null);
+    let username: ComputedRef<string> = computed(() => getUsername());
+    let currentUrl = ref<string>(null);
+    let language = ref<string>(null);
+    let UA = ref<string>(null);
 
     onMounted(() => {
       currentUrl.value = location.href;
@@ -53,38 +53,8 @@ export default {
       isDefaultUsername,
       logoutHandler
     }
-
-  },
-  // data: function () {
-  //   return {
-  //     username: 'Stranger',
-  //     currentUrl: null,
-  //     language: null,
-  //     UA: null
-  //   }
-  // },
-  // created: function () {
-  //   this.currentUrl = location.href;
-  //   this.language = navigator.language;
-  //   this.UA = navigator.userAgent;
-  //
-  //   this.username = localStorage.getItem('username')
-  //
-  //   // function logOut() {
-  //   //   localStorage.removeItem('username');
-  //   //   username.value = 'Stranger'
-  //   // }
-  // },
-  // // methods: {
-  // //   goBack: function () {
-  // //     this.$router.go(-1)
-  // //   },
-  // //   logOut: function () {
-  // //     localStorage.removeItem('username');
-  // //     this.username = 'Stranger'
-  // //   }
-  // // }
-}
+  }
+})
 </script>
 
 <style>

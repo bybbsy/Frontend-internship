@@ -93,16 +93,16 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import TheAccordion from '../components/TheAccordion.vue'
-import {ref} from 'vue'
+import {defineComponent, ref} from 'vue'
 import {useRoute} from 'vue-router'
 
-export default {
+export default defineComponent({
   name: 'product',
   setup() {
-    let title = ref(null);
-    let url = ref('');
+    let title = ref<string>('');
+    let url = ref<string>('');
     const route = useRoute();
 
     fetch(`https://jsonplaceholder.typicode.com/photos/${route.params.id}`)
@@ -111,6 +111,7 @@ export default {
           title.value = json.title
           url.value = json.url
         })
+    
     return {
       title,
       url
@@ -119,7 +120,7 @@ export default {
   components: {
     TheAccordion
   }
-}
+})
 </script>
 
 <style>
