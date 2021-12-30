@@ -7,12 +7,14 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from "@vue/runtime-core"
+
+export default defineComponent({
   name: 'pop-up',
   props: {
     onSignUp: Object
   }
-}
+})
 </script>
 
 <style>
