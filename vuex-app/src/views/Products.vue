@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import {useStore} from 'vuex';
+import {useStore} from '../store/index';
 import {computed, defineComponent} from 'vue'
 import Card from "../components/Card.vue";
 export default defineComponent({
