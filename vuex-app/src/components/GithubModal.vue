@@ -34,10 +34,10 @@
 
 <script lang="ts">
 import GithubModalRepo from "./GithubModalRepo.vue"
-import {ref, watch, defineAsyncComponent, defineComponent, Ref} from 'vue'
-import {declineClickHandler} from '../helpers/useDeclineModal'
+import { ref, watch, defineAsyncComponent, defineComponent, Ref } from 'vue'
+import { declineClickHandler } from '../helpers/useDeclineModal'
 
-export default defineComponent ({
+export default defineComponent({
   name: 'github-modal',
   setup() {
     let username: Ref<any> = ref(null);
