@@ -50,52 +50,51 @@
   </form>
 </template>
 
-<script>
-import {ref, reactive} from 'vue'
-import {useRouter} from 'vue-router'
-import {declineClickHandler} from '../helpers/useDeclineModal'
-
-export default {
+<script lang="ts">
+import { reactive, defineComponent, toRefs } from 'vue'
+import { useRouter } from 'vue-router'
+import { declineClickHandler } from '../helpers/useDeclineModal'
+import { SignUpForm, SignUpMessage } from '../types/index'
+export default defineComponent({
   name: 'sign-up-modal',
   setup(props, {emit}) {
     let router = useRouter();
+    
+    let signupForm = reactive<SignUpForm>({
+      username: '',
+      sex: '',
+      country: '',
+      email: '',
+      password: '',
+      phoneNumber: ''
+    })
 
-    let username = ref('');
-    let sex = ref('');
-    let country = ref('');
-    let email = ref('');
-    let password = ref('');
-    let phoneNumber = ref('');
-    const delay = 1500;
+    const delay = 15000;
 
-    let signUp = reactive({
-      success: 'New account has been successfully created',
+    let signUp = reactive<SignUpMessage>({
+      message: 'New account has been successfully created',
       type: 'successful'
     })
 
     function signupHandler() {
-      localStorage.setItem('username', username.value)
+      localStorage.setItem('username', signupForm.username)
       emit('signed-up', {
-        message: signUp.success,
+        message: signUp.message,
         type: signUp.type
       })
 
-      setTimeout(() => router.go(), delay)
+      console.log(signupForm)
+      setTimeout(() => router.go(0), delay)
     }
 
     return {
-      username,
-      sex,
-      country,
-      email,
-      password,
-      phoneNumber,
+      ...toRefs(signupForm),
       signUp,
       signupHandler,
       declineClickHandler
     }
   }
-}
+})
 </script>
 
 <style>
