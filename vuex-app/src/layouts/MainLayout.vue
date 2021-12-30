@@ -14,24 +14,23 @@
   </div>
 </template>
 
-<script>
-import Header from '@/components/TheHeader.vue'
-import Footer from '@/components/TheFooter.vue'
-import SignupModal from '@/components/SignupModal.vue'
-import BomModal from '@/components/BomModal.vue'
-import GithubModal from '@/components/GithubModal.vue'
-import ModalPopup from '@/components/ModalPopup.vue'
-import {useStore} from 'vuex'
-// import {getters} from '../store/getters';
+<script lang="ts">
+import Header from '../components/TheHeader.vue'
+import Footer from '../components/TheFooter.vue'
+import SignupModal from '../components/SignupModal.vue'
+import BomModal from '../components/BomModal.vue'
+import GithubModal from '../components/GithubModal.vue'
+import ModalPopup from '../components/ModalPopup.vue'
+import {useStore} from '../store/index'
+import {computed, reactive} from 'vue'
+import {defineComponent} from 'vue'
+import {emptyModalData} from '../helpers/variables'
 
-import {key} from '../store/index'
-import {computed, reactive} from '@vue/reactivity'
-
-export default {
+export default defineComponent({
   name: 'main-layout',
   setup() {
-    let store = useStore(key);
-
+    let store = useStore();
+    
     let onSignUp = reactive({
       message: '',
       type: ''
@@ -40,9 +39,9 @@ export default {
     let modalData = computed(() => store.getters.getModalData)
     let showMenu = computed(() => store.getters.getShowMenu)
     
-    function outerClickHandler(event) {
-      if (event.target.classList[0] === 'modal') {
-        store.commit('CLOSE_MODAL')
+    function outerClickHandler(event: Event): void {
+      if((event.target as HTMLAnchorElement).classList[0] === 'modal') {
+        store.dispatch('toggleModal', emptyModalData);
       }
     }
 
@@ -62,7 +61,7 @@ export default {
   components: {
     Header, Footer, SignupModal, BomModal, GithubModal, ModalPopup
   },
-}
+})
 </script>
 
 <style>
