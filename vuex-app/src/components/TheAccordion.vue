@@ -10,13 +10,13 @@
   </div>
 </template>
 
-<script>
-import {ref} from "vue";
+<script lang="ts">
+import { defineComponent, ref, Ref } from "vue";
 
-export default {
+export default defineComponent({
   name: 'the-accordion',
   setup() {
-    let isOpen = ref(false);
+    let isOpen: Ref<boolean> = ref(false);
 
     function toggleAccordion() {
       isOpen.value = !isOpen.value;
@@ -27,7 +27,7 @@ export default {
       toggleAccordion
     }
   }
-}
+})
 </script>
 
 <style>
