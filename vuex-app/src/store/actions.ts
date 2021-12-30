@@ -1,18 +1,13 @@
 import { ModalData, State } from "./state";
-import { ActionContext, ActionTree, Commit } from "vuex";
-import { Mutations, MutationTypes } from "./mutations";
+import { ActionContext, ActionTree } from "vuex";
+import { MutationTypes } from "./mutations";
 
 export enum ActionTypes {
     fetchProducts = 'fetchProducts',
     toggleModal = 'toggleModal'
 }
 
-// type AugmentedActionContext = {
-//     commit<K extends keyof Mutations>(key: K, payload: Parameters<Mutations[K]>[1]): ReturnType<Mutations[K]>;
-// } & Omit<ActionContext<State, State>, 'commit'>
-
 export interface Actions {
-    // [ActionTypes.fetchProducts]({commit}: AugmentedActionContext): void,
     [ActionTypes.fetchProducts]({commit}: ActionContext<State, State>): void,
     [ActionTypes.toggleModal]({commit}: ActionContext<State, State>, payload: ModalData): void
 }
