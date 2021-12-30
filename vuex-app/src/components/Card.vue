@@ -6,29 +6,31 @@
     <div class="title">{{ title }}</div>
     <div class="price">
       <div class="price__value">0.00</div>
-      <div class="price__currency" ref="priceCurrency"></div>
+      <div class="price__currency">{{ priceCurrency }}</div>
     </div>
     <router-link :to="{ name: 'product', params: { id: card.id }}" class="link">Details</router-link>
     <router-view :key="routePath"/>
   </div>
 </template>
 
-<script>
-import {computed, onBeforeMount} from 'vue'
+<script lang="ts">
+import { computed, defineComponent, onBeforeMount, ref, Ref } from 'vue'
 import cropTitle from '../filters/cropTitle';
-import {useRoute} from "vue-router";
+import { useRoute } from "vue-router";
+import { currency } from '../types/index';
 
-export default {
+export default defineComponent({
   props: {
     card: Object
   },
   setup(props) {
-    let priceCurrency = '₽'
     let route = useRoute();
     let routePath = route.path;
+
+    let priceCurrency: Ref<currency> = ref('₽');
     let title = computed(() => cropTitle(props.card.title, 5));
 
-    onBeforeMount(() => priceCurrency = '$');
+    onBeforeMount(() => priceCurrency.value = '$');
 
     return {
       priceCurrency,
@@ -36,7 +38,7 @@ export default {
       title
     }
   }
-}
+})
 </script>
 
 <style>
@@ -85,6 +87,10 @@ export default {
 .price__value,
 .price__currency {
   display: flex;
+}
+
+.price__currency {
+  margin-left: 2px;
 }
 
 .link {
