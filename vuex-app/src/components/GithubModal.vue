@@ -13,14 +13,13 @@
     </div>
     <div class="result-row">
       <p>Repos list:</p>
-      <ul class="repos-list" v-if="searching">
-        <Loader />
-      </ul>
-      <ul class="repos-list" v-if="reposList.length">
-        <GithubModalRepo v-for="(repos, index) in reposList"
-                         :key="index"
-                         :name="repos.name"
-                         :link="repos.clone_url"
+      <Loader v-if="searching"/>
+      <ul class="repos-list" v-else-if="reposList.length">
+        <GithubModalRepo
+          v-for="(repos, index) in reposList"
+          :key="index"
+          :name="repos.name"
+          :link="repos.clone_url"
         />
       </ul>
       <ul v-else-if="emptyArray">
@@ -33,18 +32,18 @@
   </form>
 </template>
 
-<script>
-import GithubModalRepo from '@/components/GithubModalRepo.vue'
-import {ref, watch, defineAsyncComponent} from 'vue'
+<script lang="ts">
+import GithubModalRepo from "./GithubModalRepo.vue"
+import {ref, watch, defineAsyncComponent, defineComponent, Ref} from 'vue'
 import {declineClickHandler} from '../helpers/useDeclineModal'
 
-export default {
+export default defineComponent ({
   name: 'github-modal',
   setup() {
-    let username = ref(null);
+    let username: Ref<any> = ref(null);
     let reposList = ref([]);
-    let searching = ref(false);
-    let emptyArray = ref(false);
+    let searching: Ref<boolean> = ref(false);
+    let emptyArray: Ref<boolean> = ref(false);
 
     async function searchForRepo() {
       const URL = `https://api.github.com/users/${username.value}/repos`;
@@ -89,7 +88,7 @@ export default {
     GithubModalRepo,
     Loader: defineAsyncComponent(() => import('./Loader.vue')) 
   }
-}
+})
 </script>
 
 <style>
