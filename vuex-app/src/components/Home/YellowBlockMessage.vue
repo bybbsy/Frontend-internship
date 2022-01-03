@@ -21,24 +21,25 @@
     </li>
 </template>
 
-<script>
-export default {
-    props: {
-        author: {
-            type: String,
-            required: true
-        },
-        date: {
-            type: String,
-            required: true
-        },
-        content: {
-            type: String,
-            required: true
-        }
-    }
+<script lang="ts">
+import { defineComponent } from "vue";
 
-}
+export default defineComponent({
+    props: {
+      author: {
+        type: String,
+        required: true
+      },
+      date: {
+        type: String,
+        required: true
+      },
+      content: {
+        type: String,
+        required: true
+      }
+    }
+})
 </script>
 
 <style>

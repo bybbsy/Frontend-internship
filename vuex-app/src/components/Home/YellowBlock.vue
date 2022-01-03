@@ -4,14 +4,15 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import YellowBlockMessagesList from './YellowBlockMessagesList.vue'
-export default {
+import { defineComponent } from "vue";
+export default defineComponent({
     name: 'yellow-block',
     components: {
         YellowBlockMessagesList
     }
-}
+})
 </script>
 
 <style>

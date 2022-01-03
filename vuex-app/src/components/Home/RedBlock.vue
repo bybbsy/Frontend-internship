@@ -5,16 +5,16 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import RedBlockMessage from './RedBlockMessage.vue'
 import RedBlockReply from './RedBlockReply.vue'
-
-export default {
+import { defineComponent } from "vue";
+export default defineComponent({
     name: 'red-block',
     components: {
         RedBlockMessage, RedBlockReply
     }
-}
+})
 </script>
 
 <style>
