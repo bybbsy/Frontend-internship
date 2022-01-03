@@ -17,7 +17,7 @@
 import {computed, defineComponent, onBeforeMount, PropType, ref, Ref} from 'vue'
 import cropTitle from '../filters/cropTitle';
 import { useRoute } from "vue-router";
-import { currency } from '../types/index';
+import { Currency } from '../types/index';
 import { Card } from "../types/index";
 
 export default defineComponent({
@@ -28,7 +28,7 @@ export default defineComponent({
     let route = useRoute();
     let routePath = route.path;
 
-    let priceCurrency: Ref<currency> = ref('₽');
+    let priceCurrency: Ref<Currency> = ref('₽');
     let title = computed(() => cropTitle(props.card!.title, 5));
 
     onBeforeMount(() => priceCurrency.value = '$');
