@@ -12,7 +12,7 @@ export interface SignUpForm {
     phoneNumber: string
 }
 
-export type currency = '$' | '£' | '¥' | '₽'
+export type Currency = '$' | '£' | '¥' | '₽'
 
 export interface Card {
     title: string,
