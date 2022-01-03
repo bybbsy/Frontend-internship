@@ -1,6 +1,6 @@
 export interface SignUpMessage {
     message: string,
-    type: 'successful' | 'declined'
+    type: 'successful' | 'declined' | 'postponed'
 }
 
 export interface SignUpForm {
@@ -12,4 +12,12 @@ export interface SignUpForm {
     phoneNumber: string
 }
 
-export type currency = '$' | '£' | '¥' | '₽' 
+export type currency = '$' | '£' | '¥' | '₽'
+
+export interface Card {
+    title: string,
+    url: string,
+    id: number,
+    albumId?: number,
+    thumbnailUrl?: string
+}

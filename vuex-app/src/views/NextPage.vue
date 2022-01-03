@@ -34,9 +34,9 @@ export default defineComponent({
   name: 'bom',
   setup() {
     let username: ComputedRef<string> = computed(() => getUsername());
-    let currentUrl = ref<string>(null);
-    let language = ref<string>(null);
-    let UA = ref<string>(null);
+    let currentUrl = ref<string>('');
+    let language = ref<string>('');
+    let UA = ref<string>('');
 
     onMounted(() => {
       currentUrl.value = location.href;

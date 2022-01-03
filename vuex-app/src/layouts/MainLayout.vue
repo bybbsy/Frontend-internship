@@ -33,7 +33,7 @@ export default defineComponent({
 
     let onSignUp: SignUpMessage = reactive({
       message: '',
-      type: ''
+      type: 'postponed'
     })
 
     let modalData = computed(() => store.getters.getModalData)

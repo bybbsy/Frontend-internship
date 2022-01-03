@@ -14,21 +14,22 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onBeforeMount, ref, Ref } from 'vue'
+import {computed, defineComponent, onBeforeMount, PropType, ref, Ref} from 'vue'
 import cropTitle from '../filters/cropTitle';
 import { useRoute } from "vue-router";
 import { currency } from '../types/index';
+import { Card } from "../types/index";
 
 export default defineComponent({
   props: {
-    card: Object
+    card: Object as PropType<Card>
   },
   setup(props) {
     let route = useRoute();
     let routePath = route.path;
 
     let priceCurrency: Ref<currency> = ref('₽');
-    let title = computed(() => cropTitle(props.card.title, 5));
+    let title = computed(() => cropTitle(props.card!.title, 5));
 
     onBeforeMount(() => priceCurrency.value = '$');
 
