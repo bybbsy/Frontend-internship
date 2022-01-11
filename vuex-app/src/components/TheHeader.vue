@@ -54,7 +54,7 @@ export default {
     function toggleModal(event: Event) {
       // Toggling menu if it is opened
       if(store.getters.getShowMenu) {
-        store.dispatch('TOGGLE_MENU');
+        store.dispatch('TOGGLE_MENU_STATE');
       }
       
       store.dispatch('toggleModal', {
@@ -70,7 +70,7 @@ export default {
       toggleModal,
       showMenu: computed(() => store.getters.getShowMenu),
       showModal: computed(() => store.getters.showModal),
-      toggleMenu: () => store.commit('TOGGLE_MENU'),
+      toggleMenu: () => store.commit('TOGGLE_MENU_STATE'),
     }
   }
 }
