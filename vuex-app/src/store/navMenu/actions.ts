@@ -1,15 +1,8 @@
-import { ActionContext, ActionTree } from "vuex";
-import { MutationTypes } from "./mutations";
-import { State } from "./state";
+import { ActionTree } from "vuex";
+import { MutationTypes } from "@/types/navMenu/mutations-types";
+import { State } from "@/types/navMenu/state-types";
 import { RootState } from "@/store/index";
-
-export enum ActionTypes {
-    toggleMenu = "toggleMenu"
-}
-
-export interface Actions {
-    [ActionTypes.toggleMenu]({commit}: ActionContext<State, RootState>): void
-}
+import { Actions, ActionTypes } from "@/types/navMenu/actions-types";
 
 export const actions: ActionTree<State, RootState> & Actions = {
     [ActionTypes.toggleMenu]({commit}) {

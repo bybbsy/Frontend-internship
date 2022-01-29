@@ -1,13 +1,6 @@
-import { MutationTree } from "vuex"
-import { State } from "./state"
-
-export enum MutationTypes {
-    toggleMenuState = 'TOGGLE_MENU_STATE'
-}
-
-export type Mutations = {
-    [MutationTypes.toggleMenuState](state: State): void
-}
+import { MutationTree } from "vuex";
+import { State } from "@/types/navMenu/state-types";
+import { MutationTypes, Mutations } from "@/types/navMenu/mutations-types";
 
 export const mutations: MutationTree<State> & Mutations = {
     [MutationTypes.toggleMenuState](state) {

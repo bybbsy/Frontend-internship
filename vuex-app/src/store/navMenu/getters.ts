@@ -1,10 +1,7 @@
 import { GetterTree } from "vuex";
-import { State } from "./state";
+import { State } from "@/types/navMenu/state-types";
 import { RootState } from "@/store/index";
-
-export type Getters = {
-    getShowMenu(state: State): boolean
-}
+import { Getters } from "@/types/navMenu/getters-types";
 
 export const getters: GetterTree<State, RootState> & Getters = {
     getShowMenu(state) {
