@@ -5,6 +5,12 @@
 npm install
 ```
 
+## Vuex ⚠️⚠️⚠️
+
+I do know that it's not suppused to use vuex store for nav menu, modal state management. But in this project I use vuex for such purposes in order to achieve more experience with vuex.
+
+
+
 ## ts-loader and webpack
 ts-loader `<v9.x` **supports** webpack 4.
 
