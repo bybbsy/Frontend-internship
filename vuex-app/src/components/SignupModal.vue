@@ -69,7 +69,7 @@ export default defineComponent({
       phoneNumber: ''
     })
 
-    const delay = 15000;
+    const delay = 5000;
 
     let signUp = reactive<SignUpMessage>({
       message: 'New account has been successfully created',
@@ -83,7 +83,6 @@ export default defineComponent({
         type: signUp.type
       })
 
-      console.log(signupForm)
       setTimeout(() => router.go(0), delay)
     }
 

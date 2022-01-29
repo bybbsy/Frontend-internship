@@ -16,14 +16,13 @@
 
           <router-link :to="{ name: 'home' }" class="header__nav-item">Home</router-link>
           <a href="" @click.prevent="toggleModal" class="header__nav-item github">GitHub
+            <div class="new-badge">new</div>
           </a>
           <a href="" @click.prevent="toggleModal" class="header__nav-item login"
              v-if="isDefaultUsername(username)"
           >Sign up</a>
           <a href="" @click.prevent="toggleModal" class="header__nav-item bom">BOM</a>
           <router-link :to="{ name: 'products' }" class="header__nav-item">Products</router-link>
-          <a href="https://www.google.com/" target="_blank" class="header__nav-item">Gallery
-            <div class="new-badge">new</div></a>
           <a href="https://github.com/bybbsy/Frontend-internship/tree/main/vue-app" target="_blank"
              class="header__nav-item">Docs</a>
           <button class="header__nav-item exit-input" :class="{ hidden: isDefaultUsername(username) }"
