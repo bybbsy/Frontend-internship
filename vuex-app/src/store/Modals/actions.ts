@@ -1,18 +1,13 @@
-import { ModalData, State } from "./state";
-import { ActionContext, ActionTree } from "vuex";
-import { MutationTypes } from "./mutations";
+import { State } from "@/types/Modals/state-types";
+import { ActionTree } from "vuex";
+import { MutationTypes } from "@/types/Modals/mutations-types";
 import { RootState } from "@/store/index";
-
-export enum ActionTypes {
-    toggleModal = 'toggleModal'
-}
-
-export interface Actions {
-    [ActionTypes.toggleModal]({commit}: ActionContext<State, RootState>, payload: ModalData): void
-}
+import { ActionTypes, Actions } from '@/types/Modals/actions-types';
 
 export const actions: ActionTree<State, RootState> & Actions = {
     [ActionTypes.toggleModal]({commit}, payload) {
         commit(MutationTypes.setModalData, payload)
     }
 }
+
+// Types for store/Modals replaced in the separated folder

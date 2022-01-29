@@ -1,11 +1,4 @@
-export interface ModalData {
-    name: string,
-    showModal: boolean
-}
-
-export interface State {
-    modalData: ModalData
-}
+import { State } from '@/types/Modals/state-types'
 
 export const state: State = {
     modalData: {

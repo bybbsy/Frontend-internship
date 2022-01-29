@@ -1,9 +1,7 @@
-import {State, ModalData} from "./state";
-import {GetterTree} from 'vuex'
-import {RootState} from '@/store/index'
-export type Getters = {
-    getModalData(state: State): ModalData
-}
+import { State } from "@/types/Modals/state-types";
+import { GetterTree } from 'vuex'
+import { RootState } from '@/store/index'
+import { Getters } from '@/types/Modals/getters-types'
 
 export const getters: GetterTree<State, RootState> & Getters = {
     getModalData(state) {

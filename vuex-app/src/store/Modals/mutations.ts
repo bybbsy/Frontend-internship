@@ -1,13 +1,6 @@
-import { State, ModalData } from "./state";
+import { State } from '@/types/Modals/state-types';
 import { MutationTree } from 'vuex'
-
-export enum MutationTypes {
-    setModalData = 'SET_MODAL_DATA'
-}
-
-export type Mutations = {
-    [MutationTypes.setModalData](state: State, payload: ModalData): void
-}
+import { MutationTypes, Mutations } from '@/types/Modals/mutations-types'
 
 export const mutations: MutationTree<State> & Mutations = {
     [MutationTypes.setModalData](state, payload) {
