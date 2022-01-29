@@ -2,7 +2,7 @@ import {InjectionKey} from 'vue';
 import {createStore, Store, useStore as baseUseStore} from 'vuex'
 
 // Importing state of each module
-import { State as modalsState} from './Modals/state';
+import { State as modalsState} from '@/types/Modals/state-types';
 import { State as menuState } from './navMenu/state';
 import { State as ProductsState } from './Products/state';
 
