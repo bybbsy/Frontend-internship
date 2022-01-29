@@ -1,4 +1,4 @@
-import { ModalData } from "@/store/Modals/state"
+import { ModalData } from "@/types/Modals/state-types"
 
 const emptyModalData: ModalData = {
     name: '',
