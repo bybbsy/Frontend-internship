@@ -1,15 +1,9 @@
-import { State } from "./state";
-import { ActionContext, ActionTree } from "vuex";
-import { MutationTypes } from "./mutations";
+import { State } from "@/types/Products/state-types";
+import { ActionTypes, Actions } from "@/types/Products/actions-types";
+import { ActionTree } from "vuex";
+import { MutationTypes } from "@/types/Products/mutations-types";
 import { RootState } from "@/store/index";
 
-export enum ActionTypes {
-    fetchProducts = 'fetchProducts'
-}
-
-export interface Actions {
-    [ActionTypes.fetchProducts]({commit}: ActionContext<State, RootState>): void,
-}
 
 export const actions: ActionTree<State, RootState> & Actions = {
     async [ActionTypes.fetchProducts]({commit}) {

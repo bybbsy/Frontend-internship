@@ -4,7 +4,7 @@ import {createStore, Store, useStore as baseUseStore} from 'vuex'
 // Importing state of each module
 import { State as modalsState} from '@/types/Modals/state-types';
 import { State as menuState } from '@/types/navMenu/state-types';
-import { State as ProductsState } from './Products/state';
+import { State as ProductsState } from '@/types/Products/state-types';
 
 // Importing modules
 import { moduleModals } from './Modals/index'

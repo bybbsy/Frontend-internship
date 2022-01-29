@@ -1,4 +1,5 @@
-import { State, state } from "./state";
+import { State } from "@/types/Products/state-types";
+import { state } from "./state";
 import { RootState } from "../index";
 import { mutations } from './mutations';
 import { actions } from './actions';
