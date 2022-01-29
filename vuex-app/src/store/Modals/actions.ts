@@ -9,5 +9,3 @@ export const actions: ActionTree<State, RootState> & Actions = {
         commit(MutationTypes.setModalData, payload)
     }
 }
-
-// Types for store/Modals replaced in the separated folder
