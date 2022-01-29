@@ -2,8 +2,7 @@ import { State, ModalData } from "./state";
 import { MutationTree } from 'vuex'
 
 export enum MutationTypes {
-    setModalData = 'SET_MODAL_DATA',
-    setProducts = 'SET_PRODUCTS'
+    setModalData = 'SET_MODAL_DATA'
 }
 
 export type Mutations = {
@@ -15,4 +14,3 @@ export const mutations: MutationTree<State> & Mutations = {
         state.modalData = payload;
     }
 }
-
