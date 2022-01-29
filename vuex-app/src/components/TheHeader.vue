@@ -35,12 +35,11 @@
 </template>
 
 <script lang="ts">
-import {computed} from 'vue'
+import {computed, defineComponent} from 'vue'
 import {useStore} from '../store/index'
-import {logoutHandler, getUsername, isDefaultUsername} from "../helpers/useAuthManager";
+import { logoutHandler, getUsername, isDefaultUsername } from "../helpers/useAuthManager";
 
-EventTarget
-export default {
+export default defineComponent({
   name: 'the-header',
   setup() {
     let username = computed(() => getUsername());
@@ -72,7 +71,7 @@ export default {
       toggleMenu: () => store.commit('TOGGLE_MENU_STATE'),
     }
   }
-}
+})
 </script>
 
 <style>

@@ -26,9 +26,9 @@
 </template>
 
 <script lang="ts">
-import {ref, computed, onMounted, defineComponent, ComputedRef} from "vue";
-import {goBack} from "../helpers/useRouteNavigator";
-import {getUsername, isDefaultUsername, logoutHandler} from "../helpers/useAuthManager";
+import { ref, computed, onMounted, defineComponent, ComputedRef } from "vue";
+import { goBack } from "../helpers/useRouteNavigator";
+import { getUsername, isDefaultUsername, logoutHandler } from "../helpers/useAuthManager";
 
 export default defineComponent({
   name: 'bom',

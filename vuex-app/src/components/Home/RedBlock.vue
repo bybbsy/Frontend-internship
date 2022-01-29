@@ -9,6 +9,7 @@
 import RedBlockMessage from './RedBlockMessage.vue'
 import RedBlockReply from './RedBlockReply.vue'
 import { defineComponent } from "vue";
+
 export default defineComponent({
     name: 'red-block',
     components: {

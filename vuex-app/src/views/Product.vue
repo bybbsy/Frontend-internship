@@ -95,8 +95,8 @@
 
 <script lang="ts">
 import TheAccordion from '../components/TheAccordion.vue'
-import {defineComponent, ref} from 'vue'
-import {useRoute} from 'vue-router'
+import { defineComponent, ref } from 'vue'
+import { useRoute } from 'vue-router'
 
 export default defineComponent({
   name: 'product',

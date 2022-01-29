@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent} from 'vue';
+import { computed, defineComponent } from 'vue';
 import YellowBlockMessage from './YellowBlockMessage.vue'
 
 export default defineComponent({

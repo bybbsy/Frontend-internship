@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, onBeforeMount, PropType, ref, Ref} from 'vue'
+import { computed, defineComponent, onBeforeMount, PropType, ref, Ref } from 'vue'
 import cropTitle from '../filters/cropTitle';
 import { useRoute } from "vue-router";
 import { Currency } from '../types/index';

@@ -16,7 +16,8 @@ import RedBlock from '../components/Home/RedBlock.vue'
 import GreenBlock from '../components/Home/GreenBlock.vue'
 import PinkBlock from '../components/Home/PinkBlock.vue'
 import YellowBlock from '../components/Home/YellowBlock.vue'
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
+
 export default defineComponent({
   name: 'Home',
   components: {

@@ -7,6 +7,7 @@
 <script lang="ts">
 import YellowBlockMessagesList from './YellowBlockMessagesList.vue'
 import { defineComponent } from "vue";
+
 export default defineComponent({
     name: 'yellow-block',
     components: {

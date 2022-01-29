@@ -20,6 +20,7 @@
 import {useStore} from '../store/index';
 import {computed, defineComponent} from 'vue'
 import Card from "../components/Card.vue";
+
 export default defineComponent({
   name: 'products',
    async setup() {

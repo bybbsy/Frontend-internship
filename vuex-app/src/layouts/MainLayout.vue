@@ -22,10 +22,11 @@ import BomModal from '../components/BomModal.vue'
 import GithubModal from '../components/GithubModal.vue'
 import ModalPopup from '../components/ModalPopup.vue'
 
-import {computed, reactive, defineComponent} from 'vue'
-import {useStore} from '../store/index'
-import {emptyModalData} from '../helpers/variables'
-import {SignUpMessage} from '../types/index'
+import { computed, reactive, defineComponent } from 'vue'
+import { useStore } from '../store/index'
+import { emptyModalData } from '../helpers/variables'
+import { SignUpMessage } from '../types/index'
+
 export default defineComponent({
   name: 'main-layout',
   setup() {

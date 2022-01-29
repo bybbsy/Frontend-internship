@@ -55,6 +55,7 @@ import { reactive, defineComponent, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 import { declineClickHandler } from '../helpers/useDeclineModal'
 import { SignUpForm, SignUpMessage } from '../types/index'
+
 export default defineComponent({
   name: 'sign-up-modal',
   setup(props, {emit}) {
