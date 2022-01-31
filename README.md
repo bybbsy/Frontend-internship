@@ -1,8 +1,8 @@
 # Frontend-internship
 
-#### :rocket: Basics -> iterations 1-7
-#### :rocket: Vue -> iterations 8-13
-#### :rocket: Vuex-app -> Vue application made with VueJS 3, Vuex and Router
+#### :rocket: Basics -> The app with plain js (work with core js, classes and other plain js stuff).
+#### :rocket: Vue -> Vue 2 app with router.
+#### :rocket: Vuex-app -> Vue application made with VueJS 3, Vuex and Router.
 
 Vuex-app has two branches: **main and ts-vue**. In both branches vuex was used for state management.
 
